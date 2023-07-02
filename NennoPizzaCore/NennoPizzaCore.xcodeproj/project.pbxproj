@@ -27,6 +27,7 @@
 		FD1302792A51B467005A12ED /* NennoPizzaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NennoPizzaCore.h; sourceTree = "<group>"; };
 		FD13027E2A51B468005A12ED /* NennoPizzaCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NennoPizzaCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1302832A51B468005A12ED /* NennoPizzaCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NennoPizzaCoreTests.swift; sourceTree = "<group>"; };
+		FD13028E2A51B6BE005A12ED /* NennoPizzaCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NennoPizzaCore.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +52,7 @@
 		FD13026C2A51B467005A12ED = {
 			isa = PBXGroup;
 			children = (
+				FD13028E2A51B6BE005A12ED /* NennoPizzaCore.xctestplan */,
 				FD1302782A51B467005A12ED /* NennoPizzaCore */,
 				FD1302822A51B468005A12ED /* NennoPizzaCoreTests */,
 				FD1302772A51B467005A12ED /* Products */,

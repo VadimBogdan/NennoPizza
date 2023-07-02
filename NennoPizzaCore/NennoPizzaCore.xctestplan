@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "2E887B4C-4F91-4FE0-B40F-DAD422E52119",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:NennoPizzaCore.xcodeproj",
+          "identifier" : "FD1302752A51B467005A12ED",
+          "name" : "NennoPizzaCore"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:NennoPizzaCore.xcodeproj",
+        "identifier" : "FD13027D2A51B468005A12ED",
+        "name" : "NennoPizzaCoreTests"
+      }
+    }
+  ],
+  "version" : 1
+}
