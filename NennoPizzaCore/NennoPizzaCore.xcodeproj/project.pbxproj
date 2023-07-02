@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD13027F2A51B468005A12ED /* NennoPizzaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1302762A51B467005A12ED /* NennoPizzaCore.framework */; };
-		FD1302842A51B468005A12ED /* NennoPizzaCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302832A51B468005A12ED /* NennoPizzaCoreTests.swift */; };
+		FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */; };
 		FD1302852A51B468005A12ED /* NennoPizzaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FD1302792A51B467005A12ED /* NennoPizzaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		FD1302762A51B467005A12ED /* NennoPizzaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NennoPizzaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1302792A51B467005A12ED /* NennoPizzaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NennoPizzaCore.h; sourceTree = "<group>"; };
 		FD13027E2A51B468005A12ED /* NennoPizzaCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NennoPizzaCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD1302832A51B468005A12ED /* NennoPizzaCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NennoPizzaCoreTests.swift; sourceTree = "<group>"; };
+		FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPizzaMenuFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		FD13028E2A51B6BE005A12ED /* NennoPizzaCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NennoPizzaCore.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +79,17 @@
 		FD1302822A51B468005A12ED /* NennoPizzaCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD1302832A51B468005A12ED /* NennoPizzaCoreTests.swift */,
+				FD13028F2A51B7AA005A12ED /* API */,
 			);
 			path = NennoPizzaCoreTests;
+			sourceTree = "<group>";
+		};
+		FD13028F2A51B7AA005A12ED /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD1302842A51B468005A12ED /* NennoPizzaCoreTests.swift in Sources */,
+				FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
