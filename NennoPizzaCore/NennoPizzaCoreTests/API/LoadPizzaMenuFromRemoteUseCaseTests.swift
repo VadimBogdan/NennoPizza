@@ -71,7 +71,9 @@ class RemotePizzaMenuLoader: PizzaMenuLoader {
     }
     
     func load(completion: @escaping (Result) -> Void) {
-        client.get(from: url) { result in
+        client.get(from: url) { [weak self] result in
+            guard self != nil else { return }
+            
             switch result {
             case let .success((data, response)):
                 completion(RemotePizzaMenuLoader.map(data, from: response))
@@ -191,6 +193,20 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
             let json = makeJSONData(pizzaMenu.json)
             client.complete(withStatusCode: 200, data: json)
         })
+    }
+    
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let url = URL(string: "http://any-url.com")!
+        let client = HTTPClientSpy()
+        var sut: RemotePizzaMenuLoader? = RemotePizzaMenuLoader(url: url, client: client)
+        
+        var capturedResults = [RemotePizzaMenuLoader.Result]()
+        sut?.load { capturedResults.append($0) }
+        
+        sut = nil
+        client.complete(withStatusCode: 200, data: makeJSONData([:]))
+        
+        XCTAssertTrue(capturedResults.isEmpty)
     }
     
     // MARK: - Helpers
