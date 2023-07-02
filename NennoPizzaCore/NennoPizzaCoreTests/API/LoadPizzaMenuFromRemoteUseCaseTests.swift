@@ -28,11 +28,20 @@ protocol PizzaMenuLoader {
     func load(completion: @escaping (Result) -> Void)
 }
 
+struct RemotePizzaMenu: Decodable {
+    let pizzas: [RemotePizza]
+    let basePrice: Double
+}
+
+struct RemotePizza: Decodable {
+}
+
 class RemotePizzaMenuLoader: PizzaMenuLoader {
     typealias Result = PizzaMenuLoader.Result
     
     enum Error: Swift.Error {
         case connectivity
+        case invalidData
     }
     
     private let url: URL
@@ -45,10 +54,54 @@ class RemotePizzaMenuLoader: PizzaMenuLoader {
     
     func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { result in
-            if case .failure = result {
+            switch result {
+            case let .success((data, response)):
+                completion(RemotePizzaMenuLoader.map(data, from: response))
+                
+            case .failure:
                 completion(.failure(Error.connectivity))
             }
         }
+    }
+    
+    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+        do {
+            let pizzaMenu = try PizzaMenuMapper.map(data, from: response)
+            return .success(pizzaMenu.toModel())
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    private final class PizzaMenuMapper {
+        static func map(_ data: Data, from response: HTTPURLResponse) throws -> RemotePizzaMenu {
+            guard response.isOK, let remotePizzaMenu = try? JSONDecoder().decode(RemotePizzaMenu.self, from: data) else {
+                throw RemotePizzaMenuLoader.Error.invalidData
+            }
+            
+            return remotePizzaMenu
+        }
+    }
+}
+
+extension RemotePizzaMenu {
+    func toModel() -> PizzaMenu {
+        PizzaMenu(pizzas: pizzas.toModels(), basePrice: basePrice)
+    }
+}
+
+private extension Array where Element == RemotePizza {
+    func toModels() -> [Pizza] {
+        map { _ in Pizza() }
+    }
+}
+
+
+extension HTTPURLResponse {
+    private static var OK_200: Int { return 200 }
+    
+    var isOK: Bool {
+        return statusCode == HTTPURLResponse.OK_200
     }
 }
 
@@ -81,11 +134,24 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
     
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
-                
+        
         expect(sut, toCompleteWith: failure(.connectivity), when: {
             let clientError = NSError(domain: "Test", code: 0)
             client.complete(with: clientError)
         })
+    }
+    
+    func test_load_deliversErrorOnNon200HTTPResponse() {
+        let (sut, client) = makeSUT()
+        
+        let samples = [199, 201, 300, 400, 500]
+        
+        samples.enumerated().forEach { index, code in
+            expect(sut, toCompleteWith: failure(.invalidData), when: {
+                let json = makeJSON([:])
+                client.complete(withStatusCode: code, data: json, at: index)
+            })
+        }
     }
     
     // MARK: - Helpers
@@ -100,6 +166,33 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
     
     private func failure(_ error: RemotePizzaMenuLoader.Error) -> RemotePizzaMenuLoader.Result {
         .failure(error)
+    }
+    
+    private func makeJSON(_ json: [String: Any]) -> Data {
+        try! JSONSerialization.data(withJSONObject: json)
+    }
+    
+    private func expect(_ sut: RemotePizzaMenuLoader, toCompleteWith expectedResult: RemotePizzaMenuLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+        
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+                
+            case let (.failure(receivedError as RemotePizzaMenuLoader.Error), .failure(expectedError as RemotePizzaMenuLoader.Error)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+                
+            default:
+                XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        action()
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     class HTTPClientSpy: HTTPClient {
@@ -126,28 +219,5 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
             )!
             messages[index].completion(.success((data, response)))
         }
-    }
-    
-    private func expect(_ sut: RemotePizzaMenuLoader, toCompleteWith expectedResult: RemotePizzaMenuLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-        
-        sut.load { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success(receivedItems), .success(expectedItems)):
-                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
-                
-            case let (.failure(receivedError as RemotePizzaMenuLoader.Error), .failure(expectedError as RemotePizzaMenuLoader.Error)):
-                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
-                
-            default:
-                XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
-            }
-            
-            exp.fulfill()
-        }
-        
-        action()
-        
-        wait(for: [exp], timeout: 1.0)
     }
 }
