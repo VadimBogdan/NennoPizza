@@ -8,12 +8,12 @@
 import XCTest
 import NennoPizzaCore
 
-struct PizzaMenu {
+struct PizzaMenu: Equatable {
     let pizzas: [Pizza]
     let basePrice: Double
 }
 
-struct Pizza {
+struct Pizza: Equatable {
 }
 
 protocol HTTPClient {
@@ -31,6 +31,10 @@ protocol PizzaMenuLoader {
 class RemotePizzaMenuLoader: PizzaMenuLoader {
     typealias Result = PizzaMenuLoader.Result
     
+    enum Error: Swift.Error {
+        case connectivity
+    }
+    
     private let url: URL
     private let client: HTTPClient
     
@@ -40,8 +44,10 @@ class RemotePizzaMenuLoader: PizzaMenuLoader {
     }
     
     func load(completion: @escaping (Result) -> Void) {
-        client.get(from: url) { _ in
-            
+        client.get(from: url) { result in
+            if case .failure = result {
+                completion(.failure(Error.connectivity))
+            }
         }
     }
 }
@@ -73,6 +79,15 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
         XCTAssertEqual(client.requestedURLs, [url, url])
     }
     
+    func test_load_deliversErrorOnClientError() {
+        let (sut, client) = makeSUT()
+                
+        expect(sut, toCompleteWith: failure(.connectivity), when: {
+            let clientError = NSError(domain: "Test", code: 0)
+            client.complete(with: clientError)
+        })
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://any-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePizzaMenuLoader, client: HTTPClientSpy) {
@@ -81,6 +96,10 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         trackForMemoryLeaks(client, file: file, line: line)
         return (sut, client)
+    }
+    
+    private func failure(_ error: RemotePizzaMenuLoader.Error) -> RemotePizzaMenuLoader.Result {
+        .failure(error)
     }
     
     class HTTPClientSpy: HTTPClient {
@@ -107,5 +126,28 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
             )!
             messages[index].completion(.success((data, response)))
         }
+    }
+    
+    private func expect(_ sut: RemotePizzaMenuLoader, toCompleteWith expectedResult: RemotePizzaMenuLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+        
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+                
+            case let (.failure(receivedError as RemotePizzaMenuLoader.Error), .failure(expectedError as RemotePizzaMenuLoader.Error)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+                
+            default:
+                XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        action()
+        
+        wait(for: [exp], timeout: 1.0)
     }
 }
