@@ -41,11 +41,17 @@ class RemotePizzaMenuLoader: PizzaMenuLoader {
 final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
     
     func test_init_doesNotRequestDataFromURL() {
-        let url = URL(string: "https://any-url.com")!
-        let client = HTTPClientSpy()
-        let _ = RemotePizzaMenuLoader(url: url, client: client)
+        let (_, client) = makeSUT()
         
         XCTAssertTrue(client.requestedURLs.isEmpty)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(url: URL = URL(string: "https://any-url.com")!) -> (sut: RemotePizzaMenuLoader, client: HTTPClientSpy) {
+        let client = HTTPClientSpy()
+        let sut = RemotePizzaMenuLoader(url: url, client: client)
+        return (sut, client)
     }
     
     class HTTPClientSpy: HTTPClient {
