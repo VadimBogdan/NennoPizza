@@ -31,11 +31,19 @@ protocol PizzaMenuLoader {
 class RemotePizzaMenuLoader: PizzaMenuLoader {
     typealias Result = PizzaMenuLoader.Result
     
+    private let url: URL
+    private let client: HTTPClient
+    
     init(url: URL, client: HTTPClient) {
-        
+        self.url = url
+        self.client = client
     }
     
-    func load(completion: @escaping (Result) -> Void) {}
+    func load(completion: @escaping (Result) -> Void) {
+        client.get(from: url) { _ in
+            
+        }
+    }
 }
 
 final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
@@ -44,6 +52,15 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
         let (_, client) = makeSUT()
         
         XCTAssertTrue(client.requestedURLs.isEmpty)
+    }
+    
+    func test_load_requestsDataFromURL() {
+        let url = URL(string: "https://a-given-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        sut.load { _ in }
+        
+        XCTAssertEqual(client.requestedURLs, [url])
     }
     
     // MARK: - Helpers
