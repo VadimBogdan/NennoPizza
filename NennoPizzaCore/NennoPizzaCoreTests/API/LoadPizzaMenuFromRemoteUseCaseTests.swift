@@ -14,6 +14,15 @@ struct PizzaMenu: Equatable {
 }
 
 struct Pizza: Equatable {
+    let ingredients: [Int]
+    let name: String
+    let url: URL?
+}
+
+struct Ingredient: Equatable {
+    let price: Double
+    let name: String
+    let id: Int
 }
 
 protocol HTTPClient {
@@ -34,6 +43,15 @@ struct RemotePizzaMenu: Decodable {
 }
 
 struct RemotePizza: Decodable {
+    let ingredients: [Int]
+    let name: String
+    let imageURL: URL?
+}
+
+struct RemoteIngredient: Decodable {
+    let price: Double
+    let name: String
+    let id: Int
 }
 
 class RemotePizzaMenuLoader: PizzaMenuLoader {
@@ -92,7 +110,7 @@ extension RemotePizzaMenu {
 
 private extension Array where Element == RemotePizza {
     func toModels() -> [Pizza] {
-        map { _ in Pizza() }
+        map { Pizza(ingredients: $0.ingredients, name: $0.name, url: $0.imageURL) }
     }
 }
 
@@ -148,10 +166,31 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
         
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: failure(.invalidData), when: {
-                let json = makeJSON([:])
+                let json = makeJSONData([:])
                 client.complete(withStatusCode: code, data: json, at: index)
             })
         }
+    }
+    
+    func test_load_deliversMenuOn200HTTPResponseWithJSONMenu() {
+        let (sut, client) = makeSUT()
+        
+        let pizzaMenu = makePizzaMenu(pizzas: [
+            makePizza(
+                ingredients: [1, 2, 3],
+                name: "Margherita"),
+            makePizza(
+                ingredients: [3, 2, 1],
+                name: "Ricci",
+                url: URL(string: "http://another-url.com")!)
+        ], basePrice: 4.0)
+        
+        let model = pizzaMenu.model
+        
+        expect(sut, toCompleteWith: .success(model), when: {
+            let json = makeJSONData(pizzaMenu.json)
+            client.complete(withStatusCode: 200, data: json)
+        })
     }
     
     // MARK: - Helpers
@@ -168,8 +207,31 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
         .failure(error)
     }
     
-    private func makeJSON(_ json: [String: Any]) -> Data {
+    private func makeJSONData(_ json: [String: Any]) -> Data {
         try! JSONSerialization.data(withJSONObject: json)
+    }
+    
+    private func makePizzaMenu(pizzas: [(model: Pizza, json: [String: Any])], basePrice: Double) -> (model: PizzaMenu, json: [String: Any]) {
+        let pizzaMenu = PizzaMenu(pizzas: pizzas.map { $0.model }, basePrice: basePrice)
+        
+        let json = [
+            "basePrice": basePrice,
+            "pizzas": pizzas.map { $0.json } as Any
+        ].compactMapValues({ $0 })
+        
+        return (pizzaMenu, json)
+    }
+    
+    private func makePizza(ingredients: [Int], name: String, url: URL? = nil) -> (model: Pizza, json: [String: Any]) {
+        let pizza = Pizza(ingredients: ingredients, name: name, url: url)
+        
+        let json = [
+            "ingredients": ingredients,
+            "name": name,
+            "imageURL": url?.absoluteString as Any
+        ].compactMapValues({ $0 })
+        
+        return (pizza, json)
     }
     
     private func expect(_ sut: RemotePizzaMenuLoader, toCompleteWith expectedResult: RemotePizzaMenuLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
