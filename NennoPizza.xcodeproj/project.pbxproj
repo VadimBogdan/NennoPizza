@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD1641442A50424D0019178F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD1641432A50424D0019178F /* README.md */; };
 		FD2A06DE2A4F25D800812B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */; };
 		FD2A06E02A4F25D800812B2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */; };
 		FD2A06E22A4F25D800812B2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06E12A4F25D800812B2C /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD1641432A50424D0019178F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FD2A06DA2A4F25D700812B2C /* NennoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NennoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */,
 				FD2A06E12A4F25D800812B2C /* ViewController.swift */,
 				FD2A06E32A4F25D800812B2C /* Main.storyboard */,
+				FD1641432A50424D0019178F /* README.md */,
 				FD2A06E62A4F25DB00812B2C /* Assets.xcassets */,
 				FD2A06E82A4F25DB00812B2C /* LaunchScreen.storyboard */,
 				FD2A06EB2A4F25DB00812B2C /* Info.plist */,
@@ -127,6 +130,7 @@
 			files = (
 				FD2A06EA2A4F25DB00812B2C /* LaunchScreen.storyboard in Resources */,
 				FD2A06E72A4F25DB00812B2C /* Assets.xcassets in Resources */,
+				FD1641442A50424D0019178F /* README.md in Resources */,
 				FD2A06E52A4F25D800812B2C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
