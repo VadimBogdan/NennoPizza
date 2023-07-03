@@ -8,25 +8,6 @@
 import XCTest
 import NennoPizzaCore
 
-final class PizzaPriceCalculator {
-    let basePrice: Double
-    let ingredients: [Ingredient]
-    
-    init(basePrice: Double, ingredients: [Ingredient]) {
-        self.basePrice = basePrice
-        self.ingredients = ingredients
-    }
-    
-    func calculate(with ingredientIds: [Int]) -> Double {
-        guard !ingredientIds.isEmpty else { return basePrice }
-        
-        return ingredients.filter({
-            ingredientIds.contains($0.id)
-        })
-        .reduce(basePrice) { $0 + $1.price }
-    }
-}
-
 final class CalculatePizzaPriceUseCase: XCTestCase {
     
     func test_calculate_returnsBasePriceWhenIngredientIdsAreEmpty() {
