@@ -14,12 +14,6 @@ struct Ingredient: Equatable {
     let id: Int
 }
 
-protocol PizzaMenuLoader {
-    typealias Result = Swift.Result<PizzaMenu, Error>
-    
-    func load(completion: @escaping (Result) -> Void)
-}
-
 struct RemotePizzaMenu: Decodable {
     let pizzas: [RemotePizza]
     let basePrice: Double
