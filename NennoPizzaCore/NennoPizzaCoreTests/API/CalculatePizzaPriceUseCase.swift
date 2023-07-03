@@ -53,7 +53,15 @@ final class CalculatePizzaPriceUseCase: XCTestCase {
         XCTAssertEqual(pizzaPriceCalculator.calculate(with: [0, 2]),
                        basePrice + ingredients[0].price + ingredients[2].price)
     }
-
+    
+    func test_calculate_returnsCorrectPriceWhileIgnoringNonExistentIngredientIds() {
+        let basePrice = 5.0
+        let ingredients = makeRandomIngredients()
+        let pizzaPriceCalculator = makeSUT(basePrice: basePrice, ingredients: ingredients)
+        
+        XCTAssertEqual(pizzaPriceCalculator.calculate(with: [-1 ,0, -1, 2]),
+                       basePrice + ingredients[0].price + ingredients[2].price)
+    }
     
     private func makeSUT(basePrice: Double, ingredients: [Ingredient]) -> PizzaPriceCalculator {
         PizzaPriceCalculator(basePrice: basePrice, ingredients: ingredients)
