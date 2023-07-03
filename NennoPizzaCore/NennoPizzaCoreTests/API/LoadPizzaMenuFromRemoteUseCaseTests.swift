@@ -14,92 +14,10 @@ struct Ingredient: Equatable {
     let id: Int
 }
 
-struct RemotePizzaMenu: Decodable {
-    let pizzas: [RemotePizza]
-    let basePrice: Double
-}
-
-struct RemotePizza: Decodable {
-    let ingredients: [Int]
-    let name: String
-    let imageURL: URL?
-}
-
 struct RemoteIngredient: Decodable {
     let price: Double
     let name: String
     let id: Int
-}
-
-class RemotePizzaMenuLoader: PizzaMenuLoader {
-    typealias Result = PizzaMenuLoader.Result
-    
-    enum Error: Swift.Error {
-        case connectivity
-        case invalidData
-    }
-    
-    private let url: URL
-    private let client: HTTPClient
-    
-    init(url: URL, client: HTTPClient) {
-        self.url = url
-        self.client = client
-    }
-    
-    func load(completion: @escaping (Result) -> Void) {
-        client.get(from: url) { [weak self] result in
-            guard self != nil else { return }
-            
-            switch result {
-            case let .success((data, response)):
-                completion(RemotePizzaMenuLoader.map(data, from: response))
-                
-            case .failure:
-                completion(.failure(Error.connectivity))
-            }
-        }
-    }
-    
-    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
-        do {
-            let pizzaMenu = try PizzaMenuMapper.map(data, from: response)
-            return .success(pizzaMenu.toModel())
-        } catch {
-            return .failure(error)
-        }
-    }
-    
-    private final class PizzaMenuMapper {
-        static func map(_ data: Data, from response: HTTPURLResponse) throws -> RemotePizzaMenu {
-            guard response.isOK, let remotePizzaMenu = try? JSONDecoder().decode(RemotePizzaMenu.self, from: data) else {
-                throw RemotePizzaMenuLoader.Error.invalidData
-            }
-            
-            return remotePizzaMenu
-        }
-    }
-}
-
-extension RemotePizzaMenu {
-    func toModel() -> PizzaMenu {
-        PizzaMenu(pizzas: pizzas.toModels(), basePrice: basePrice)
-    }
-}
-
-private extension Array where Element == RemotePizza {
-    func toModels() -> [Pizza] {
-        map { Pizza(ingredients: $0.ingredients, name: $0.name, url: $0.imageURL) }
-    }
-}
-
-
-extension HTTPURLResponse {
-    private static var OK_200: Int { return 200 }
-    
-    var isOK: Bool {
-        return statusCode == HTTPURLResponse.OK_200
-    }
 }
 
 final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {

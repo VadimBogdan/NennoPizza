@@ -14,6 +14,10 @@
 		FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */; };
 		FDEA822A2A52D6C800FE1252 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82292A52D6C800FE1252 /* HttpClient.swift */; };
 		FDEA822C2A52D71D00FE1252 /* PizzaMenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA822B2A52D71D00FE1252 /* PizzaMenuLoader.swift */; };
+		FDEA822F2A52D78400FE1252 /* RemotePizzaMenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA822E2A52D78400FE1252 /* RemotePizzaMenuLoader.swift */; };
+		FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82312A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift */; };
+		FDEA82342A52D84E00FE1252 /* RemotePizzaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */; };
+		FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenu.swift; sourceTree = "<group>"; };
 		FDEA82292A52D6C800FE1252 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		FDEA822B2A52D71D00FE1252 /* PizzaMenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuLoader.swift; sourceTree = "<group>"; };
+		FDEA822E2A52D78400FE1252 /* RemotePizzaMenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePizzaMenuLoader.swift; sourceTree = "<group>"; };
+		FDEA82312A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
+		FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePizzaMenu.swift; sourceTree = "<group>"; };
+		FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +87,9 @@
 		FD1302782A51B467005A12ED /* NennoPizzaCore */ = {
 			isa = PBXGroup;
 			children = (
-				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
 				FDEA82282A52D6A000FE1252 /* API */,
+				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
+				FDEA822D2A52D76F00FE1252 /* Pizza Menu API */,
 				FD1302792A51B467005A12ED /* NennoPizzaCore.h */,
 			);
 			path = NennoPizzaCore;
@@ -123,9 +132,28 @@
 		FDEA82282A52D6A000FE1252 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				FDEA82302A52D80900FE1252 /* Helpers */,
 				FDEA82292A52D6C800FE1252 /* HttpClient.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		FDEA822D2A52D76F00FE1252 /* Pizza Menu API */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */,
+				FDEA822E2A52D78400FE1252 /* RemotePizzaMenuLoader.swift */,
+				FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */,
+			);
+			path = "Pizza Menu API";
+			sourceTree = "<group>";
+		};
+		FDEA82302A52D80900FE1252 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA82312A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEA822F2A52D78400FE1252 /* RemotePizzaMenuLoader.swift in Sources */,
+				FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */,
+				FDEA82342A52D84E00FE1252 /* RemotePizzaMenu.swift in Sources */,
 				FDEA822A2A52D6C800FE1252 /* HttpClient.swift in Sources */,
+				FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */,
 				FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */,
 				FDEA822C2A52D71D00FE1252 /* PizzaMenuLoader.swift in Sources */,
 			);
