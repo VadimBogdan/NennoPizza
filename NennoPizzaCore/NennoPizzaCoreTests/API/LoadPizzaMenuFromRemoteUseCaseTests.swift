@@ -8,17 +8,6 @@
 import XCTest
 import NennoPizzaCore
 
-struct PizzaMenu: Equatable {
-    let pizzas: [Pizza]
-    let basePrice: Double
-}
-
-struct Pizza: Equatable {
-    let ingredients: [Int]
-    let name: String
-    let url: URL?
-}
-
 struct Ingredient: Equatable {
     let price: Double
     let name: String
