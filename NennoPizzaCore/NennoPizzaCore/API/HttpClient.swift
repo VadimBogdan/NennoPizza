@@ -1,5 +1,5 @@
 //
-//  HttpClient.swift
+//  HTTPClient.swift
 //  NennoPizzaCore
 //
 //  Created by Vadym Bohdan on 03.07.2023.
