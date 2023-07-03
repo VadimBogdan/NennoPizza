@@ -8,18 +8,6 @@
 import XCTest
 import NennoPizzaCore
 
-struct Ingredient: Equatable {
-    let price: Double
-    let name: String
-    let id: Int
-}
-
-struct RemoteIngredient: Decodable {
-    let price: Double
-    let name: String
-    let id: Int
-}
-
 final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
     
     func test_init_doesNotRequestDataFromURL() {
