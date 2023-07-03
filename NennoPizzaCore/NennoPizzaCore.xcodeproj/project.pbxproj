@@ -25,6 +25,7 @@
 		FDEA82442A52E9E600FE1252 /* IngredientsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82432A52E9E600FE1252 /* IngredientsMapper.swift */; };
 		FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82452A52E9F200FE1252 /* RemoteIngredientsLoader.swift */; };
 		FDEA82482A52EA1600FE1252 /* RemoteIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82472A52EA1600FE1252 /* RemoteIngredient.swift */; };
+		FDEA824A2A52EAFA00FE1252 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82492A52EAFA00FE1252 /* SharedTestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		FDEA82432A52E9E600FE1252 /* IngredientsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsMapper.swift; sourceTree = "<group>"; };
 		FDEA82452A52E9F200FE1252 /* RemoteIngredientsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteIngredientsLoader.swift; sourceTree = "<group>"; };
 		FDEA82472A52EA1600FE1252 /* RemoteIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteIngredient.swift; sourceTree = "<group>"; };
+		FDEA82492A52EAFA00FE1252 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */,
+				FDEA82492A52EAFA00FE1252 /* SharedTestHelpers.swift */,
 				FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */,
 			);
 			path = Helpers;
@@ -324,6 +327,7 @@
 			files = (
 				FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */,
 				FDEA823A2A52DC1600FE1252 /* HTTPClientSpy.swift in Sources */,
+				FDEA824A2A52EAFA00FE1252 /* SharedTestHelpers.swift in Sources */,
 				FDEA823C2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift in Sources */,
 				FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */,
 			);

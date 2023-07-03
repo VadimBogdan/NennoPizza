@@ -67,7 +67,7 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
             makePizza(
                 ingredients: [3, 2, 1],
                 name: "Ricci",
-                url: URL(string: "http://another-url.com")!)
+                url: anyURL())
         ], basePrice: 4.0)
         
         let model = pizzaMenu.model
@@ -79,7 +79,7 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
     }
     
     func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
-        let url = URL(string: "http://any-url.com")!
+        let url = anyURL()
         let client = HTTPClientSpy()
         var sut: RemotePizzaMenuLoader? = RemotePizzaMenuLoader(url: url, client: client)
         
@@ -94,7 +94,7 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(url: URL = URL(string: "https://any-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePizzaMenuLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemotePizzaMenuLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemotePizzaMenuLoader(url: url, client: client)
         trackForMemoryLeaks(sut, file: file, line: line)

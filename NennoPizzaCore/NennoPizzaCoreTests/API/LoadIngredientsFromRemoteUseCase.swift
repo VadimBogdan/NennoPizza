@@ -72,7 +72,7 @@ final class LoadIngredientsFromRemoteUseCase: XCTestCase {
     }
     
     func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
-        let url = URL(string: "http://any-url.com")!
+        let url = anyURL()
         let client = HTTPClientSpy()
         var sut: RemoteIngredientsLoader? = RemoteIngredientsLoader(url: url, client: client)
         
@@ -87,7 +87,7 @@ final class LoadIngredientsFromRemoteUseCase: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(url: URL = URL(string: "https://any-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemoteIngredientsLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteIngredientsLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteIngredientsLoader(url: url, client: client)
         trackForMemoryLeaks(sut, file: file, line: line)
