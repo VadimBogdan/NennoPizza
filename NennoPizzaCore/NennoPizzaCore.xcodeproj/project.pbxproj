@@ -31,6 +31,7 @@
 		FDEA825F2A5301E600FE1252 /* NennoPizzaCoreiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEA82572A5301E600FE1252 /* NennoPizzaCoreiOS.framework */; };
 		FDEA82642A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */; };
 		FDEA82652A5301E600FE1252 /* NennoPizzaCoreiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FDEA82592A5301E600FE1252 /* NennoPizzaCoreiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FDEA826F2A532BBE00FE1252 /* PizzaMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA826E2A532BBE00FE1252 /* PizzaMenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		FDEA82592A5301E600FE1252 /* NennoPizzaCoreiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NennoPizzaCoreiOS.h; sourceTree = "<group>"; };
 		FDEA825E2A5301E600FE1252 /* NennoPizzaCoreiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NennoPizzaCoreiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NennoPizzaCoreiOSTests.swift; sourceTree = "<group>"; };
+		FDEA826E2A532BBE00FE1252 /* PizzaMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 		FDEA82582A5301E600FE1252 /* NennoPizzaCoreiOS */ = {
 			isa = PBXGroup;
 			children = (
+				FDEA826C2A532B5400FE1252 /* Pizza Menu UI */,
 				FDEA82592A5301E600FE1252 /* NennoPizzaCoreiOS.h */,
 			);
 			path = NennoPizzaCoreiOS;
@@ -257,6 +260,22 @@
 				FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */,
 			);
 			path = NennoPizzaCoreiOSTests;
+			sourceTree = "<group>";
+		};
+		FDEA826C2A532B5400FE1252 /* Pizza Menu UI */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA826D2A532B5E00FE1252 /* Controllers */,
+			);
+			path = "Pizza Menu UI";
+			sourceTree = "<group>";
+		};
+		FDEA826D2A532B5E00FE1252 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA826E2A532BBE00FE1252 /* PizzaMenuTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +391,7 @@
 					};
 					FDEA82562A5301E600FE1252 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					FDEA825D2A5301E600FE1252 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -468,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEA826F2A532BBE00FE1252 /* PizzaMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +750,7 @@
 		FDEA82662A5301E600FE1252 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -752,6 +774,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -760,6 +783,7 @@
 		FDEA82672A5301E600FE1252 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -791,6 +815,7 @@
 		FDEA82682A5301E600FE1252 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H8TMARX7BW;
@@ -807,6 +832,7 @@
 		FDEA82692A5301E600FE1252 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H8TMARX7BW;
