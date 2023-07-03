@@ -22,6 +22,9 @@
 		FDEA823C2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */; };
 		FDEA823F2A52E8C000FE1252 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA823E2A52E8C000FE1252 /* Ingredient.swift */; };
 		FDEA82412A52E95A00FE1252 /* IngredientsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82402A52E95A00FE1252 /* IngredientsLoader.swift */; };
+		FDEA82442A52E9E600FE1252 /* IngredientsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82432A52E9E600FE1252 /* IngredientsMapper.swift */; };
+		FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82452A52E9F200FE1252 /* RemoteIngredientsLoader.swift */; };
+		FDEA82482A52EA1600FE1252 /* RemoteIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82472A52EA1600FE1252 /* RemoteIngredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadIngredientsFromRemoteUseCase.swift; sourceTree = "<group>"; };
 		FDEA823E2A52E8C000FE1252 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		FDEA82402A52E95A00FE1252 /* IngredientsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLoader.swift; sourceTree = "<group>"; };
+		FDEA82432A52E9E600FE1252 /* IngredientsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsMapper.swift; sourceTree = "<group>"; };
+		FDEA82452A52E9F200FE1252 /* RemoteIngredientsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteIngredientsLoader.swift; sourceTree = "<group>"; };
+		FDEA82472A52EA1600FE1252 /* RemoteIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteIngredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 			children = (
 				FDEA82282A52D6A000FE1252 /* API */,
 				FDEA823D2A52E8A500FE1252 /* Ingredients Feature */,
+				FDEA82422A52E9A800FE1252 /* Ingredients API */,
 				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
 				FDEA822D2A52D76F00FE1252 /* Pizza Menu API */,
 				FD1302792A51B467005A12ED /* NennoPizzaCore.h */,
@@ -174,6 +181,16 @@
 				FDEA82402A52E95A00FE1252 /* IngredientsLoader.swift */,
 			);
 			path = "Ingredients Feature";
+			sourceTree = "<group>";
+		};
+		FDEA82422A52E9A800FE1252 /* Ingredients API */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA82452A52E9F200FE1252 /* RemoteIngredientsLoader.swift */,
+				FDEA82472A52EA1600FE1252 /* RemoteIngredient.swift */,
+				FDEA82432A52E9E600FE1252 /* IngredientsMapper.swift */,
+			);
+			path = "Ingredients API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,10 +305,13 @@
 			files = (
 				FDEA822F2A52D78400FE1252 /* RemotePizzaMenuLoader.swift in Sources */,
 				FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */,
+				FDEA82482A52EA1600FE1252 /* RemoteIngredient.swift in Sources */,
 				FDEA82412A52E95A00FE1252 /* IngredientsLoader.swift in Sources */,
+				FDEA82442A52E9E600FE1252 /* IngredientsMapper.swift in Sources */,
 				FDEA82342A52D84E00FE1252 /* RemotePizzaMenu.swift in Sources */,
 				FDEA822A2A52D6C800FE1252 /* HTTPClient.swift in Sources */,
 				FDEA823F2A52E8C000FE1252 /* Ingredient.swift in Sources */,
+				FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */,
 				FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */,
 				FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */,
 				FDEA822C2A52D71D00FE1252 /* PizzaMenuLoader.swift in Sources */,
