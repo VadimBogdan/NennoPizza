@@ -139,6 +139,20 @@ final class LoadIngredientsFromRemoteUseCase: XCTestCase {
         }
     }
     
+    func test_load_deliversIngredientsOn200HTTPResponseWithJSONIngredients() {
+        let (sut, client) = makeSUT()
+        
+        let ingredient1 = makeIngredient(price: 0.5, name: "Ingredient1", id: 0)
+        let ingredient2 = makeIngredient(price: 2, name: "Ingredient2", id: 1)
+        
+        let model = [ingredient1.model, ingredient2.model]
+        
+        expect(sut, toCompleteWith: .success(model), when: {
+            let json = makeJSONData([ingredient1.json, ingredient2.json])
+            client.complete(withStatusCode: 200, data: json)
+        })
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://any-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemoteIngredientsLoader, client: HTTPClientSpy) {
@@ -155,6 +169,18 @@ final class LoadIngredientsFromRemoteUseCase: XCTestCase {
     
     private func makeJSONData(_ json: [[String: Any]]) -> Data {
         return try! JSONSerialization.data(withJSONObject: json)
+    }
+    
+    private func makeIngredient(price: Double, name: String, id: Int) -> (model: Ingredient, json: [String: Any]) {
+        let ingredient = Ingredient(price: price, name: name, id: id)
+        
+        let json = [
+            "price": price,
+            "name": name,
+            "id": id
+        ] as [String: Any]
+        
+        return (ingredient, json)
     }
     
     private func expect(_ sut: RemoteIngredientsLoader, toCompleteWith expectedResult: RemoteIngredientsLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
