@@ -1,14 +1,14 @@
 //
-//  LoadPizzaMenuFromRemoteUseCaseTests.swift
+//  LoadIngredientsFromRemoteUseCase.swift
 //  NennoPizzaCoreTests
 //
-//  Created by Vadym Bohdan on 02.07.2023.
+//  Created by Vadym Bohdan on 03.07.2023.
 //
 
 import XCTest
 import NennoPizzaCore
 
-final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
+final class LoadIngredientsFromRemoteUseCase: XCTestCase {
     
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
@@ -51,29 +51,22 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
         
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: failure(.invalidData), when: {
-                let json = makeJSONData([:])
+                let json = makeJSONData([])
                 client.complete(withStatusCode: code, data: json, at: index)
             })
         }
     }
     
-    func test_load_deliversMenuOn200HTTPResponseWithJSONMenu() {
+    func test_load_deliversIngredientsOn200HTTPResponseWithJSONIngredients() {
         let (sut, client) = makeSUT()
         
-        let pizzaMenu = makePizzaMenu(pizzas: [
-            makePizza(
-                ingredients: [1, 2, 3],
-                name: "Margherita"),
-            makePizza(
-                ingredients: [3, 2, 1],
-                name: "Ricci",
-                url: anyURL())
-        ], basePrice: 4.0)
+        let ingredient1 = makeIngredient(price: 0.5, name: "Ingredient1", id: 0)
+        let ingredient2 = makeIngredient(price: 2, name: "Ingredient2", id: 1)
         
-        let model = pizzaMenu.model
+        let model = [ingredient1.model, ingredient2.model]
         
         expect(sut, toCompleteWith: .success(model), when: {
-            let json = makeJSONData(pizzaMenu.json)
+            let json = makeJSONData([ingredient1.json, ingredient2.json])
             client.complete(withStatusCode: 200, data: json)
         })
     }
@@ -81,59 +74,48 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
     func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
         let url = anyURL()
         let client = HTTPClientSpy()
-        var sut: RemotePizzaMenuLoader? = RemotePizzaMenuLoader(url: url, client: client)
+        var sut: RemoteIngredientsLoader? = RemoteIngredientsLoader(url: url, client: client)
         
-        var capturedResults = [RemotePizzaMenuLoader.Result]()
+        var capturedResults = [RemoteIngredientsLoader.Result]()
         sut?.load { capturedResults.append($0) }
         
         sut = nil
-        client.complete(withStatusCode: 200, data: makeJSONData([:]))
+        client.complete(withStatusCode: 200, data: makeJSONData([]))
         
         XCTAssertTrue(capturedResults.isEmpty)
     }
     
     // MARK: - Helpers
     
-    private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemotePizzaMenuLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteIngredientsLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
-        let sut = RemotePizzaMenuLoader(url: url, client: client)
+        let sut = RemoteIngredientsLoader(url: url, client: client)
         trackForMemoryLeaks(sut, file: file, line: line)
         trackForMemoryLeaks(client, file: file, line: line)
         return (sut, client)
     }
     
-    private func failure(_ error: RemotePizzaMenuLoader.Error) -> RemotePizzaMenuLoader.Result {
+    private func failure(_ error: RemoteIngredientsLoader.Error) -> RemoteIngredientsLoader.Result {
         .failure(error)
     }
     
-    private func makeJSONData(_ json: [String: Any]) -> Data {
-        try! JSONSerialization.data(withJSONObject: json)
+    private func makeJSONData(_ json: [[String: Any]]) -> Data {
+        return try! JSONSerialization.data(withJSONObject: json)
     }
     
-    private func makePizzaMenu(pizzas: [(model: Pizza, json: [String: Any])], basePrice: Double) -> (model: PizzaMenu, json: [String: Any]) {
-        let pizzaMenu = PizzaMenu(pizzas: pizzas.map { $0.model }, basePrice: basePrice)
+    private func makeIngredient(price: Double, name: String, id: Int) -> (model: Ingredient, json: [String: Any]) {
+        let ingredient = Ingredient(price: price, name: name, id: id)
         
         let json = [
-            "basePrice": basePrice,
-            "pizzas": pizzas.map { $0.json } as Any
-        ].compactMapValues({ $0 })
-        
-        return (pizzaMenu, json)
-    }
-    
-    private func makePizza(ingredients: [Int], name: String, url: URL? = nil) -> (model: Pizza, json: [String: Any]) {
-        let pizza = Pizza(ingredients: ingredients, name: name, url: url)
-        
-        let json = [
-            "ingredients": ingredients,
+            "price": price,
             "name": name,
-            "imageURL": url?.absoluteString as Any
-        ].compactMapValues({ $0 })
+            "id": id
+        ] as [String: Any]
         
-        return (pizza, json)
+        return (ingredient, json)
     }
     
-    private func expect(_ sut: RemotePizzaMenuLoader, toCompleteWith expectedResult: RemotePizzaMenuLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: RemoteIngredientsLoader, toCompleteWith expectedResult: RemoteIngredientsLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         
         sut.load { receivedResult in
@@ -141,7 +123,7 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
             case let (.success(receivedItems), .success(expectedItems)):
                 XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
                 
-            case let (.failure(receivedError as RemotePizzaMenuLoader.Error), .failure(expectedError as RemotePizzaMenuLoader.Error)):
+            case let (.failure(receivedError as RemoteIngredientsLoader.Error), .failure(expectedError as RemoteIngredientsLoader.Error)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
                 
             default:
