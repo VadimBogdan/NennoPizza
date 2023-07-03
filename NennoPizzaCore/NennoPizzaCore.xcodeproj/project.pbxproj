@@ -19,6 +19,7 @@
 		FDEA82342A52D84E00FE1252 /* RemotePizzaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */; };
 		FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */; };
 		FDEA823A2A52DC1600FE1252 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */; };
+		FDEA823C2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePizzaMenu.swift; sourceTree = "<group>"; };
 		FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuMapper.swift; sourceTree = "<group>"; };
 		FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadIngredientsFromRemoteUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */,
+				FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */,
 				FDEA823A2A52DC1600FE1252 /* HTTPClientSpy.swift in Sources */,
+				FDEA823C2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift in Sources */,
 				FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
