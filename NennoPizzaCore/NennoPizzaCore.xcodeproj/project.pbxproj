@@ -18,6 +18,7 @@
 		FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82312A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift */; };
 		FDEA82342A52D84E00FE1252 /* RemotePizzaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */; };
 		FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */; };
+		FDEA823A2A52DC1600FE1252 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		FDEA82312A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePizzaMenu.swift; sourceTree = "<group>"; };
 		FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuMapper.swift; sourceTree = "<group>"; };
+		FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */,
+				FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */,
+				FDEA823A2A52DC1600FE1252 /* HTTPClientSpy.swift in Sources */,
 				FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
