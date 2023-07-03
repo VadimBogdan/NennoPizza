@@ -8,13 +8,33 @@
 import XCTest
 import NennoPizzaCore
 
-class RemoteIngredientsLoader {
+struct Ingredient: Equatable {
+    let price: Double
+    let name: String
+    let id: Int
+}
+
+protocol IngredientsLoader {
+    typealias Result = Swift.Result<[Ingredient], Error>
+    
+    func load(completion: @escaping (Result) -> Void)
+}
+
+class RemoteIngredientsLoader: IngredientsLoader {
     private let url: URL
     private let client: HTTPClient
+    
+    public typealias Result = IngredientsLoader.Result
     
     public init(url: URL, client: HTTPClient) {
         self.url = url
         self.client = client
+    }
+    
+    func load(completion: @escaping (Result) -> Void) {
+        client.get(from: url) { [weak self] result in
+            guard self != nil else { return }
+        }
     }
 }
 
@@ -24,6 +44,15 @@ final class LoadIngredientsFromRemoteUseCase: XCTestCase {
         let (_, client) = makeSUT()
         
         XCTAssertTrue(client.requestedURLs.isEmpty)
+    }
+    
+    func test_load_requestsDataFromURL() {
+        let url = URL(string: "https://a-given-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        sut.load { _ in }
+        
+        XCTAssertEqual(client.requestedURLs, [url])
     }
     
     // MARK: - Helpers
