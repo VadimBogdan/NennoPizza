@@ -14,12 +14,6 @@ struct Ingredient: Equatable {
     let id: Int
 }
 
-protocol HTTPClient {
-    typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
-    
-    func get(from url: URL, completion: @escaping (Result) -> Void)
-}
-
 protocol PizzaMenuLoader {
     typealias Result = Swift.Result<PizzaMenu, Error>
     

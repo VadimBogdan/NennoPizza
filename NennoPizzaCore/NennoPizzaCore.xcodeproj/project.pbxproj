@@ -12,6 +12,7 @@
 		FD1302852A51B468005A12ED /* NennoPizzaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FD1302792A51B467005A12ED /* NennoPizzaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */; };
 		FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */; };
+		FDEA822A2A52D6C800FE1252 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82292A52D6C800FE1252 /* HttpClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		FD13028E2A51B6BE005A12ED /* NennoPizzaCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NennoPizzaCore.xctestplan; sourceTree = "<group>"; };
 		FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenu.swift; sourceTree = "<group>"; };
+		FDEA82292A52D6C800FE1252 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
+				FDEA82282A52D6A000FE1252 /* API */,
 				FD1302792A51B467005A12ED /* NennoPizzaCore.h */,
 			);
 			path = NennoPizzaCore;
@@ -112,6 +115,14 @@
 				FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */,
 			);
 			path = "Pizza Menu Feature";
+			sourceTree = "<group>";
+		};
+		FDEA82282A52D6A000FE1252 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA82292A52D6C800FE1252 /* HttpClient.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEA822A2A52D6C800FE1252 /* HttpClient.swift in Sources */,
 				FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
