@@ -19,7 +19,11 @@ final class PizzaPriceCalculator {
     
     func calculate(with ingredientIds: [Int]) -> Double {
         guard !ingredientIds.isEmpty else { return basePrice }
-        fatalError()
+        
+        return ingredients.filter({
+            ingredientIds.contains($0.id)
+        })
+        .reduce(basePrice) { $0 + $1.price }
     }
 }
 
@@ -31,6 +35,14 @@ final class CalculatePizzaPriceUseCase: XCTestCase {
         let pizzaPriceCalculator = makeSUT(basePrice: basePrice, ingredients: ingredients)
         
         XCTAssertEqual(pizzaPriceCalculator.calculate(with: []), basePrice)
+    }
+    
+    func test_calculate_returnsBasePriceWhenIngredientIdIsNonExistent() {
+        let basePrice = 5.0
+        let ingredients = makeRandomIngredients()
+        let pizzaPriceCalculator = makeSUT(basePrice: basePrice, ingredients: ingredients)
+        
+        XCTAssertEqual(pizzaPriceCalculator.calculate(with: [-1]), basePrice)
     }
     
     private func makeSUT(basePrice: Double, ingredients: [Ingredient]) -> PizzaPriceCalculator {
