@@ -14,12 +14,6 @@ struct RemoteIngredient: Decodable {
     let id: Int
 }
 
-protocol IngredientsLoader {
-    typealias Result = Swift.Result<[Ingredient], Error>
-    
-    func load(completion: @escaping (Result) -> Void)
-}
-
 class RemoteIngredientsLoader: IngredientsLoader {
     public typealias Result = IngredientsLoader.Result
     

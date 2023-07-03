@@ -21,6 +21,7 @@
 		FDEA823A2A52DC1600FE1252 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */; };
 		FDEA823C2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */; };
 		FDEA823F2A52E8C000FE1252 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA823E2A52E8C000FE1252 /* Ingredient.swift */; };
+		FDEA82412A52E95A00FE1252 /* IngredientsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82402A52E95A00FE1252 /* IngredientsLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadIngredientsFromRemoteUseCase.swift; sourceTree = "<group>"; };
 		FDEA823E2A52E8C000FE1252 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		FDEA82402A52E95A00FE1252 /* IngredientsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				FDEA823E2A52E8C000FE1252 /* Ingredient.swift */,
+				FDEA82402A52E95A00FE1252 /* IngredientsLoader.swift */,
 			);
 			path = "Ingredients Feature";
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				FDEA822F2A52D78400FE1252 /* RemotePizzaMenuLoader.swift in Sources */,
 				FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */,
+				FDEA82412A52E95A00FE1252 /* IngredientsLoader.swift in Sources */,
 				FDEA82342A52D84E00FE1252 /* RemotePizzaMenu.swift in Sources */,
 				FDEA822A2A52D6C800FE1252 /* HTTPClient.swift in Sources */,
 				FDEA823F2A52E8C000FE1252 /* Ingredient.swift in Sources */,
