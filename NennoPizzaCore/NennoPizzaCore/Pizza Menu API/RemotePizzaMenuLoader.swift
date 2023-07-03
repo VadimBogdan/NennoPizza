@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class RemotePizzaMenuLoader: PizzaMenuLoader {
+public final class RemotePizzaMenuLoader: PizzaMenuLoader {
     public typealias Result = PizzaMenuLoader.Result
     
     public enum Error: Swift.Error {
