@@ -112,7 +112,8 @@ final class PizzaMenuTableViewCell: UITableViewCell {
         priceView.translatesAutoresizingMaskIntoConstraints = false
         priceView.backgroundColor = .yellow
         
-        let cartImageView = UIImageView(image: .cart?.withTintColor(.white))
+        let cartImageView = UIImageView(image: .cart)
+        cartImageView.tintColor = .white
         
         priceView.addSubview(pizzaPriceLabel)
         priceView.addSubview(cartImageView)
