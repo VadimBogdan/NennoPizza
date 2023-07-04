@@ -73,6 +73,8 @@ final class PizzaMenuTableViewCell: UITableViewCell {
     }
     
     private func setupUI() {
+        setupFormatting()
+        
         contentView.addSubview(pizzaBackgroundImageView)
         contentView.addSubview(pizzaImageView)
         
@@ -92,7 +94,7 @@ final class PizzaMenuTableViewCell: UITableViewCell {
         
         pizzaBackgroundImageView.image = .pizzaBackgroundImage
         
-        let blurEffect = UIBlurEffect(style: .systemThinMaterialLight)
+        let blurEffect = UIBlurEffect(style: .systemMaterialLight)
         let fxView = UIVisualEffectView(effect: blurEffect)
         fxView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -110,8 +112,9 @@ final class PizzaMenuTableViewCell: UITableViewCell {
         pizzaPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let priceView = UIView()
+        priceView.layer.cornerRadius = 4
         priceView.translatesAutoresizingMaskIntoConstraints = false
-        priceView.backgroundColor = .yellow
+        priceView.backgroundColor = .secondaryOrange
         
         let cartImageView = UIImageView(image: .cart)
         cartImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -153,6 +156,15 @@ final class PizzaMenuTableViewCell: UITableViewCell {
             pizzaNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: fxView.trailingAnchor),
         ])
     }
+    
+    private func setupFormatting() {
+        pizzaPriceLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        pizzaPriceLabel.textColor = .white
+        pizzaNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
+        pizzaNameLabel.textColor = .primaryDark
+        pizzaIngredientsLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        pizzaIngredientsLabel.textColor = .primaryDark
+    }
 }
 
 extension UIImage {
@@ -181,5 +193,29 @@ extension UITableView {
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
         let identifier = String(describing: T.self)
         return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! T
+    }
+}
+
+extension UIColor {
+    static let primaryDark = UIColor("#4A4A4A")
+    static let secondaryOrange = UIColor("#FFCD2B")
+    
+    convenience init(_ hex: String, alpha: CGFloat = 1.0) {
+        var cString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if cString.hasPrefix("#") { cString.removeFirst() }
+        
+        if cString.count != 6 {
+            self.init("ff0000") // return red color for wrong hex input
+            return
+        }
+        
+        var rgbValue: UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+        
+        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+                  green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                  blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+                  alpha: alpha)
     }
 }
