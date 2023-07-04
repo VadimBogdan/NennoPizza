@@ -59,6 +59,7 @@ final class PizzaMenuTableViewCell: UITableViewCell {
     let pizzaBackgroundImageView = UIImageView()
     let pizzaImageView = UIImageView()
     let pizzaNameLabel = UILabel()
+    let pizzaPriceLabel = UILabel()
     let pizzaIngredientsLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -111,6 +112,21 @@ final class PizzaMenuTableViewCell: UITableViewCell {
         priceView.translatesAutoresizingMaskIntoConstraints = false
         priceView.backgroundColor = .yellow
         
+        let cartImageView = UIImageView(image: .cart?.withTintColor(.white))
+        
+        priceView.addSubview(pizzaPriceLabel)
+        priceView.addSubview(cartImageView)
+        
+        NSLayoutConstraint.activate([
+            cartImageView.heightAnchor.constraint(equalToConstant: 14),
+            cartImageView.widthAnchor.constraint(equalToConstant: 14),
+            cartImageView.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 8),
+            cartImageView.bottomAnchor.constraint(equalTo: priceView.bottomAnchor, constant: -7),
+            pizzaPriceLabel.leadingAnchor.constraint(equalTo: cartImageView.trailingAnchor, constant: 4),
+            pizzaPriceLabel.trailingAnchor.constraint(equalTo: priceView.trailingAnchor, constant: -4),
+            pizzaPriceLabel.bottomAnchor.constraint(equalTo: priceView.bottomAnchor, constant: -4)
+        ])
+        
         fxView.contentView.addSubview(priceView)
         fxView.contentView.addSubview(pizzaIngredientsLabel)
         fxView.contentView.addSubview(pizzaNameLabel)
@@ -138,6 +154,7 @@ final class PizzaMenuTableViewCell: UITableViewCell {
 
 extension UIImage {
     static let pizzaBackgroundImage = UIImage(named: "bg_wood")
+    static let cart = UIImage(named: "ic_cart_button")
 }
 
 extension NSObject {
