@@ -7,8 +7,51 @@
 
 import UIKit
 
+public final class PizzaCellController {
+    
+    private var cell: PizzaMenuTableViewCell?
+    
+    func view(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
+        cell = tableView.dequeueReusableCell(for: indexPath)
+        return cell!
+    }
+}
+
+enum DesignConstants {
+    static let pizzaMenuCellHeight: CGFloat = 178
+}
+
 public final class PizzaMenuTableViewController: UITableViewController {
     
+    private var pizzaCellControllers = [IndexPath: PizzaCellController]()
+    
+    private var tableModel = [PizzaCellController]() {
+        didSet { tableView.reloadData() }
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.register(PizzaMenuTableViewCell.self)
+    }
+    
+    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        DesignConstants.pizzaMenuCellHeight
+    }
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableModel.count
+    }
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        cellController(forRowAt: indexPath).view(in: tableView, for: indexPath)
+    }
+         
+    private func cellController(forRowAt indexPath: IndexPath) -> PizzaCellController {
+        let controller = tableModel[indexPath.row]
+        pizzaCellControllers[indexPath] = controller
+        return controller
+    }
 }
 
 final class PizzaMenuTableViewCell: UITableViewCell {
@@ -95,4 +138,23 @@ final class PizzaMenuTableViewCell: UITableViewCell {
 
 extension UIImage {
     static let pizzaBackgroundImage = UIImage(named: "bg_wood")
+}
+
+extension NSObject {
+    public static var identifier: String {
+        String(describing: self)
+    }
+}
+
+extension UITableView {
+    func register(_ cellClass: UITableViewCell.Type) {
+        register(cellClass, forCellReuseIdentifier: cellClass.identifier)
+    }
+}
+
+extension UITableView {
+    func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
+        let identifier = String(describing: T.self)
+        return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! T
+    }
 }
