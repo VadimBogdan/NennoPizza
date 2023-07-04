@@ -56,7 +56,7 @@ public final class PizzaMenuTableViewController: UITableViewController {
 
 final class PizzaMenuTableViewCell: UITableViewCell {
     
-    let pizzaBackgroundImageView = UIImageView()
+    private let pizzaBackgroundImageView = UIImageView()
     let pizzaImageView = UIImageView()
     let pizzaNameLabel = UILabel()
     let pizzaPriceLabel = UILabel()
@@ -153,8 +153,13 @@ final class PizzaMenuTableViewCell: UITableViewCell {
 }
 
 extension UIImage {
-    static let pizzaBackgroundImage = UIImage(named: "bg_wood")
-    static let cart = UIImage(named: "ic_cart_button")
+    static let pizzaBackgroundImage = UIImage(named: "bg_wood",
+                                              in: Bundle(for: PizzaMenuTableViewController.self),
+                                              compatibleWith: nil)
+    
+    static let cart = UIImage(named: "ic_cart_button",
+                              in: Bundle(for: PizzaMenuTableViewController.self),
+                              compatibleWith: nil)
 }
 
 extension NSObject {
