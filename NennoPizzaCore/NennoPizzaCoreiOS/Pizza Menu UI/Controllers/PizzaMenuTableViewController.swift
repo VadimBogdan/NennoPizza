@@ -13,6 +13,7 @@ public final class PizzaMenuTableViewController: UITableViewController {
 
 final class PizzaMenuTableViewCell: UITableViewCell {
     
+    let pizzaBackgroundImageView = UIImageView()
     let pizzaImageView = UIImageView()
     let pizzaNameLabel = UILabel()
     let pizzaIngredientsLabel = UILabel()
@@ -28,21 +29,28 @@ final class PizzaMenuTableViewCell: UITableViewCell {
     }
     
     private func setupUI() {
+        contentView.addSubview(pizzaBackgroundImageView)
         contentView.addSubview(pizzaImageView)
         
+        pizzaBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         pizzaImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             pizzaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             pizzaImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             pizzaImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            pizzaImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            pizzaImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            pizzaBackgroundImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            pizzaBackgroundImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            pizzaBackgroundImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            pizzaBackgroundImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+        
+        pizzaBackgroundImageView.image = .pizzaBackgroundImage
         
         let blurEffect = UIBlurEffect(style: .systemThinMaterialLight)
         let fxView = UIVisualEffectView(effect: blurEffect)
         fxView.translatesAutoresizingMaskIntoConstraints = false
-        let fxViewHeight: CGFloat = 69
         
         contentView.addSubview(fxView)
         
@@ -50,7 +58,7 @@ final class PizzaMenuTableViewCell: UITableViewCell {
             fxView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             fxView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             fxView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            fxView.heightAnchor.constraint(equalToConstant: fxViewHeight)
+            fxView.heightAnchor.constraint(equalToConstant: 69)
         ])
         
         pizzaIngredientsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -83,4 +91,8 @@ final class PizzaMenuTableViewCell: UITableViewCell {
             pizzaNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: fxView.trailingAnchor),
         ])
     }
+}
+
+extension UIImage {
+    static let pizzaBackgroundImage = UIImage(named: "bg_wood")
 }
