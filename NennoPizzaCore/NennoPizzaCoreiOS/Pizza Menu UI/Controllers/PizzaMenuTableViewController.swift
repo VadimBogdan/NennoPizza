@@ -6,14 +6,30 @@
 //
 
 import UIKit
+import NennoPizzaCore
 
-public final class PizzaCellController {
+public final class PizzaCellController: PizzaView {
     
     private var cell: PizzaMenuTableViewCell?
     
     func view(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(for: indexPath)
         return cell!
+    }
+    
+    public func display(_ model: PizzaViewModel<UIImage>) {
+        cell?.pizzaIngredientsLabel.text = model.ingredients
+        cell?.pizzaNameLabel.text = model.name
+        cell?.pizzaPriceLabel.text = model.price
+        cell?.pizzaImageView.image = model.image
+
+        cell?.onReuse = { [weak self] in
+            self?.releaseCellForReuse()
+        }
+    }
+    
+    private func releaseCellForReuse() {
+        cell = nil
     }
 }
 
@@ -62,6 +78,8 @@ final class PizzaMenuTableViewCell: UITableViewCell {
     let pizzaPriceLabel = UILabel()
     let pizzaIngredientsLabel = UILabel()
     
+    var onReuse: (() -> Void)?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -70,6 +88,12 @@ final class PizzaMenuTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
+    }
+    
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        onReuse?()
     }
     
     private func setupUI() {
