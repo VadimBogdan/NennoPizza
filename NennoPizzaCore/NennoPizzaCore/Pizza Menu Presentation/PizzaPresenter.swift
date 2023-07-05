@@ -32,7 +32,7 @@ public final class PizzaPresenter<View: PizzaView, Image> where View.Image == Im
         self.priceCalculator = priceCalculator
     }
     
-    public func didStartLoadingImageData(for model: Pizza) {
+    public func didStartLoadingData(for model: Pizza) {
         let price = currency + priceCalculator(model.ingredients)
         let ingredients = ingredientsFormatter(model.ingredients)
         view.display(PizzaViewModel(name: model.name,
@@ -41,7 +41,7 @@ public final class PizzaPresenter<View: PizzaView, Image> where View.Image == Im
                                     image: nil))
     }
     
-    public func didFinishLoadingImageData(with data: Data, for model: Pizza) {
+    public func didFinishLoadingData(with data: Data, for model: Pizza) {
         let image = imageTransformer(data)
         let price = currency + priceCalculator(model.ingredients)
         let ingredients = ingredientsFormatter(model.ingredients)
@@ -51,7 +51,7 @@ public final class PizzaPresenter<View: PizzaView, Image> where View.Image == Im
                                     image: image))
     }
     
-    public func didFinishLoadingImageData(with error: Error, for model: Pizza) {
+    public func didFinishLoadingData(with error: Error, for model: Pizza) {
         let price = currency + priceCalculator(model.ingredients)
         let ingredients = ingredientsFormatter(model.ingredients)
         view.display(PizzaViewModel(name: model.name,
