@@ -17,6 +17,8 @@
 		FD1D3B822A55610C00C12A08 /* UITableView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B812A55610C00C12A08 /* UITableView+Helpers.swift */; };
 		FD1D3B842A55612700C12A08 /* NSObject+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B832A55612700C12A08 /* NSObject+Identifier.swift */; };
 		FD1D3B872A5561CC00C12A08 /* PizzaMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B862A5561CC00C12A08 /* PizzaMenuTableViewCell.swift */; };
+		FD1D3B892A55D23E00C12A08 /* PizzaImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B882A55D23E00C12A08 /* PizzaImageDataLoader.swift */; };
+		FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B8A2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift */; };
 		FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD49D3102A545B11000A8DCF /* Menu.xcassets */; };
 		FD49D3242A547E78000A8DCF /* PizzaMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA826E2A532BBE00FE1252 /* PizzaMenuTableViewController.swift */; };
 		FD49D32F2A547F00000A8DCF /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */; };
@@ -98,6 +100,8 @@
 		FD1D3B812A55610C00C12A08 /* UITableView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Helpers.swift"; sourceTree = "<group>"; };
 		FD1D3B832A55612700C12A08 /* NSObject+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Identifier.swift"; sourceTree = "<group>"; };
 		FD1D3B862A5561CC00C12A08 /* PizzaMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuTableViewCell.swift; sourceTree = "<group>"; };
+		FD1D3B882A55D23E00C12A08 /* PizzaImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaImageDataLoader.swift; sourceTree = "<group>"; };
+		FD1D3B8A2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePizzaImageDataLoader.swift; sourceTree = "<group>"; };
 		FD49D3102A545B11000A8DCF /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPresenter.swift; sourceTree = "<group>"; };
 		FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 			children = (
 				FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */,
 				FDEA822B2A52D71D00FE1252 /* PizzaMenuLoader.swift */,
+				FD1D3B882A55D23E00C12A08 /* PizzaImageDataLoader.swift */,
 			);
 			path = "Pizza Menu Feature";
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			children = (
 				FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */,
 				FDEA822E2A52D78400FE1252 /* RemotePizzaMenuLoader.swift */,
+				FD1D3B8A2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift */,
 				FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */,
 			);
 			path = "Pizza Menu API";
@@ -555,11 +561,13 @@
 				FDEA82412A52E95A00FE1252 /* IngredientsLoader.swift in Sources */,
 				FDEA82442A52E9E600FE1252 /* IngredientsMapper.swift in Sources */,
 				FDEA82342A52D84E00FE1252 /* RemotePizzaMenu.swift in Sources */,
+				FD1D3B892A55D23E00C12A08 /* PizzaImageDataLoader.swift in Sources */,
 				FDEA822A2A52D6C800FE1252 /* HTTPClient.swift in Sources */,
 				FD49D32F2A547F00000A8DCF /* PizzaViewModel.swift in Sources */,
 				FDEA823F2A52E8C000FE1252 /* Ingredient.swift in Sources */,
 				FDEA82512A52FE5B00FE1252 /* PizzaPriceCalculator.swift in Sources */,
 				FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */,
+				FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */,
 				FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */,
 				FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */,
 				FD85FEAE2A54AE8200DA44C2 /* PizzaMenuPresenter.swift in Sources */,
