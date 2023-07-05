@@ -8,7 +8,8 @@
 import Foundation
 
 public struct PizzaMenuViewModel {
-    let pizzas: [Pizza]
+    public let pizzaMenu: PizzaMenu
+    public let ingredients: [Ingredient]
 }
 
 public protocol PizzaMenuView {
@@ -29,7 +30,7 @@ public final class PizzaMenuPresenter {
                                  comment: "Title for the Pizza Menu view")
     }
     
-    public func didFinishLoadingMenu(with pizzas: [Pizza]) {
-        pizzaMenuView.display(PizzaMenuViewModel(pizzas: pizzas))
+    public func didFinishLoadingMenu(pizzaMenu: PizzaMenu, and ingredients: [Ingredient]) {
+        pizzaMenuView.display(PizzaMenuViewModel(pizzaMenu: pizzaMenu, ingredients: ingredients))
     }
 }
