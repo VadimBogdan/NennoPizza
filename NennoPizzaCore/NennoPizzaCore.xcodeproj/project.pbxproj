@@ -12,6 +12,11 @@
 		FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */; };
 		FD1D3B792A555ECA00C12A08 /* Menu.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1D3B782A555ECA00C12A08 /* Menu.strings */; };
 		FD1D3B7B2A55601E00C12A08 /* PizzaCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B7A2A55601E00C12A08 /* PizzaCellController.swift */; };
+		FD1D3B7D2A5560B100C12A08 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B7C2A5560B100C12A08 /* DesignConstants.swift */; };
+		FD1D3B802A5560E500C12A08 /* UIColor+HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B7F2A5560E500C12A08 /* UIColor+HexColor.swift */; };
+		FD1D3B822A55610C00C12A08 /* UITableView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B812A55610C00C12A08 /* UITableView+Helpers.swift */; };
+		FD1D3B842A55612700C12A08 /* NSObject+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B832A55612700C12A08 /* NSObject+Identifier.swift */; };
+		FD1D3B872A5561CC00C12A08 /* PizzaMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B862A5561CC00C12A08 /* PizzaMenuTableViewCell.swift */; };
 		FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD49D3102A545B11000A8DCF /* Menu.xcassets */; };
 		FD49D3242A547E78000A8DCF /* PizzaMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA826E2A532BBE00FE1252 /* PizzaMenuTableViewController.swift */; };
 		FD49D32F2A547F00000A8DCF /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */; };
@@ -88,6 +93,11 @@
 		FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		FD1D3B782A555ECA00C12A08 /* Menu.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Menu.strings; sourceTree = "<group>"; };
 		FD1D3B7A2A55601E00C12A08 /* PizzaCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCellController.swift; sourceTree = "<group>"; };
+		FD1D3B7C2A5560B100C12A08 /* DesignConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConstants.swift; sourceTree = "<group>"; };
+		FD1D3B7F2A5560E500C12A08 /* UIColor+HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexColor.swift"; sourceTree = "<group>"; };
+		FD1D3B812A55610C00C12A08 /* UITableView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Helpers.swift"; sourceTree = "<group>"; };
+		FD1D3B832A55612700C12A08 /* NSObject+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Identifier.swift"; sourceTree = "<group>"; };
+		FD1D3B862A5561CC00C12A08 /* PizzaMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuTableViewCell.swift; sourceTree = "<group>"; };
 		FD49D3102A545B11000A8DCF /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPresenter.swift; sourceTree = "<group>"; };
 		FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
@@ -220,6 +230,24 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		FD1D3B7E2A5560D300C12A08 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FD1D3B832A55612700C12A08 /* NSObject+Identifier.swift */,
+				FD1D3B7F2A5560E500C12A08 /* UIColor+HexColor.swift */,
+				FD1D3B812A55610C00C12A08 /* UITableView+Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FD1D3B852A55617A00C12A08 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD1D3B862A5561CC00C12A08 /* PizzaMenuTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FD49D31D2A547E15000A8DCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,8 +338,11 @@
 		FDEA826C2A532B5400FE1252 /* Pizza Menu UI */ = {
 			isa = PBXGroup;
 			children = (
-				FD49D3102A545B11000A8DCF /* Menu.xcassets */,
+				FD1D3B7E2A5560D300C12A08 /* Helpers */,
 				FDEA826D2A532B5E00FE1252 /* Controllers */,
+				FD1D3B852A55617A00C12A08 /* Views */,
+				FD1D3B7C2A5560B100C12A08 /* DesignConstants.swift */,
+				FD49D3102A545B11000A8DCF /* Menu.xcassets */,
 			);
 			path = "Pizza Menu UI";
 			sourceTree = "<group>";
@@ -553,6 +584,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1D3B872A5561CC00C12A08 /* PizzaMenuTableViewCell.swift in Sources */,
+				FD1D3B842A55612700C12A08 /* NSObject+Identifier.swift in Sources */,
+				FD1D3B7D2A5560B100C12A08 /* DesignConstants.swift in Sources */,
+				FD1D3B822A55610C00C12A08 /* UITableView+Helpers.swift in Sources */,
+				FD1D3B802A5560E500C12A08 /* UIColor+HexColor.swift in Sources */,
 				FD1D3B7B2A55601E00C12A08 /* PizzaCellController.swift in Sources */,
 				FD49D3242A547E78000A8DCF /* PizzaMenuTableViewController.swift in Sources */,
 			);
