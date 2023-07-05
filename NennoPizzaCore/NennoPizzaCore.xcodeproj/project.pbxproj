@@ -21,6 +21,9 @@
 		FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B8A2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift */; };
 		FD1D3B8E2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B8D2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift */; };
 		FD1D3B912A55DBC000C12A08 /* RemotePizzaMenuAndIngredientsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B902A55DBC000C12A08 /* RemotePizzaMenuAndIngredientsLoader.swift */; };
+		FD1D3B932A55E5EB00C12A08 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B922A55E5EB00C12A08 /* URLSessionHTTPClient.swift */; };
+		FD1D3B952A55E60F00C12A08 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B942A55E60F00C12A08 /* URLSessionHTTPClientTests.swift */; };
+		FD1D3B982A55E64500C12A08 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D3B972A55E64500C12A08 /* URLProtocolStub.swift */; };
 		FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD49D3102A545B11000A8DCF /* Menu.xcassets */; };
 		FD49D3242A547E78000A8DCF /* PizzaMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA826E2A532BBE00FE1252 /* PizzaMenuTableViewController.swift */; };
 		FD49D32F2A547F00000A8DCF /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */; };
@@ -106,6 +109,9 @@
 		FD1D3B8A2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePizzaImageDataLoader.swift; sourceTree = "<group>"; };
 		FD1D3B8D2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuAndIngredientsLoader.swift; sourceTree = "<group>"; };
 		FD1D3B902A55DBC000C12A08 /* RemotePizzaMenuAndIngredientsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePizzaMenuAndIngredientsLoader.swift; sourceTree = "<group>"; };
+		FD1D3B922A55E5EB00C12A08 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		FD1D3B942A55E60F00C12A08 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		FD1D3B972A55E64500C12A08 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		FD49D3102A545B11000A8DCF /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPresenter.swift; sourceTree = "<group>"; };
 		FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1302902A51BC53005A12ED /* Helpers */,
+				FD1D3B962A55E61700C12A08 /* BusinessLogic */,
 				FD13028F2A51B7AA005A12ED /* API */,
 			);
 			path = NennoPizzaCoreTests;
@@ -225,7 +232,7 @@
 			children = (
 				FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */,
 				FDEA823B2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift */,
-				FDEA824D2A52EC4400FE1252 /* CalculatePizzaPriceUseCase.swift */,
+				FD1D3B942A55E60F00C12A08 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 				FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */,
 				FDEA82492A52EAFA00FE1252 /* SharedTestHelpers.swift */,
 				FDEA82392A52DC1600FE1252 /* HTTPClientSpy.swift */,
+				FD1D3B972A55E64500C12A08 /* URLProtocolStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -274,6 +282,14 @@
 			path = "Pizza Menu And Ingredients API";
 			sourceTree = "<group>";
 		};
+		FD1D3B962A55E61700C12A08 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA824D2A52EC4400FE1252 /* CalculatePizzaPriceUseCase.swift */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
 		FD49D31D2A547E15000A8DCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +312,7 @@
 			children = (
 				FDEA82302A52D80900FE1252 /* Helpers */,
 				FDEA82292A52D6C800FE1252 /* HTTPClient.swift */,
+				FD1D3B922A55E5EB00C12A08 /* URLSessionHTTPClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -590,6 +607,7 @@
 				FDEA823F2A52E8C000FE1252 /* Ingredient.swift in Sources */,
 				FDEA82512A52FE5B00FE1252 /* PizzaPriceCalculator.swift in Sources */,
 				FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */,
+				FD1D3B932A55E5EB00C12A08 /* URLSessionHTTPClient.swift in Sources */,
 				FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */,
 				FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */,
 				FD1D3B8E2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift in Sources */,
@@ -603,11 +621,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1D3B952A55E60F00C12A08 /* URLSessionHTTPClientTests.swift in Sources */,
 				FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */,
 				FDEA823A2A52DC1600FE1252 /* HTTPClientSpy.swift in Sources */,
 				FDEA824E2A52EC4400FE1252 /* CalculatePizzaPriceUseCase.swift in Sources */,
 				FDEA824A2A52EAFA00FE1252 /* SharedTestHelpers.swift in Sources */,
 				FDEA823C2A52DCDD00FE1252 /* LoadIngredientsFromRemoteUseCase.swift in Sources */,
+				FD1D3B982A55E64500C12A08 /* URLProtocolStub.swift in Sources */,
 				FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
