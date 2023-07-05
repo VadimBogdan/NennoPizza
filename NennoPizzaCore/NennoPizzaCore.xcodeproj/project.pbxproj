@@ -10,6 +10,7 @@
 		FD13027F2A51B468005A12ED /* NennoPizzaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1302762A51B467005A12ED /* NennoPizzaCore.framework */; };
 		FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */; };
 		FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */; };
+		FD1D3B792A555ECA00C12A08 /* Menu.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD1D3B782A555ECA00C12A08 /* Menu.strings */; };
 		FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD49D3102A545B11000A8DCF /* Menu.xcassets */; };
 		FD49D3242A547E78000A8DCF /* PizzaMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA826E2A532BBE00FE1252 /* PizzaMenuTableViewController.swift */; };
 		FD49D32F2A547F00000A8DCF /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */; };
@@ -18,6 +19,7 @@
 		FD85FEA52A54858C00DA44C2 /* NennoPizzaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1302762A51B467005A12ED /* NennoPizzaCore.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD85FEAA2A54863400DA44C2 /* NennoPizzaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FD85FEA92A54863400DA44C2 /* NennoPizzaCore.h */; };
 		FD85FEAC2A54864200DA44C2 /* NennoPizzaCoreiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FD85FEAB2A54864200DA44C2 /* NennoPizzaCoreiOS.h */; };
+		FD85FEAE2A54AE8200DA44C2 /* PizzaMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85FEAD2A54AE8200DA44C2 /* PizzaMenuPresenter.swift */; };
 		FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */; };
 		FDEA822A2A52D6C800FE1252 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82292A52D6C800FE1252 /* HTTPClient.swift */; };
 		FDEA822C2A52D71D00FE1252 /* PizzaMenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA822B2A52D71D00FE1252 /* PizzaMenuLoader.swift */; };
@@ -83,11 +85,13 @@
 		FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPizzaMenuFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		FD13028E2A51B6BE005A12ED /* NennoPizzaCore.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NennoPizzaCore.xctestplan; sourceTree = "<group>"; };
 		FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		FD1D3B782A555ECA00C12A08 /* Menu.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Menu.strings; sourceTree = "<group>"; };
 		FD49D3102A545B11000A8DCF /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPresenter.swift; sourceTree = "<group>"; };
 		FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
 		FD85FEA92A54863400DA44C2 /* NennoPizzaCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NennoPizzaCore.h; sourceTree = "<group>"; };
 		FD85FEAB2A54864200DA44C2 /* NennoPizzaCoreiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NennoPizzaCoreiOS.h; path = NennoPizzaCoreiOS/NennoPizzaCoreiOS.h; sourceTree = SOURCE_ROOT; };
+		FD85FEAD2A54AE8200DA44C2 /* PizzaMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuPresenter.swift; sourceTree = "<group>"; };
 		FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenu.swift; sourceTree = "<group>"; };
 		FDEA82292A52D6C800FE1252 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		FDEA822B2A52D71D00FE1252 /* PizzaMenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuLoader.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 			children = (
 				FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */,
 				FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */,
+				FD85FEAD2A54AE8200DA44C2 /* PizzaMenuPresenter.swift */,
+				FD1D3B782A555ECA00C12A08 /* Menu.strings */,
 			);
 			path = "Pizza Menu Presentation";
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1D3B792A555ECA00C12A08 /* Menu.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +528,7 @@
 				FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */,
 				FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */,
 				FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */,
+				FD85FEAE2A54AE8200DA44C2 /* PizzaMenuPresenter.swift in Sources */,
 				FDEA822C2A52D71D00FE1252 /* PizzaMenuLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
