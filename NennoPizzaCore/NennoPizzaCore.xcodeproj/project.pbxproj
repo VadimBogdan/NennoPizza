@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD04754F2A56CA0D00D5D8EB /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD04754E2A56CA0D00D5D8EB /* AttentionView.swift */; };
+		FD0475512A56D0A600D5D8EB /* AddedToCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475502A56D0A600D5D8EB /* AddedToCartViewModel.swift */; };
 		FD13027F2A51B468005A12ED /* NennoPizzaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1302762A51B467005A12ED /* NennoPizzaCore.framework */; };
 		FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */; };
 		FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */; };
@@ -96,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		FD04754E2A56CA0D00D5D8EB /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
+		FD0475502A56D0A600D5D8EB /* AddedToCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedToCartViewModel.swift; sourceTree = "<group>"; };
 		FD1302762A51B467005A12ED /* NennoPizzaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NennoPizzaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD13027E2A51B468005A12ED /* NennoPizzaCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NennoPizzaCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPizzaMenuFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 			children = (
 				FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */,
 				FD49D32E2A547F00000A8DCF /* PizzaViewModel.swift */,
+				FD0475502A56D0A600D5D8EB /* AddedToCartViewModel.swift */,
 				FD85FEAD2A54AE8200DA44C2 /* PizzaMenuPresenter.swift */,
 				FD1D3B782A555ECA00C12A08 /* Menu.strings */,
 			);
@@ -640,6 +643,7 @@
 				FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */,
 				FD1D3B932A55E5EB00C12A08 /* URLSessionHTTPClient.swift in Sources */,
 				FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */,
+				FD0475512A56D0A600D5D8EB /* AddedToCartViewModel.swift in Sources */,
 				FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */,
 				FD1D3B8E2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift in Sources */,
 				FDEA82272A52D5BB00FE1252 /* PizzaMenu.swift in Sources */,

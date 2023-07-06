@@ -21,3 +21,9 @@ extension WeakRefVirtualProxy: PizzaView where T: PizzaView, T.Image == UIImage 
         object?.display(viewModel)
     }
 }
+
+extension WeakRefVirtualProxy: AddedToCartView where T: AddedToCartView {
+    func display(_ viewModel: AddedToCartViewModel) {
+        object?.display(viewModel)
+    }
+}

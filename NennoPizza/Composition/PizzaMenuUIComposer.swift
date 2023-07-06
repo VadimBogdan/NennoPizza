@@ -24,10 +24,11 @@ class PizzaMenuUIComposer {
             pizzaMenuView: PizzaViewAdapter(
                 controller: pizzaMenuTableViewController,
                 imageLoader: SimplePizzaImageDataCachedLoader(loader: MainQueueDispatchDecorator(decoratee: imageLoader)),
-                pizzaSelection: {
+                pizzaSelection: { [weak presentationAdapter] in
+                    presentationAdapter?.didAddedToCartSubject.send()
                     cart.pizzas.append($0)
-                })
-        )
+                }),
+            addedToCartView: WeakRefVirtualProxy(pizzaMenuTableViewController))
         
         presentationAdapter.presenter = presenter
         
