@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AttentionView: UIView {
+final class AttentionView: UIView {
     
     private let label = UILabel()
     
@@ -29,9 +29,11 @@ class AttentionView: UIView {
     }
     
     private func setup() {
-        label.text = nil
-        alpha = 0
         backgroundColor = .redAttention
+        alpha = 0
+        label.text = nil
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 14, weight: .semibold)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
@@ -39,7 +41,7 @@ class AttentionView: UIView {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.topAnchor.constraint(equalTo: topAnchor, constant: 3),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 3)
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -3)
         ])
     }
     
