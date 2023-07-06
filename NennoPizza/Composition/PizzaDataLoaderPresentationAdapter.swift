@@ -11,12 +11,14 @@ import NennoPizzaCoreiOS
 final class PizzaImageDataLoaderPresentationAdapter<View: PizzaView, Image>: PizzaCellControllerDelegate where View.Image == Image {
     private let model: Pizza
     private let imageLoader: PizzaImageDataLoader
+    private let pizzaSelectionCallback: (Pizza) -> Void
 
     var presenter: PizzaPresenter<View, Image>?
 
-    init(model: Pizza, imageLoader: PizzaImageDataLoader) {
+    init(model: Pizza, imageLoader: PizzaImageDataLoader, pizzaSelectionCallback: @escaping (Pizza) -> Void) {
         self.model = model
         self.imageLoader = imageLoader
+        self.pizzaSelectionCallback = pizzaSelectionCallback
     }
 
     func didRequestPizzaData() {
@@ -35,4 +37,9 @@ final class PizzaImageDataLoaderPresentationAdapter<View: PizzaView, Image>: Piz
             }
         }
     }
+    
+    func didSelectPizza() {
+        pizzaSelectionCallback(model)
+    }
+    
 }

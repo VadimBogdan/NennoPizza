@@ -8,7 +8,18 @@
 import NennoPizzaCoreiOS
 import NennoPizzaCore
 
+struct PricedPizza {
+    let pizza: Pizza
+    let price: Double
+}
+
+final class Cart {
+    var pizzas = [PricedPizza]()
+}
+
 class PizzaMenuUIComposer {
+    private static let cart = Cart()
+    
     private init() {}
     
     public static func pizzaMenuComposedWith(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader,
@@ -21,7 +32,10 @@ class PizzaMenuUIComposer {
         let presenter = PizzaMenuPresenter(
             pizzaMenuView: PizzaViewAdapter(
                 controller: pizzaMenuTableViewController,
-                imageLoader: SimplePizzaImageDataCachedLoader(loader: MainQueueDispatchDecorator(decoratee: imageLoader)))
+                imageLoader: SimplePizzaImageDataCachedLoader(loader: MainQueueDispatchDecorator(decoratee: imageLoader)),
+                pizzaSelection: {
+                    cart.pizzas.append($0)
+                })
         )
         
         presentationAdapter.presenter = presenter
