@@ -6,16 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
-
-public struct CartItemViewModel {
-    public let name: String
-    public let price: String
-}
-
-public protocol CartItemView {
-    func display(_ model: CartItemViewModel)
-}
 
 public final class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

@@ -5,6 +5,7 @@
 //  Created by Vadym Bohdan on 06.07.2023.
 //
 
+import NennoPizzaCore
 import SwiftUI
 
 public protocol CartItemCellControllerDelegate {
