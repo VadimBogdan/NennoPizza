@@ -8,12 +8,21 @@
 import UIKit
 import NennoPizzaCore
 
+public protocol PizzaCellControllerDelegate {
+    func didRequestPizzaData()
+}
+
 public final class PizzaCellController: PizzaView {
-    
+    private let delegate: PizzaCellControllerDelegate
     private var cell: PizzaMenuTableViewCell?
+    
+    public init(delegate: PizzaCellControllerDelegate) {
+        self.delegate = delegate
+    }
     
     func view(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(for: indexPath)
+        delegate.didRequestPizzaData()
         return cell!
     }
     

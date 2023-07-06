@@ -65,7 +65,7 @@ final class PizzaMenuTableViewCell: UITableViewCell {
             fxView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             fxView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             fxView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            fxView.heightAnchor.constraint(equalToConstant: 69)
+            fxView.heightAnchor.constraint(greaterThanOrEqualToConstant: 69)
         ])
         
         pizzaIngredientsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -108,10 +108,11 @@ final class PizzaMenuTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             pizzaIngredientsLabel.bottomAnchor.constraint(equalTo: fxView.bottomAnchor, constant: -12),
             pizzaIngredientsLabel.leadingAnchor.constraint(equalTo: fxView.leadingAnchor, constant: 12),
-            pizzaIngredientsLabel.trailingAnchor.constraint(lessThanOrEqualTo: priceView.trailingAnchor, constant: -67)
+            pizzaIngredientsLabel.trailingAnchor.constraint(lessThanOrEqualTo: priceView.leadingAnchor, constant: -67)
         ])
         
         NSLayoutConstraint.activate([
+            pizzaNameLabel.topAnchor.constraint(equalTo: fxView.topAnchor, constant: 12),
             pizzaNameLabel.bottomAnchor.constraint(equalTo: pizzaIngredientsLabel.topAnchor),
             pizzaNameLabel.leadingAnchor.constraint(equalTo: pizzaIngredientsLabel.leadingAnchor),
             pizzaNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: fxView.trailingAnchor),
@@ -121,9 +122,12 @@ final class PizzaMenuTableViewCell: UITableViewCell {
     private func setupFormatting() {
         pizzaPriceLabel.font = .systemFont(ofSize: 16, weight: .bold)
         pizzaPriceLabel.textColor = .white
+        pizzaPriceLabel.adjustsFontSizeToFitWidth = true
+        pizzaPriceLabel.minimumScaleFactor = 0.5
         pizzaNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
         pizzaNameLabel.textColor = .primaryDark
         pizzaIngredientsLabel.font = .systemFont(ofSize: 14, weight: .regular)
         pizzaIngredientsLabel.textColor = .primaryDark
+        pizzaIngredientsLabel.numberOfLines = 0
     }
 }

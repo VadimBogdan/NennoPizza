@@ -15,5 +15,5 @@ struct RemotePizzaMenu: Decodable {
 struct RemotePizza: Decodable {
     let ingredients: [Int]
     let name: String
-    let imageURL: URL?
+    let imageUrl: URL?
 }

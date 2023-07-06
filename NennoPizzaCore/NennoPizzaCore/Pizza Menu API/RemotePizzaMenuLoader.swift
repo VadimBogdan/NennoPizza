@@ -55,6 +55,6 @@ private extension RemotePizzaMenu {
 
 private extension Array where Element == RemotePizza {
     func toModels() -> [Pizza] {
-        map { Pizza(ingredients: $0.ingredients, name: $0.name, url: $0.imageURL) }
+        map { Pizza(ingredients: $0.ingredients, name: $0.name, url: $0.imageUrl) }
     }
 }
