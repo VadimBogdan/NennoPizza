@@ -32,6 +32,10 @@ public final class PizzaMenuTableViewController: UITableViewController {
         tableModel = cellControllers
     }
     
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellController(forRowAt: indexPath).select()
+    }
+    
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         DesignConstants.pizzaMenuCellHeight
     }

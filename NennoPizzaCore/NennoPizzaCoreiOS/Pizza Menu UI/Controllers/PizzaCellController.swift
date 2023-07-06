@@ -10,6 +10,7 @@ import NennoPizzaCore
 
 public protocol PizzaCellControllerDelegate {
     func didRequestPizzaData()
+    func didSelectPizza()
 }
 
 public final class PizzaCellController: PizzaView {
@@ -24,6 +25,10 @@ public final class PizzaCellController: PizzaView {
         cell = tableView.dequeueReusableCell(for: indexPath)
         delegate.didRequestPizzaData()
         return cell!
+    }
+    
+    func select() {
+        delegate.didSelectPizza()
     }
     
     public func display(_ model: PizzaViewModel<UIImage>) {
