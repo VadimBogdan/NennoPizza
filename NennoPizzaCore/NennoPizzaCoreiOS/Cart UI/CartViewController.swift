@@ -17,42 +17,7 @@ public protocol CartItemView {
     func display(_ model: CartItemViewModel)
 }
 
-public protocol CartItemCellControllerDelegate {
-    func didSelectCartItem()
-}
-
-class CartItemCellController: CartItemView {
-    
-    private let delegate: CartItemCellControllerDelegate
-    private var cell: UITableViewCell?
-    
-    public init(delegate: CartItemCellControllerDelegate) {
-        self.delegate = delegate
-    }
-    
-    func view(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
-        cell = tableView.dequeueReusableCell(for: indexPath)
-        return cell!
-    }
-    
-    func select() {
-        delegate.didSelectCartItem()
-    }
-    
-    public func display(_ model: CartItemViewModel) {
-        cell?.contentConfiguration = UIHostingConfiguration {
-            HStack {
-                Text(model.name)
-                Spacer()
-                Text(model.price)
-            }
-            .padding(.horizontal, 12)
-        }
-    }
-    
-}
-
-class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public final class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
@@ -60,7 +25,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         didSet { tableView.reloadData() }
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
@@ -70,7 +35,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cellController(forRowAt: indexPath).view(in: tableView, for: indexPath)
     }
     
