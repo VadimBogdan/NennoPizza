@@ -26,10 +26,10 @@ public final class PizzaMenuPresenter {
     private let addedToCartView: AddedToCartView
     
     private var addedToCartMessage: String {
-        return NSLocalizedString("PIZZA_MENU_ADDED_TO_CART_VIEW_TITLE",
-                                 tableName: "Menu",
-                                 bundle: Bundle(for: PizzaMenuPresenter.self),
-                                 comment: "Message for Added To Cart view")
+        NSLocalizedString("PIZZA_MENU_ADDED_TO_CART_VIEW_TITLE",
+                          tableName: "Menu",
+                          bundle: Bundle(for: PizzaMenuPresenter.self),
+                          comment: "Message for Added To Cart view")
     }
     
     public init(pizzaMenuView: PizzaMenuView, addedToCartView: AddedToCartView) {
@@ -38,10 +38,10 @@ public final class PizzaMenuPresenter {
     }
     
     public static var title: String {
-        return NSLocalizedString("PIZZA_MENU_VIEW_TITLE",
-                                 tableName: "Menu",
-                                 bundle: Bundle(for: PizzaMenuPresenter.self),
-                                 comment: "Title for the Pizza Menu view")
+        NSLocalizedString("PIZZA_MENU_VIEW_TITLE",
+                          tableName: "Menu",
+                          bundle: Bundle(for: PizzaMenuPresenter.self),
+                          comment: "Title for the Pizza Menu view")
     }
     
     public func didFinishLoadingMenu(pizzaMenu: PizzaMenu, and ingredients: [Ingredient]) {
