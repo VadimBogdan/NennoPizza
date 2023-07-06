@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CartItem {
-    let name: String
-    let price: Double
+public struct CartItem {
+    public let name: String
+    public let price: String
 }

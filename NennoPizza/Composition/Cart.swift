@@ -9,7 +9,7 @@ import NennoPizzaCore
 
 struct PricedPizza {
     let pizza: Pizza
-    let price: Double
+    let price: String
 }
 
 final class Cart {
