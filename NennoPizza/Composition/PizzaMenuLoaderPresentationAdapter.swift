@@ -17,9 +17,11 @@ final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate 
     
     private let menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader
     private var didAddedToCartCancellable: AnyCancellable?
+    private let didSelectCartCallback: () -> Void
     
-    init(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader) {
+    init(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader, didSelectCartCallback: @escaping () -> Void) {
         self.menuAndIngredientsLoader = menuAndIngredientsLoader
+        self.didSelectCartCallback = didSelectCartCallback
         
         didAddedToCartCancellable = didAddedToCartSubject.map { [weak self] in
             self?.presenter?.didStartDisplayAddedToCart()
@@ -36,6 +38,10 @@ final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate 
                 self?.presenter?.didFinishLoadingMenu(pizzaMenu: menu, and: ingredients)
             }
         }
+    }
+    
+    func didSelectCart() {
+        didSelectCartCallback()
     }
     
 }
