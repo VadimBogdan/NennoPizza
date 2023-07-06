@@ -15,7 +15,11 @@ class PizzaMenuUIComposer {
     
     public static func pizzaMenuComposedWith(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader,
                                              imageLoader: PizzaImageDataLoader) -> PizzaMenuTableViewController {
-        let presentationAdapter = PizzaMenuLoaderPresentationAdapter(menuAndIngredientsLoader: MainQueueDispatchDecorator(decoratee: menuAndIngredientsLoader))
+        let presentationAdapter = PizzaMenuLoaderPresentationAdapter(
+            menuAndIngredientsLoader: MainQueueDispatchDecorator(decoratee: menuAndIngredientsLoader),
+            didSelectCartCallback: {
+            
+        })
         
         let pizzaMenuTableViewController = makePizzaMenuViewController(delegate: presentationAdapter,
                                                                        title: PizzaMenuPresenter.title)

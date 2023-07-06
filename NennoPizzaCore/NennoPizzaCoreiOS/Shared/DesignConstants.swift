@@ -19,6 +19,11 @@ extension UIImage {
     static let cart = UIImage(named: "ic_cart_button",
                               in: Bundle(for: PizzaMenuTableViewController.self),
                               compatibleWith: nil)
+    
+    static let cartNavbar = UIImage(named: "ic_cart_navbar",
+                              in: Bundle(for: PizzaMenuTableViewController.self),
+                              compatibleWith: nil)
+    
 }
 
 extension UIColor {

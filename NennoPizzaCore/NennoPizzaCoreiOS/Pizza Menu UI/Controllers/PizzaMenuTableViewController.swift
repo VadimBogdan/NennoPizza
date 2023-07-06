@@ -10,6 +10,7 @@ import NennoPizzaCore
 
 public protocol PizzaMenuViewControllerDelegate {
     func didRequestMenu()
+    func didSelectCart()
 }
 
 public final class PizzaMenuTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddedToCartView {
@@ -33,6 +34,10 @@ public final class PizzaMenuTableViewController: UIViewController, UITableViewDe
         setup()
         tableView.register(PizzaMenuTableViewCell.self)
         delegate?.didRequestMenu()
+    }
+    
+    @objc private func didSelectCart() {
+        delegate?.didSelectCart()
     }
     
     public func display(_ cellControllers: [PizzaCellController]) {
@@ -66,6 +71,11 @@ public final class PizzaMenuTableViewController: UIViewController, UITableViewDe
     }
     
     private func setup() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .cartNavbar?.withRenderingMode(.alwaysOriginal),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(didSelectCart))
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
