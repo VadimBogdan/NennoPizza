@@ -14,7 +14,7 @@ class PizzaMenuUIComposer {
     private init() {}
     
     public static func pizzaMenuComposedWith(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader,
-                                             imageLoader: PizzaImageDataLoader) -> PizzaMenuTableViewController {
+                                             imageLoader: PizzaImageDataLoader) -> PizzaMenuViewController {
         let presentationAdapter = PizzaMenuLoaderPresentationAdapter(
             menuAndIngredientsLoader: MainQueueDispatchDecorator(decoratee: menuAndIngredientsLoader),
             didSelectCartCallback: {
@@ -39,8 +39,8 @@ class PizzaMenuUIComposer {
         return pizzaMenuTableViewController
     }
     
-    private static func makePizzaMenuViewController(delegate: PizzaMenuViewControllerDelegate, title: String) -> PizzaMenuTableViewController {
-        let pizzaMenuController = PizzaMenuTableViewController()
+    private static func makePizzaMenuViewController(delegate: PizzaMenuViewControllerDelegate, title: String) -> PizzaMenuViewController {
+        let pizzaMenuController = PizzaMenuViewController()
         pizzaMenuController.delegate = delegate
         pizzaMenuController.title = title
         return pizzaMenuController

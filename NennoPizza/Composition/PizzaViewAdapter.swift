@@ -10,11 +10,11 @@ import NennoPizzaCore
 import NennoPizzaCoreiOS
 
 final class PizzaViewAdapter: PizzaMenuView {
-    private weak var controller: PizzaMenuTableViewController?
+    private weak var controller: PizzaMenuViewController?
     private let imageLoader: PizzaImageDataLoader
     private let pizzaSelection: (PricedPizza) -> Void
     
-    init(controller: PizzaMenuTableViewController?, imageLoader: PizzaImageDataLoader, pizzaSelection: @escaping (PricedPizza) -> Void) {
+    init(controller: PizzaMenuViewController?, imageLoader: PizzaImageDataLoader, pizzaSelection: @escaping (PricedPizza) -> Void) {
         self.controller = controller
         self.imageLoader = imageLoader
         self.pizzaSelection = pizzaSelection

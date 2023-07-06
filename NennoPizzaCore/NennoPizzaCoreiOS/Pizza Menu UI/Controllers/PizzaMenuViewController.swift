@@ -1,5 +1,5 @@
 //
-//  PizzaMenuTableViewController.swift
+//  PizzaMenuViewController.swift
 //  NennoPizzaCoreiOS
 //
 //  Created by Vadym Bohdan on 03.07.2023.
@@ -13,7 +13,7 @@ public protocol PizzaMenuViewControllerDelegate {
     func didSelectCart()
 }
 
-public final class PizzaMenuTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddedToCartView {
+public final class PizzaMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddedToCartView {
     
     private let addedToCartView = AttentionView(frame: .zero)
     private let tableView = UITableView(frame: .zero, style: .plain)

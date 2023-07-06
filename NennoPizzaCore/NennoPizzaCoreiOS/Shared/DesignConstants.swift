@@ -13,15 +13,15 @@ enum DesignConstants {
 
 extension UIImage {
     static let pizzaBackgroundImage = UIImage(named: "bg_wood",
-                                              in: Bundle(for: PizzaMenuTableViewController.self),
+                                              in: Bundle(for: PizzaMenuViewController.self),
                                               compatibleWith: nil)
     
     static let cart = UIImage(named: "ic_cart_button",
-                              in: Bundle(for: PizzaMenuTableViewController.self),
+                              in: Bundle(for: PizzaMenuViewController.self),
                               compatibleWith: nil)
     
     static let cartNavbar = UIImage(named: "ic_cart_navbar",
-                              in: Bundle(for: PizzaMenuTableViewController.self),
+                              in: Bundle(for: PizzaMenuViewController.self),
                               compatibleWith: nil)
     
 }
