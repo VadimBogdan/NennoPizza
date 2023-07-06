@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD0475402A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */; };
+		FD0475422A56B9B200D5D8EB /* PizzaViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */; };
 		FD1641442A50424D0019178F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD1641432A50424D0019178F /* README.md */; };
 		FD2A06DE2A4F25D800812B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */; };
 		FD2A06E02A4F25D800812B2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewAdapter.swift; sourceTree = "<group>"; };
 		FD1641432A50424D0019178F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FD2A06DA2A4F25D700812B2C /* NennoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NennoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD0475432A56B9B500D5D8EB /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				FD2E3AAD2A561FD900BF08F2 /* WeakRefVirtualProxy.swift */,
+				FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */,
+				FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
 		FD2A06D12A4F25D700812B2C = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +75,7 @@
 			children = (
 				FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */,
 				FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */,
-				FD2E3AAD2A561FD900BF08F2 /* WeakRefVirtualProxy.swift */,
-				FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */,
+				FD0475432A56B9B500D5D8EB /* Composition */,
 				FD1641432A50424D0019178F /* README.md */,
 				FD2A06E62A4F25DB00812B2C /* Assets.xcassets */,
 				FD2A06E82A4F25DB00812B2C /* LaunchScreen.storyboard */,
@@ -156,6 +167,7 @@
 				FD2A06DE2A4F25D800812B2C /* AppDelegate.swift in Sources */,
 				FD2E3AAE2A561FD900BF08F2 /* WeakRefVirtualProxy.swift in Sources */,
 				FD0475402A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift in Sources */,
+				FD0475422A56B9B200D5D8EB /* PizzaViewAdapter.swift in Sources */,
 				FD2A06E02A4F25D800812B2C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
