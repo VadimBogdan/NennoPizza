@@ -20,7 +20,7 @@ final class PizzaViewAdapter: PizzaMenuView {
     
     func display(_ viewModel: PizzaMenuViewModel) {
         controller?.display(viewModel.pizzaMenu.pizzas.map { model in
-            let adapter = PizzaDataLoaderPresentationAdapter<WeakRefVirtualProxy<PizzaCellController>, UIImage>(model: model, imageLoader: imageLoader)
+            let adapter = PizzaImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<PizzaCellController>, UIImage>(model: model, imageLoader: imageLoader)
             let view = PizzaCellController(delegate: adapter)
             
             adapter.presenter = PizzaPresenter(view: WeakRefVirtualProxy(view),
