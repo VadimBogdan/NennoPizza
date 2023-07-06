@@ -25,6 +25,10 @@ public final class CartViewController: UIViewController, UITableViewDelegate, UI
         tableView.reloadData()
     }
     
+    public func display(_ cellControllers: [CartItemCellController]) {
+        tableModel = cellControllers
+    }
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cellController(forRowAt: indexPath).view(in: tableView, for: indexPath)
     }
