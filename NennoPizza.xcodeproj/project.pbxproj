@@ -54,6 +54,7 @@
 		FD0475432A56B9B500D5D8EB /* Composition */ = {
 			isa = PBXGroup;
 			children = (
+				FD05E71B2A59EF510015CC18 /* Cart */,
 				FD2E3AAD2A561FD900BF08F2 /* WeakRefVirtualProxy.swift */,
 				FD0475462A56BAB300D5D8EB /* MainQueueDispatchDecorator.swift */,
 				FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */,
@@ -63,6 +64,13 @@
 				FD04754A2A56C91000D5D8EB /* Cart.swift */,
 			);
 			path = Composition;
+			sourceTree = "<group>";
+		};
+		FD05E71B2A59EF510015CC18 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		FD2A06D12A4F25D700812B2C = {
