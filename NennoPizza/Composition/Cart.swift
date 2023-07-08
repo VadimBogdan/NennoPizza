@@ -9,9 +9,11 @@ import NennoPizzaCore
 
 struct PricedPizza {
     let pizza: Pizza
-    let price: String
+    let price: Double
 }
 
 final class Cart {
     var pizzas = [PricedPizza]()
+    
+    static var empty: Cart { Cart() }
 }
