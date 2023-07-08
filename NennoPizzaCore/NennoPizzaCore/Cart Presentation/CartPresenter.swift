@@ -11,11 +11,21 @@ public protocol CartView {
     func display(_ model: CartViewModel)
 }
 
+public protocol CartTotalPriceView {
+    func display(_ model: CartTotalPriceViewModel)
+}
+
 public final class CartPresenter {
     private let cartView: CartView
+    private let cartTotalPriceView: CartTotalPriceView
+    private let priceFormatter: (Double) -> String
     
-    public init(cartView: CartView) {
+    public init(cartView: CartView,
+                cartTotalPriceView: CartTotalPriceView,
+                priceFormatter: @escaping (Double) -> String) {
         self.cartView = cartView
+        self.cartTotalPriceView = cartTotalPriceView
+        self.priceFormatter = priceFormatter
     }
     
     public static var title: String {
@@ -25,7 +35,17 @@ public final class CartPresenter {
                           comment: "Title for the Cart view")
     }
     
-    public func didLoadCart(with cartItems: [CartItem]) {
+    private var cartTotalTitle: String {
+        NSLocalizedString("CART_VIEW_TOTAL_PRICE_TITLE",
+                          tableName: "Cart",
+                          bundle: Bundle(for: CartPresenter.self),
+                          comment: "Cart view total")
+    }
+    
+    public func didLoadCart(_ cartItems: [CartItem], totalPrice: Double) {
+        let totalPriceString = priceFormatter(totalPrice)
         cartView.display(CartViewModel(items: cartItems))
+        cartTotalPriceView.display(CartTotalPriceViewModel(title: cartTotalTitle, price: totalPriceString))
+
     }
 }

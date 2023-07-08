@@ -1,5 +1,5 @@
 //
-//  CartItemViewController.swift
+//  CartItemCellController.swift
 //  NennoPizzaCoreiOS
 //
 //  Created by Vadym Bohdan on 06.07.2023.
@@ -9,7 +9,7 @@ import NennoPizzaCore
 import SwiftUI
 
 public protocol CartItemCellControllerDelegate {
-    func didSelectCartItem()
+    func didRequestCartItem()
 }
 
 public final class CartItemCellController: CartItemView {
@@ -23,14 +23,12 @@ public final class CartItemCellController: CartItemView {
     
     func view(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(for: indexPath)
+        delegate.didRequestCartItem()
         return cell!
     }
     
-    func select() {
-        delegate.didSelectCartItem()
-    }
-    
     public func display(_ model: CartItemViewModel) {
+        cell?.selectionStyle = .none
         cell?.contentConfiguration = UIHostingConfiguration {
             HStack {
                 Text(model.name)

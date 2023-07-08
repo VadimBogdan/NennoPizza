@@ -13,12 +13,16 @@ public protocol CartItemView {
 
 public final class CartItemPresenter {
     private let cartItemView: CartItemView
+    private let priceFormatter: (Double) -> String
     
-    public init(cartItemView: CartItemView) {
+    public init(cartItemView: CartItemView,
+                priceFormatter: @escaping (Double) -> String) {
         self.cartItemView = cartItemView
+        self.priceFormatter = priceFormatter
     }
     
     public func didLoad(model: CartItem) {
-        cartItemView.display(CartItemViewModel(name: model.name, price: model.price))
+        let itemPrice = priceFormatter(model.price)
+        cartItemView.display(CartItemViewModel(name: model.name, price: itemPrice))
     }
 }
