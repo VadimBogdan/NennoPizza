@@ -9,6 +9,24 @@ import UIKit
 import NennoPizzaCoreiOS
 import NennoPizzaCore
 
+class PizzaMenuAndIngredientsLoaderWithCompletionDecorator: PizzaMenuAndIngredientsLoader {
+    
+    private let decoratee: PizzaMenuAndIngredientsLoader
+    private let loadResultCompletion: (PizzaMenuAndIngredientsLoader.Result) -> Void
+    
+    init(_ decoratee: PizzaMenuAndIngredientsLoader, loadResultCompletion: @escaping (PizzaMenuAndIngredientsLoader.Result) -> Void) {
+        self.decoratee = decoratee
+        self.loadResultCompletion = loadResultCompletion
+    }
+    
+    func load(completion: @escaping (PizzaMenuAndIngredientsLoader.Result) -> Void) {
+        decoratee.load { [weak self] in
+            self?.loadResultCompletion($0)
+            completion($0)
+        }
+    }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -29,7 +47,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let remotePizzaMenuLoader = RemotePizzaMenuLoader(url: remotePizzasURL, client: httpClient)
         let remoteIngredientsLoader = RemoteIngredientsLoader(url: remoteIngredientsURL, client: httpClient)
         
-        let menuAndIngredientsLoader = RemotePizzaMenuAndIngredientsLoader(remotePizzaMenuLoader: remotePizzaMenuLoader, remoteIngredientsLoader: remoteIngredientsLoader)
+        let menuAndIngredientsLoader = PizzaMenuAndIngredientsLoaderWithCompletionDecorator(
+            RemotePizzaMenuAndIngredientsLoader(
+                remotePizzaMenuLoader: remotePizzaMenuLoader,
+                remoteIngredientsLoader: remoteIngredientsLoader)) { [weak self] in
+                    guard let self, case let .success((menu, ingredients)) = $0 else { return }
+                    (self.pizzaMenu, self.ingredients) = (menu, ingredients)
+                }
         let imageLoader = RemotePizzaImageDataLoader(client: httpClient)
         
         let rootNavigationController = UINavigationController()
@@ -42,11 +66,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     return self.cart
                 }, animated: true)
             },
-            didAddedPizzaToCart: { [weak self] in self?.addPizzaToCart($0) },
-            didLoadPizzaMenuWithIngredients: { [weak self] in
-                guard let self else { return }
-                (self.pizzaMenu, self.ingredients) = $0
-            })
+            didAddedPizzaToCart: { [weak self] in self?.addPizzaToCart($0) })
         
         rootNavigationController.pushViewController(pizzaMenuViewController, animated: true)
         window?.rootViewController = rootNavigationController

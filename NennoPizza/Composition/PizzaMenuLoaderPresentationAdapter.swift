@@ -18,14 +18,11 @@ final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate 
     private let menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader
     private var didAddedToCartCancellable: AnyCancellable?
     private let didSelectCartCallback: () -> Void
-    private let didLoadPizzaMenuWithIngredients: ((PizzaMenu, [Ingredient])) -> Void
     
     init(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader,
-         didSelectCartCallback: @escaping () -> Void,
-         didLoadPizzaMenuWithIngredients: @escaping ((PizzaMenu, [Ingredient])) -> Void) {
+         didSelectCartCallback: @escaping () -> Void) {
         self.menuAndIngredientsLoader = menuAndIngredientsLoader
         self.didSelectCartCallback = didSelectCartCallback
-        self.didLoadPizzaMenuWithIngredients = didLoadPizzaMenuWithIngredients
         
         didAddedToCartCancellable = didAddedToCartSubject.map { [weak self] in
             self?.presenter?.didStartDisplayAddedToCart()
@@ -39,7 +36,6 @@ final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate 
     func didRequestMenu() {
         menuAndIngredientsLoader.load { [weak self] result in
             if case let .success((menu, ingredients)) = result {
-                self?.didLoadPizzaMenuWithIngredients((menu, ingredients))
                 self?.presenter?.didFinishLoadingMenu(pizzaMenu: menu, and: ingredients)
             }
         }

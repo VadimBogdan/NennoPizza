@@ -14,12 +14,10 @@ class PizzaMenuUIComposer {
     public static func pizzaMenuComposedWith(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader,
                                              imageLoader: PizzaImageDataLoader,
                                              didSelectCartCallback: @escaping () -> Void,
-                                             didAddedPizzaToCart: @escaping (Pizza) -> Void,
-                                             didLoadPizzaMenuWithIngredients: @escaping ((PizzaMenu, [Ingredient])) -> Void) -> PizzaMenuViewController {
+                                             didAddedPizzaToCart: @escaping (Pizza) -> Void) -> PizzaMenuViewController {
         let presentationAdapter = PizzaMenuLoaderPresentationAdapter(
             menuAndIngredientsLoader: MainQueueDispatchDecorator(decoratee: menuAndIngredientsLoader),
-            didSelectCartCallback: didSelectCartCallback,
-            didLoadPizzaMenuWithIngredients: didLoadPizzaMenuWithIngredients)
+            didSelectCartCallback: didSelectCartCallback)
         
         let pizzaMenuViewController = makePizzaMenuViewController(delegate: presentationAdapter,
                                                                   title: PizzaMenuPresenter.title)
