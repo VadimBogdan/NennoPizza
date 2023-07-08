@@ -41,10 +41,12 @@ final class PizzaMenuTableViewCell: UITableViewCell {
         
         pizzaBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         pizzaImageView.translatesAutoresizingMaskIntoConstraints = false
+        pizzaImageView.contentMode = .scaleAspectFill
+        pizzaImageView.clipsToBounds = true
         
         NSLayoutConstraint.activate([
-            pizzaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            pizzaImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            pizzaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            pizzaImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
             pizzaImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             pizzaImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             pizzaBackgroundImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
