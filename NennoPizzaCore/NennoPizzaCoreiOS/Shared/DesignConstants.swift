@@ -9,6 +9,7 @@ import UIKit
 
 enum DesignConstants {
     static let pizzaMenuCellHeight: CGFloat = 178
+    static let cartItemCellHeight: CGFloat = 44
 }
 
 extension UIImage {
@@ -29,5 +30,5 @@ extension UIImage {
 extension UIColor {
     static let primaryDark = UIColor("#4A4A4A")
     static let secondaryOrange = UIColor("#FFCD2B")
-    static let redAttention = UIColor("#E14D45")
+    public static let redAttention = UIColor("#E14D45")
 }
