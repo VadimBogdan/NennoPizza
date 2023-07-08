@@ -17,6 +17,7 @@
 		FD05E71F2A59F2860015CC18 /* CartItemDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05E71E2A59F2860015CC18 /* CartItemDataLoaderPresentationAdapter.swift */; };
 		FD05E7212A59F3020015CC18 /* CartViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05E7202A59F3020015CC18 /* CartViewAdapter.swift */; };
 		FD05E7232A59F3590015CC18 /* NumberFormatter+formatCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05E7222A59F3590015CC18 /* NumberFormatter+formatCurrency.swift */; };
+		FD05E7262A59F5540015CC18 /* CartUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05E7252A59F5540015CC18 /* CartUIComposer.swift */; };
 		FD1641442A50424D0019178F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD1641432A50424D0019178F /* README.md */; };
 		FD2A06DE2A4F25D800812B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */; };
 		FD2A06E02A4F25D800812B2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 		FD05E71E2A59F2860015CC18 /* CartItemDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		FD05E7202A59F3020015CC18 /* CartViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewAdapter.swift; sourceTree = "<group>"; };
 		FD05E7222A59F3590015CC18 /* NumberFormatter+formatCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+formatCurrency.swift"; sourceTree = "<group>"; };
+		FD05E7252A59F5540015CC18 /* CartUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUIComposer.swift; sourceTree = "<group>"; };
 		FD1641432A50424D0019178F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FD2A06DA2A4F25D700812B2C /* NennoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NennoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				FD05E71C2A59F2430015CC18 /* CartPresentationAdapter.swift */,
 				FD05E71E2A59F2860015CC18 /* CartItemDataLoaderPresentationAdapter.swift */,
 				FD05E7202A59F3020015CC18 /* CartViewAdapter.swift */,
+				FD05E7252A59F5540015CC18 /* CartUIComposer.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				FD05E7232A59F3590015CC18 /* NumberFormatter+formatCurrency.swift in Sources */,
 				FD2E3AAE2A561FD900BF08F2 /* WeakRefVirtualProxy.swift in Sources */,
 				FD05E71D2A59F2430015CC18 /* CartPresentationAdapter.swift in Sources */,
+				FD05E7262A59F5540015CC18 /* CartUIComposer.swift in Sources */,
 				FD0475402A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift in Sources */,
 				FD0475492A56BCF500D5D8EB /* PizzaMenuUIComposer.swift in Sources */,
 				FD0475422A56B9B200D5D8EB /* PizzaViewAdapter.swift in Sources */,
