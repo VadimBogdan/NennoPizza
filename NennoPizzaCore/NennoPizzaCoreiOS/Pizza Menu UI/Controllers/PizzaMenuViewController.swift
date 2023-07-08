@@ -29,6 +29,7 @@ public final class PizzaMenuViewController: UIViewController, UITableViewDelegat
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backButtonDisplayMode = .minimal
         tableView.delegate = self
         tableView.dataSource = self
         setup()
