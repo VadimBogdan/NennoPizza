@@ -9,24 +9,6 @@ import UIKit
 import NennoPizzaCoreiOS
 import NennoPizzaCore
 
-class PizzaMenuAndIngredientsLoaderWithCompletionDecorator: PizzaMenuAndIngredientsLoader {
-    
-    private let decoratee: PizzaMenuAndIngredientsLoader
-    private let loadResultCompletion: (PizzaMenuAndIngredientsLoader.Result) -> Void
-    
-    init(_ decoratee: PizzaMenuAndIngredientsLoader, loadResultCompletion: @escaping (PizzaMenuAndIngredientsLoader.Result) -> Void) {
-        self.decoratee = decoratee
-        self.loadResultCompletion = loadResultCompletion
-    }
-    
-    func load(completion: @escaping (PizzaMenuAndIngredientsLoader.Result) -> Void) {
-        decoratee.load { [weak self] in
-            self?.loadResultCompletion($0)
-            completion($0)
-        }
-    }
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

@@ -19,6 +19,7 @@
 		FD0475622A57098D00D5D8EB /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475612A57098D00D5D8EB /* CartPresenter.swift */; };
 		FD0475642A5709A200D5D8EB /* Cart.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD0475632A5709A200D5D8EB /* Cart.strings */; };
 		FD0475662A570A2200D5D8EB /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475652A570A2200D5D8EB /* CartViewModel.swift */; };
+		FD05E7282A5A21F70015CC18 /* PizzaMenuAndIngredientsLoaderWithCompletionDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05E7272A5A21F70015CC18 /* PizzaMenuAndIngredientsLoaderWithCompletionDecorator.swift */; };
 		FD13027F2A51B468005A12ED /* NennoPizzaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1302762A51B467005A12ED /* NennoPizzaCore.framework */; };
 		FD1302842A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */; };
 		FD1302922A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1302912A51BC65005A12ED /* XCTest+MemoryLeakTracking.swift */; };
@@ -118,6 +119,7 @@
 		FD0475612A57098D00D5D8EB /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
 		FD0475632A5709A200D5D8EB /* Cart.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Cart.strings; sourceTree = "<group>"; };
 		FD0475652A570A2200D5D8EB /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		FD05E7272A5A21F70015CC18 /* PizzaMenuAndIngredientsLoaderWithCompletionDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuAndIngredientsLoaderWithCompletionDecorator.swift; sourceTree = "<group>"; };
 		FD1302762A51B467005A12ED /* NennoPizzaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NennoPizzaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD13027E2A51B468005A12ED /* NennoPizzaCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NennoPizzaCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1302832A51B468005A12ED /* LoadPizzaMenuFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPizzaMenuFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1D3B8D2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift */,
+				FD05E7272A5A21F70015CC18 /* PizzaMenuAndIngredientsLoaderWithCompletionDecorator.swift */,
 			);
 			path = "Pizza Menu And Ingredients Feature";
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */,
 				FD0475512A56D0A600D5D8EB /* AddedToCartViewModel.swift in Sources */,
 				FD0475622A57098D00D5D8EB /* CartPresenter.swift in Sources */,
+				FD05E7282A5A21F70015CC18 /* PizzaMenuAndIngredientsLoaderWithCompletionDecorator.swift in Sources */,
 				FDEA82322A52D81B00FE1252 /* HTTPURLResponse+StatusCode.swift in Sources */,
 				FD0475602A57062B00D5D8EB /* CartItemViewModel.swift in Sources */,
 				FD1D3B8E2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift in Sources */,
