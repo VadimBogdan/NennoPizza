@@ -30,5 +30,6 @@ extension UIImage {
 extension UIColor {
     static let primaryDark = UIColor("#4A4A4A")
     static let secondaryOrange = UIColor("#FFCD2B")
+    static let redSecondary = UIColor("#DF4E4A")
     public static let redAttention = UIColor("#E14D45")
 }
