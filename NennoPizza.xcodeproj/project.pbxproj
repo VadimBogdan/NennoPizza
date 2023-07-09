@@ -64,15 +64,12 @@
 		FD0475432A56B9B500D5D8EB /* Composition */ = {
 			isa = PBXGroup;
 			children = (
-				FD05E7242A59F35C0015CC18 /* Helpers */,
-				FD05E71B2A59EF510015CC18 /* Cart */,
 				FD2E3AAD2A561FD900BF08F2 /* WeakRefVirtualProxy.swift */,
 				FD0475462A56BAB300D5D8EB /* MainQueueDispatchDecorator.swift */,
-				FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */,
-				FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */,
-				FD0475442A56BA1800D5D8EB /* PizzaDataLoaderPresentationAdapter.swift */,
-				FD0475482A56BCF500D5D8EB /* PizzaMenuUIComposer.swift */,
 				FD04754A2A56C91000D5D8EB /* Cart.swift */,
+				FD05E7242A59F35C0015CC18 /* Helpers */,
+				FDFF253C2A5B39CB00DEB45F /* Pizza Menu */,
+				FD05E71B2A59EF510015CC18 /* Cart */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
@@ -134,6 +131,17 @@
 				FD49D3172A546D0F000A8DCF /* NennoPizzaCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDFF253C2A5B39CB00DEB45F /* Pizza Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */,
+				FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */,
+				FD0475442A56BA1800D5D8EB /* PizzaDataLoaderPresentationAdapter.swift */,
+				FD0475482A56BCF500D5D8EB /* PizzaMenuUIComposer.swift */,
+			);
+			path = "Pizza Menu";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
