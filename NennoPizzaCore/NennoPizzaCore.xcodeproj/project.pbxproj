@@ -66,6 +66,7 @@
 		FDEA82512A52FE5B00FE1252 /* PizzaPriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82502A52FE5B00FE1252 /* PizzaPriceCalculator.swift */; };
 		FDEA825F2A5301E600FE1252 /* NennoPizzaCoreiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEA82572A5301E600FE1252 /* NennoPizzaCoreiOS.framework */; };
 		FDEA82642A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */; };
+		FDFF25402A5B3AA400DEB45F /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,7 @@
 		FDEA825E2A5301E600FE1252 /* NennoPizzaCoreiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NennoPizzaCoreiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NennoPizzaCoreiOSTests.swift; sourceTree = "<group>"; };
 		FDEA826E2A532BBE00FE1252 /* PizzaMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuViewController.swift; sourceTree = "<group>"; };
+		FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				FD04754C2A56C9F900D5D8EB /* Shared */,
+				FDFF253D2A5B3A8300DEB45F /* Checkout UI */,
 				FD0475522A56E8BA00D5D8EB /* Cart UI */,
 				FDEA826C2A532B5400FE1252 /* Pizza Menu UI */,
 				FD85FEAB2A54864200DA44C2 /* NennoPizzaCoreiOS.h */,
@@ -508,6 +511,22 @@
 				FD1D3B782A555ECA00C12A08 /* Menu.strings */,
 			);
 			path = "Pizza Menu Presentation";
+			sourceTree = "<group>";
+		};
+		FDFF253D2A5B3A8300DEB45F /* Checkout UI */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF253E2A5B3A9400DEB45F /* Controllers */,
+			);
+			path = "Checkout UI";
+			sourceTree = "<group>";
+		};
+		FDFF253E2A5B3A9400DEB45F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -748,6 +767,7 @@
 				FD1D3B842A55612700C12A08 /* NSObject+Identifier.swift in Sources */,
 				FD04754F2A56CA0D00D5D8EB /* AttentionView.swift in Sources */,
 				FD1D3B7D2A5560B100C12A08 /* DesignConstants.swift in Sources */,
+				FDFF25402A5B3AA400DEB45F /* CheckoutViewController.swift in Sources */,
 				FD1D3B822A55610C00C12A08 /* UITableView+Helpers.swift in Sources */,
 				FD04755B2A56FF5600D5D8EB /* CartItemCellController.swift in Sources */,
 				FD1D3B802A5560E500C12A08 /* UIColor+HexColor.swift in Sources */,
