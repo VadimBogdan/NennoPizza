@@ -9,38 +9,37 @@ import NennoPizzaCoreiOS
 import NennoPizzaCore
 
 class PizzaMenuUIComposer {
-    private static let cart = Cart()
-    
     private init() {}
     
     public static func pizzaMenuComposedWith(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader,
-                                             imageLoader: PizzaImageDataLoader) -> PizzaMenuTableViewController {
+                                             imageLoader: PizzaImageDataLoader,
+                                             didSelectCartCallback: @escaping () -> Void,
+                                             didAddedPizzaToCart: @escaping (Pizza) -> Void) -> PizzaMenuViewController {
         let presentationAdapter = PizzaMenuLoaderPresentationAdapter(
             menuAndIngredientsLoader: MainQueueDispatchDecorator(decoratee: menuAndIngredientsLoader),
-            didSelectCartCallback: {
-            
-        })
+            didSelectCartCallback: didSelectCartCallback)
         
-        let pizzaMenuTableViewController = makePizzaMenuViewController(delegate: presentationAdapter,
-                                                                       title: PizzaMenuPresenter.title)
+        let pizzaMenuViewController = makePizzaMenuViewController(delegate: presentationAdapter,
+                                                                  title: PizzaMenuPresenter.title)
         
         let presenter = PizzaMenuPresenter(
             pizzaMenuView: PizzaViewAdapter(
-                controller: pizzaMenuTableViewController,
+                controller: pizzaMenuViewController,
+                currency: "$",
                 imageLoader: SimplePizzaImageDataCachedLoader(loader: MainQueueDispatchDecorator(decoratee: imageLoader)),
                 pizzaSelection: { [weak presentationAdapter] in
                     presentationAdapter?.didAddedToCartSubject.send()
-                    cart.pizzas.append($0)
+                    didAddedPizzaToCart($0)
                 }),
-            addedToCartView: WeakRefVirtualProxy(pizzaMenuTableViewController))
+            addedToCartView: WeakRefVirtualProxy(pizzaMenuViewController))
         
         presentationAdapter.presenter = presenter
         
-        return pizzaMenuTableViewController
+        return pizzaMenuViewController
     }
     
-    private static func makePizzaMenuViewController(delegate: PizzaMenuViewControllerDelegate, title: String) -> PizzaMenuTableViewController {
-        let pizzaMenuController = PizzaMenuTableViewController()
+    private static func makePizzaMenuViewController(delegate: PizzaMenuViewControllerDelegate, title: String) -> PizzaMenuViewController {
+        let pizzaMenuController = PizzaMenuViewController()
         pizzaMenuController.delegate = delegate
         pizzaMenuController.title = title
         return pizzaMenuController

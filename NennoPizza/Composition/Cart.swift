@@ -14,4 +14,6 @@ struct PricedPizza {
 
 final class Cart {
     var pizzas = [PricedPizza]()
+    
+    static var empty: Cart { Cart() }
 }

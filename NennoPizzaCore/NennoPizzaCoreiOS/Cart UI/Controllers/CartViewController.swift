@@ -6,39 +6,57 @@
 //
 
 import UIKit
+import NennoPizzaCore
+
+public protocol CartViewControllerDelegate {
+    func didSelectCheckout()
+    func didRequestCart()
+}
 
 public final class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let checkoutButton = UIButton()
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
     private var tableModel = [CartItemCellController]() {
         didSet { tableView.reloadData() }
     }
+    private var footerModel: CartFooterController?
+    
+    public var delegate: CartViewControllerDelegate?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UITableViewCell.self)
+        
         setup()
         
-        tableView.reloadData()
+        delegate?.didRequestCart()
+    }
+    
+    @objc private func checkout() {
+        delegate?.didSelectCheckout()
     }
     
     public func display(_ cellControllers: [CartItemCellController]) {
         tableModel = cellControllers
     }
     
+    public func display(_ footerController: CartFooterController) {
+        footerModel = footerController
+        tableView.tableFooterView = footerModel?.view()
+    }
+        
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cellController(forRowAt: indexPath).view(in: tableView, for: indexPath)
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellController(forRowAt: indexPath).select()
-    }
-    
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        DesignConstants.pizzaMenuCellHeight
+        DesignConstants.cartItemCellHeight
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,12 +70,26 @@ public final class CartViewController: UIViewController, UITableViewDelegate, UI
     
     private func setup() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        checkoutButton.translatesAutoresizingMaskIntoConstraints = false
+        checkoutButton.addTarget(self, action: #selector(checkout), for: .touchUpInside)
+        checkoutButton.backgroundColor = .redAttention
+        checkoutButton.setTitleColor(.white, for: .normal)
+        checkoutButton.setTitleColor(.white.withAlphaComponent(0.5), for: .highlighted)
+        checkoutButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         view.addSubview(tableView)
+        view.addSubview(checkoutButton)
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            checkoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            checkoutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            checkoutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            checkoutButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }

@@ -27,3 +27,16 @@ extension WeakRefVirtualProxy: AddedToCartView where T: AddedToCartView {
         object?.display(viewModel)
     }
 }
+
+extension WeakRefVirtualProxy: CartItemView where T: CartItemView {
+    func display(_ viewModel: CartItemViewModel) {
+        object?.display(viewModel)
+    }
+}
+
+extension WeakRefVirtualProxy: CartTotalPriceView where T: CartTotalPriceView {
+    func display(_ viewModel: CartTotalPriceViewModel) {
+        object?.display(viewModel)
+    }
+}
+

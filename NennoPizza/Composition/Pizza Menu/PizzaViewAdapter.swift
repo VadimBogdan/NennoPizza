@@ -10,14 +10,16 @@ import NennoPizzaCore
 import NennoPizzaCoreiOS
 
 final class PizzaViewAdapter: PizzaMenuView {
-    private weak var controller: PizzaMenuTableViewController?
+    private weak var controller: PizzaMenuViewController?
     private let imageLoader: PizzaImageDataLoader
-    private let pizzaSelection: (PricedPizza) -> Void
+    private let currency: String
+    private let pizzaSelection: (Pizza) -> Void
     
-    init(controller: PizzaMenuTableViewController?, imageLoader: PizzaImageDataLoader, pizzaSelection: @escaping (PricedPizza) -> Void) {
+    init(controller: PizzaMenuViewController?, currency: String, imageLoader: PizzaImageDataLoader, pizzaSelection: @escaping (Pizza) -> Void) {
         self.controller = controller
         self.imageLoader = imageLoader
         self.pizzaSelection = pizzaSelection
+        self.currency = currency
     }
     
     func display(_ viewModel: PizzaMenuViewModel) {
@@ -27,20 +29,16 @@ final class PizzaViewAdapter: PizzaMenuView {
                 model: model,
                 imageLoader: imageLoader,
                 pizzaSelectionCallback: { [weak self] in
-                    let pricedPizza = PricedPizza(pizza: $0, price: pizzaPriceCalculator.calculate(with: $0.ingredients))
-                    self?.pizzaSelection(pricedPizza)
+                    self?.pizzaSelection($0)
                 })
             
             let view = PizzaCellController(delegate: adapter)
             
             adapter.presenter = PizzaPresenter(view: WeakRefVirtualProxy(view),
-                                               currency: "$",
                                                imageTransformer: UIImage.init,
-                                               priceCalculator: { ingredients in
-                let formatter = NumberFormatter()
-                formatter.numberStyle = .decimal
-                
-                return formatter.string(for: pizzaPriceCalculator.calculate(with: ingredients)) ?? "0"
+                                               priceCalculator: { [currency] ingredients in
+                let price = pizzaPriceCalculator.calculate(with: ingredients)
+                return NumberFormatter.format(price, currency: currency)
             },
                                                ingredientsFormatter: { ingredients in
                 viewModel.ingredients.filter { ingredients.contains($0.id) }.map { $0.name }.joined(separator: ", ") + "."

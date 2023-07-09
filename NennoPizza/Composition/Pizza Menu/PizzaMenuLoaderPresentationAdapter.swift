@@ -19,7 +19,8 @@ final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate 
     private var didAddedToCartCancellable: AnyCancellable?
     private let didSelectCartCallback: () -> Void
     
-    init(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader, didSelectCartCallback: @escaping () -> Void) {
+    init(menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader,
+         didSelectCartCallback: @escaping () -> Void) {
         self.menuAndIngredientsLoader = menuAndIngredientsLoader
         self.didSelectCartCallback = didSelectCartCallback
         

@@ -9,19 +9,20 @@ import UIKit
 
 enum DesignConstants {
     static let pizzaMenuCellHeight: CGFloat = 178
+    static let cartItemCellHeight: CGFloat = 44
 }
 
 extension UIImage {
     static let pizzaBackgroundImage = UIImage(named: "bg_wood",
-                                              in: Bundle(for: PizzaMenuTableViewController.self),
+                                              in: Bundle(for: PizzaMenuViewController.self),
                                               compatibleWith: nil)
     
     static let cart = UIImage(named: "ic_cart_button",
-                              in: Bundle(for: PizzaMenuTableViewController.self),
+                              in: Bundle(for: PizzaMenuViewController.self),
                               compatibleWith: nil)
     
     static let cartNavbar = UIImage(named: "ic_cart_navbar",
-                              in: Bundle(for: PizzaMenuTableViewController.self),
+                              in: Bundle(for: PizzaMenuViewController.self),
                               compatibleWith: nil)
     
 }
@@ -29,5 +30,5 @@ extension UIImage {
 extension UIColor {
     static let primaryDark = UIColor("#4A4A4A")
     static let secondaryOrange = UIColor("#FFCD2B")
-    static let redAttention = UIColor("#E14D45")
+    public static let redAttention = UIColor("#E14D45")
 }
