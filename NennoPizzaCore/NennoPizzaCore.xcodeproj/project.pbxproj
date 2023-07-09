@@ -67,6 +67,7 @@
 		FDEA825F2A5301E600FE1252 /* NennoPizzaCoreiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEA82572A5301E600FE1252 /* NennoPizzaCoreiOS.framework */; };
 		FDEA82642A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */; };
 		FDFF25402A5B3AA400DEB45F /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */; };
+		FDFF25432A5B3E8C00DEB45F /* CheckoutUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NennoPizzaCoreiOSTests.swift; sourceTree = "<group>"; };
 		FDEA826E2A532BBE00FE1252 /* PizzaMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuViewController.swift; sourceTree = "<group>"; };
 		FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutUploader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				FDEA82282A52D6A000FE1252 /* API */,
+				FDFF25412A5B3E7B00DEB45F /* Checkout Feature */,
 				FDEA823D2A52E8A500FE1252 /* Ingredients Feature */,
 				FDEA82422A52E9A800FE1252 /* Ingredients API */,
 				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
@@ -529,6 +532,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		FDFF25412A5B3E7B00DEB45F /* Checkout Feature */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */,
+			);
+			path = "Checkout Feature";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -729,6 +740,7 @@
 				FDEA823F2A52E8C000FE1252 /* Ingredient.swift in Sources */,
 				FDEA82512A52FE5B00FE1252 /* PizzaPriceCalculator.swift in Sources */,
 				FD0475662A570A2200D5D8EB /* CartViewModel.swift in Sources */,
+				FDFF25432A5B3E8C00DEB45F /* CheckoutUploader.swift in Sources */,
 				FDEA82462A52E9F200FE1252 /* RemoteIngredientsLoader.swift in Sources */,
 				FD1D3B932A55E5EB00C12A08 /* URLSessionHTTPClient.swift in Sources */,
 				FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */,
