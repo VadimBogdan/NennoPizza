@@ -46,6 +46,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 rootNavigationController?.pushViewController(CartUIComposer.cartComposedWith { [weak self] in
                     guard let self else { return Cart.empty }
                     return self.cart
+                } didSelectCheckout: {
+                    
                 }, animated: true)
             },
             didAddedPizzaToCart: { [weak self] in self?.addPizzaToCart($0) })

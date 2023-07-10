@@ -16,11 +16,14 @@ public final class CheckoutViewController: UIViewController, CheckoutView {
     
     private let messageLabel = UILabel()
     private let footerView = UIView()
+    
+    public var delegate: CheckoutViewControllerDelegate?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+        delegate?.didRequestCheckout()
     }
     
     public func display(_ viewModel: CheckoutViewModel) {
