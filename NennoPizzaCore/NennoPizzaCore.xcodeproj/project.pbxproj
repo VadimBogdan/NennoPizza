@@ -67,8 +67,6 @@
 		FDEA824A2A52EAFA00FE1252 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82492A52EAFA00FE1252 /* SharedTestHelpers.swift */; };
 		FDEA824E2A52EC4400FE1252 /* CalculatePizzaPriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA824D2A52EC4400FE1252 /* CalculatePizzaPriceUseCase.swift */; };
 		FDEA82512A52FE5B00FE1252 /* PizzaPriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82502A52FE5B00FE1252 /* PizzaPriceCalculator.swift */; };
-		FDEA825F2A5301E600FE1252 /* NennoPizzaCoreiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEA82572A5301E600FE1252 /* NennoPizzaCoreiOS.framework */; };
-		FDEA82642A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */; };
 		FDFF25402A5B3AA400DEB45F /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */; };
 		FDFF25432A5B3E8C00DEB45F /* CheckoutUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */; };
 		FDFF25462A5B3FD000DEB45F /* RemoteCheckoutUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF25452A5B3FD000DEB45F /* RemoteCheckoutUploader.swift */; };
@@ -88,13 +86,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FD1302752A51B467005A12ED;
 			remoteInfo = NennoPizzaCore;
-		};
-		FDEA82602A5301E600FE1252 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD13026D2A51B467005A12ED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FDEA82562A5301E600FE1252;
-			remoteInfo = NennoPizzaCoreiOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -173,8 +164,6 @@
 		FDEA824D2A52EC4400FE1252 /* CalculatePizzaPriceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePizzaPriceUseCase.swift; sourceTree = "<group>"; };
 		FDEA82502A52FE5B00FE1252 /* PizzaPriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPriceCalculator.swift; sourceTree = "<group>"; };
 		FDEA82572A5301E600FE1252 /* NennoPizzaCoreiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NennoPizzaCoreiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDEA825E2A5301E600FE1252 /* NennoPizzaCoreiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NennoPizzaCoreiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NennoPizzaCoreiOSTests.swift; sourceTree = "<group>"; };
 		FDEA826E2A532BBE00FE1252 /* PizzaMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuViewController.swift; sourceTree = "<group>"; };
 		FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutUploader.swift; sourceTree = "<group>"; };
@@ -202,14 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD85FEA42A54858C00DA44C2 /* NennoPizzaCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDEA825B2A5301E600FE1252 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDEA825F2A5301E600FE1252 /* NennoPizzaCoreiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +260,6 @@
 				FD1302782A51B467005A12ED /* NennoPizzaCore */,
 				FD1302822A51B468005A12ED /* NennoPizzaCoreTests */,
 				FDEA82582A5301E600FE1252 /* NennoPizzaCoreiOS */,
-				FDEA82622A5301E600FE1252 /* NennoPizzaCoreiOSTests */,
 				FD1302772A51B467005A12ED /* Products */,
 				FD49D31D2A547E15000A8DCF /* Frameworks */,
 			);
@@ -291,7 +271,6 @@
 				FD1302762A51B467005A12ED /* NennoPizzaCore.framework */,
 				FD13027E2A51B468005A12ED /* NennoPizzaCoreTests.xctest */,
 				FDEA82572A5301E600FE1252 /* NennoPizzaCoreiOS.framework */,
-				FDEA825E2A5301E600FE1252 /* NennoPizzaCoreiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -496,14 +475,6 @@
 			path = NennoPizzaCoreiOS;
 			sourceTree = "<group>";
 		};
-		FDEA82622A5301E600FE1252 /* NennoPizzaCoreiOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */,
-			);
-			path = NennoPizzaCoreiOSTests;
-			sourceTree = "<group>";
-		};
 		FDEA826C2A532B5400FE1252 /* Pizza Menu UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,24 +617,6 @@
 			productReference = FDEA82572A5301E600FE1252 /* NennoPizzaCoreiOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FDEA825D2A5301E600FE1252 /* NennoPizzaCoreiOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDEA826B2A5301E600FE1252 /* Build configuration list for PBXNativeTarget "NennoPizzaCoreiOSTests" */;
-			buildPhases = (
-				FDEA825A2A5301E600FE1252 /* Sources */,
-				FDEA825B2A5301E600FE1252 /* Frameworks */,
-				FDEA825C2A5301E600FE1252 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FDEA82612A5301E600FE1252 /* PBXTargetDependency */,
-			);
-			name = NennoPizzaCoreiOSTests;
-			productName = NennoPizzaCoreiOSTests;
-			productReference = FDEA825E2A5301E600FE1252 /* NennoPizzaCoreiOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -685,9 +638,6 @@
 						CreatedOnToolsVersion = 14.3.1;
 						LastSwiftMigration = 1430;
 					};
-					FDEA825D2A5301E600FE1252 = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
 				};
 			};
 			buildConfigurationList = FD1302702A51B467005A12ED /* Build configuration list for PBXProject "NennoPizzaCore" */;
@@ -706,7 +656,6 @@
 				FD1302752A51B467005A12ED /* NennoPizzaCore */,
 				FD13027D2A51B468005A12ED /* NennoPizzaCoreTests */,
 				FDEA82562A5301E600FE1252 /* NennoPizzaCoreiOS */,
-				FDEA825D2A5301E600FE1252 /* NennoPizzaCoreiOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -734,13 +683,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDEA825C2A5301E600FE1252 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,14 +764,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDEA825A2A5301E600FE1252 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDEA82642A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -843,11 +777,6 @@
 			platformFilter = ios;
 			target = FD1302752A51B467005A12ED /* NennoPizzaCore */;
 			targetProxy = FD85FEA62A54858C00DA44C2 /* PBXContainerItemProxy */;
-		};
-		FDEA82612A5301E600FE1252 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FDEA82562A5301E600FE1252 /* NennoPizzaCoreiOS */;
-			targetProxy = FDEA82602A5301E600FE1252 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1152,40 +1081,6 @@
 			};
 			name = Release;
 		};
-		FDEA82682A5301E600FE1252 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H8TMARX7BW;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vadymbohdan.NennoPizzaCoreiOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FDEA82692A5301E600FE1252 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H8TMARX7BW;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vadymbohdan.NennoPizzaCoreiOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1221,15 +1116,6 @@
 			buildConfigurations = (
 				FDEA82662A5301E600FE1252 /* Debug */,
 				FDEA82672A5301E600FE1252 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDEA826B2A5301E600FE1252 /* Build configuration list for PBXNativeTarget "NennoPizzaCoreiOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FDEA82682A5301E600FE1252 /* Debug */,
-				FDEA82692A5301E600FE1252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
