@@ -127,7 +127,7 @@ final class LoadPizzaMenuFromRemoteUseCaseTests: XCTestCase {
         let json = [
             "ingredients": ingredients,
             "name": name,
-            "imageURL": url?.absoluteString as Any
+            "imageUrl": url?.absoluteString as Any
         ].compactMapValues({ $0 })
         
         return (pizza, json)
