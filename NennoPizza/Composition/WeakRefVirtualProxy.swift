@@ -40,3 +40,10 @@ extension WeakRefVirtualProxy: CartTotalPriceView where T: CartTotalPriceView {
     }
 }
 
+extension WeakRefVirtualProxy: CheckoutView where T: CheckoutView {
+    func display(_ viewModel: CheckoutViewModel) {
+        object?.display(viewModel)
+    }
+}
+
+

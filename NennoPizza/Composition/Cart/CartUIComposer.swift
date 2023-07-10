@@ -13,15 +13,14 @@ class CartUIComposer {
     
     private init() {}
     
-    public static func cartComposedWith(cartLoader: @escaping () -> Cart) -> CartViewController {
-        let presentationAdapter = CartPresentationAdapter(
-            cartLoader: cartLoader,
-            didSelectCheckoutCallBack: {
-                
-            })
+    public static func cartComposedWith(cartLoader: @escaping () -> Cart,
+                                        didSelectCheckout: @escaping () -> Void) -> CartViewController {
+        let presentationAdapter = CartPresentationAdapter(cartLoader: cartLoader,
+                                                          didSelectCheckoutCallBack: didSelectCheckout)
         
         let cartViewController = makeCartViewController(delegate: presentationAdapter,
-                                                        title: CartPresenter.title)
+                                                        title: CartPresenter.title,
+                                                        checkoutTitle: CartPresenter.checkoutButtonTitle)
         
         let adapter = CartViewAdapter(controller: cartViewController)
         
@@ -33,9 +32,10 @@ class CartUIComposer {
         return cartViewController
     }
     
-    private static func makeCartViewController(delegate: CartViewControllerDelegate, title: String) -> CartViewController {
+    private static func makeCartViewController(delegate: CartViewControllerDelegate, title: String, checkoutTitle: String) -> CartViewController {
         let cartController = CartViewController()
         cartController.delegate = delegate
+        cartController.checkoutButton.setTitle(checkoutTitle, for: .normal)
         cartController.title = title
         return cartController
     }

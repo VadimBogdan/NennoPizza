@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
+        let remoteCheckoutURL = URL(string: "http://httpbin.org/post")!
         let remotePizzasURL = URL(string: "https://doclerlabs.github.io/mobile-native-challenge/pizzas.json")!
         let remoteIngredientsURL = URL(string: "https://doclerlabs.github.io/mobile-native-challenge/ingredients.json")!
         
@@ -36,16 +37,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     guard let self, case let .success((menu, ingredients)) = $0 else { return }
                     (self.pizzaMenu, self.ingredients) = (menu, ingredients)
                 }
-        let imageLoader = RemotePizzaImageDataLoader(client: httpClient)
+        let remoteImageLoader = RemotePizzaImageDataLoader(client: httpClient)
+        
+        let remoteCheckoutUploader = RemoteCheckoutUploader(url: remoteCheckoutURL, client: httpClient)
         
         let rootNavigationController = UINavigationController()
         let pizzaMenuViewController = PizzaMenuUIComposer.pizzaMenuComposedWith(
             menuAndIngredientsLoader: menuAndIngredientsLoader,
-            imageLoader: imageLoader,
+            imageLoader: remoteImageLoader,
             didSelectCartCallback: { [weak rootNavigationController] in
                 rootNavigationController?.pushViewController(CartUIComposer.cartComposedWith { [weak self] in
-                    guard let self else { return Cart.empty }
+                    guard let self else { return Cart.Factory.empty }
                     return self.cart
+                } didSelectCheckout: { [weak self] in
+                    guard let self else { return }
+                    let checkoutViewController = CheckoutUIComposer.checkoutComposedWith(
+                        checkoutUploader: remoteCheckoutUploader,
+                        pizzasAndDrinks: (self.cart.pizzas.map(\.pizza), []))
+                    checkoutViewController.modalPresentationStyle = .fullScreen
+                    rootNavigationController?.present(checkoutViewController, animated: true)
                 }, animated: true)
             },
             didAddedPizzaToCart: { [weak self] in self?.addPizzaToCart($0) })

@@ -14,6 +14,14 @@ struct PricedPizza {
 
 final class Cart {
     var pizzas = [PricedPizza]()
+}
+
+extension Cart {
     
-    static var empty: Cart { Cart() }
+    enum Factory {
+        static var empty: Cart {
+            Cart()
+        }
+    }
+    
 }

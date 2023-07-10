@@ -35,6 +35,13 @@ public final class CartPresenter {
                           comment: "Title for the Cart view")
     }
     
+    public static var checkoutButtonTitle: String {
+        NSLocalizedString("CART_CHECKOUT_TITLE",
+                          tableName: "Cart",
+                          bundle: Bundle(for: CartPresenter.self),
+                          comment: "Title for the Checkout button")
+    }
+
     private var cartTotalTitle: String {
         NSLocalizedString("CART_VIEW_TOTAL_PRICE_TITLE",
                           tableName: "Cart",

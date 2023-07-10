@@ -24,9 +24,8 @@ public final class RemoteCheckoutUploader: CheckoutUploader {
     }
     
     public func upload(pizzas: [Pizza], drinkIds: [Int], completion: @escaping (Result) -> Void) {
-        let json: [String : Any] = ["pizzas": pizzas.toRemote(), "drinks": drinkIds]
-        let data = try! JSONSerialization.data(withJSONObject: json, options: [])
-        client.post(to: url, with: data) { [weak self] result in
+        let checkoutJSONData = try! JSONEncoder().encode(RemoteCheckout(pizzas: pizzas.toRemote(), drinks: drinkIds))
+        client.post(to: url, with: checkoutJSONData) { [weak self] result in
             guard self != nil else { return }
             
             switch result {
@@ -43,6 +42,11 @@ public final class RemoteCheckoutUploader: CheckoutUploader {
         }
     }
     
+}
+
+private struct RemoteCheckout: Encodable {
+    let pizzas: [RemotePizza]
+    let drinks: [Int]
 }
 
 private extension Array where Element == Pizza {
