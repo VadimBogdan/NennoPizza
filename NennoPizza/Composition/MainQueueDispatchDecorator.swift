@@ -39,3 +39,11 @@ extension MainQueueDispatchDecorator: PizzaImageDataLoader where T == PizzaImage
         }
     }
 }
+
+extension MainQueueDispatchDecorator: CheckoutUploader where T == CheckoutUploader {
+    func upload(pizzas: [Pizza], drinkIds: [Int], completion: @escaping (CheckoutUploader.Result) -> Void) {
+        decoratee.upload(pizzas: pizzas, drinkIds: drinkIds) { [weak self] result in
+            self?.dispatch { completion(result) }
+        }
+    }
+}

@@ -14,7 +14,7 @@ class CheckoutUIComposer {
     
     public static func checkoutComposedWith(checkoutUploader: CheckoutUploader,
                                             pizzasAndDrinks: ([Pizza], [Int])) -> CheckoutViewController {
-        let presentationAdapter = CheckoutPresentationAdapter(checkoutUploader: checkoutUploader,
+        let presentationAdapter = CheckoutPresentationAdapter(checkoutUploader: MainQueueDispatchDecorator(decoratee: checkoutUploader),
                                                               pizzasAndDrinks: pizzasAndDrinks)
         
         let checkoutViewController = makeCheckoutViewController(delegate: presentationAdapter,
