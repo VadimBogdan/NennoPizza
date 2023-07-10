@@ -21,8 +21,8 @@ public final class CheckoutPresenter {
     
     private var checkoutMessage: String {
         NSLocalizedString("CHECKOUT_VIEW_MESSAGE",
-                          tableName: "Cart",
-                          bundle: Bundle(for: CartPresenter.self),
+                          tableName: "Checkout",
+                          bundle: Bundle(for: CheckoutPresenter.self),
                           comment: "Message for the Checkout View")
     }
     
