@@ -10,6 +10,7 @@ import UIKit
 enum DesignConstants {
     static let pizzaMenuCellHeight: CGFloat = 178
     static let cartItemCellHeight: CGFloat = 44
+    static let drinkItemCellHeight: CGFloat = 44
 }
 
 extension UIImage {
