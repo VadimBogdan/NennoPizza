@@ -15,7 +15,7 @@ public protocol CartViewControllerDelegate {
 
 public final class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let checkoutButton = UIButton()
+    public let checkoutButton = UIButton()
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
