@@ -19,6 +19,8 @@ class HTTPClientSpy: HTTPClient {
         messages.append((url, completion))
     }
     
+    func post(to url: URL, with data: Data, completion: @escaping (HTTPClient.Result) -> Void) {}
+    
     func complete(with error: Error, at index: Int = 0) {
         messages[index].completion(.failure(error))
     }
