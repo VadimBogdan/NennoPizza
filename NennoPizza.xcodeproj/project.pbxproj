@@ -20,6 +20,10 @@
 		FD05E7262A59F5540015CC18 /* CartUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05E7252A59F5540015CC18 /* CartUIComposer.swift */; };
 		FD1326AA2A5BF3A200E0AD6B /* CheckoutPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1326A92A5BF3A200E0AD6B /* CheckoutPresentationAdapter.swift */; };
 		FD1326B32A5BF9DB00E0AD6B /* CheckoutUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1326B22A5BF9DB00E0AD6B /* CheckoutUIComposer.swift */; };
+		FD1326BB2A5C0C9900E0AD6B /* NennoPizzaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1326B42A5C0C5400E0AD6B /* NennoPizzaCore.framework */; };
+		FD1326BC2A5C0C9900E0AD6B /* NennoPizzaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1326B42A5C0C5400E0AD6B /* NennoPizzaCore.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD1326BE2A5C0C9A00E0AD6B /* NennoPizzaCoreiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1326B82A5C0C5700E0AD6B /* NennoPizzaCoreiOS.framework */; };
+		FD1326BF2A5C0C9A00E0AD6B /* NennoPizzaCoreiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1326B82A5C0C5700E0AD6B /* NennoPizzaCoreiOS.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD1641442A50424D0019178F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD1641432A50424D0019178F /* README.md */; };
 		FD2A06DE2A4F25D800812B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */; };
 		FD2A06E02A4F25D800812B2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */; };
@@ -27,6 +31,21 @@
 		FD2A06EA2A4F25DB00812B2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2A06E82A4F25DB00812B2C /* LaunchScreen.storyboard */; };
 		FD2E3AAE2A561FD900BF08F2 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2E3AAD2A561FD900BF08F2 /* WeakRefVirtualProxy.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD1326BD2A5C0C9900E0AD6B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FD1326BC2A5C0C9900E0AD6B /* NennoPizzaCore.framework in Embed Frameworks */,
+				FD1326BF2A5C0C9A00E0AD6B /* NennoPizzaCoreiOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
@@ -42,6 +61,8 @@
 		FD05E7252A59F5540015CC18 /* CartUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUIComposer.swift; sourceTree = "<group>"; };
 		FD1326A92A5BF3A200E0AD6B /* CheckoutPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPresentationAdapter.swift; sourceTree = "<group>"; };
 		FD1326B22A5BF9DB00E0AD6B /* CheckoutUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutUIComposer.swift; sourceTree = "<group>"; };
+		FD1326B42A5C0C5400E0AD6B /* NennoPizzaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NennoPizzaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1326B82A5C0C5700E0AD6B /* NennoPizzaCoreiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NennoPizzaCoreiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1641432A50424D0019178F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FD2A06DA2A4F25D700812B2C /* NennoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NennoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1326BB2A5C0C9900E0AD6B /* NennoPizzaCore.framework in Frameworks */,
+				FD1326BE2A5C0C9A00E0AD6B /* NennoPizzaCoreiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +164,8 @@
 		FD49D3122A546D0B000A8DCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD1326B82A5C0C5700E0AD6B /* NennoPizzaCoreiOS.framework */,
+				FD1326B42A5C0C5400E0AD6B /* NennoPizzaCore.framework */,
 				FD657F7B2A54803600533ADF /* NennoPizzaCoreiOS.framework */,
 				FD49D3172A546D0F000A8DCF /* NennoPizzaCore.framework */,
 			);
@@ -168,6 +193,7 @@
 				FD2A06D62A4F25D700812B2C /* Sources */,
 				FD2A06D72A4F25D700812B2C /* Frameworks */,
 				FD2A06D82A4F25D700812B2C /* Resources */,
+				FD1326BD2A5C0C9900E0AD6B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
