@@ -49,6 +49,8 @@
 		FD66563C2A5C634900AC1943 /* DrinkItemCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66563B2A5C634900AC1943 /* DrinkItemCellController.swift */; };
 		FD66563F2A5C638600AC1943 /* DrinkItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66563E2A5C638600AC1943 /* DrinkItemPresenter.swift */; };
 		FD6656412A5C639B00AC1943 /* DrinkItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6656402A5C639B00AC1943 /* DrinkItemViewModel.swift */; };
+		FD6656442A5C805200AC1943 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6656432A5C805200AC1943 /* Drink.swift */; };
+		FD6656462A5C80A800AC1943 /* DrinksLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6656452A5C80A800AC1943 /* DrinksLoader.swift */; };
 		FD85FEA42A54858C00DA44C2 /* NennoPizzaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1302762A51B467005A12ED /* NennoPizzaCore.framework */; platformFilter = ios; };
 		FD85FEA52A54858C00DA44C2 /* NennoPizzaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1302762A51B467005A12ED /* NennoPizzaCore.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD85FEAA2A54863400DA44C2 /* NennoPizzaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FD85FEA92A54863400DA44C2 /* NennoPizzaCore.h */; };
@@ -151,6 +153,8 @@
 		FD66563B2A5C634900AC1943 /* DrinkItemCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItemCellController.swift; sourceTree = "<group>"; };
 		FD66563E2A5C638600AC1943 /* DrinkItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItemPresenter.swift; sourceTree = "<group>"; };
 		FD6656402A5C639B00AC1943 /* DrinkItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItemViewModel.swift; sourceTree = "<group>"; };
+		FD6656432A5C805200AC1943 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		FD6656452A5C80A800AC1943 /* DrinksLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksLoader.swift; sourceTree = "<group>"; };
 		FD85FEA92A54863400DA44C2 /* NennoPizzaCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NennoPizzaCore.h; sourceTree = "<group>"; };
 		FD85FEAB2A54864200DA44C2 /* NennoPizzaCoreiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NennoPizzaCoreiOS.h; path = NennoPizzaCoreiOS/NennoPizzaCoreiOS.h; sourceTree = SOURCE_ROOT; };
 		FD85FEAD2A54AE8200DA44C2 /* PizzaMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuPresenter.swift; sourceTree = "<group>"; };
@@ -292,8 +296,9 @@
 				FDEA823D2A52E8A500FE1252 /* Ingredients Feature */,
 				FDEA82422A52E9A800FE1252 /* Ingredients API */,
 				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
-				FD0475562A56FEEB00D5D8EB /* Cart Feature */,
 				FDEA822D2A52D76F00FE1252 /* Pizza Menu API */,
+				FD6656422A5C802A00AC1943 /* Drinks Feature */,
+				FD0475562A56FEEB00D5D8EB /* Cart Feature */,
 				FD2E3AA82A55F6DD00BF08F2 /* Simple Image Cache */,
 				FD1D3B8C2A55DB3600C12A08 /* Pizza Menu And Ingredients Feature */,
 				FD1D3B8F2A55DB9600C12A08 /* Pizza Menu And Ingredients API */,
@@ -430,6 +435,15 @@
 				FD6656402A5C639B00AC1943 /* DrinkItemViewModel.swift */,
 			);
 			path = "Drinks Presentation";
+			sourceTree = "<group>";
+		};
+		FD6656422A5C802A00AC1943 /* Drinks Feature */ = {
+			isa = PBXGroup;
+			children = (
+				FD6656432A5C805200AC1943 /* Drink.swift */,
+				FD6656452A5C80A800AC1943 /* DrinksLoader.swift */,
+			);
+			path = "Drinks Feature";
 			sourceTree = "<group>";
 		};
 		FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */ = {
@@ -732,6 +746,7 @@
 				FD49D3302A547F69000A8DCF /* PizzaPresenter.swift in Sources */,
 				FD1D3B912A55DBC000C12A08 /* RemotePizzaMenuAndIngredientsLoader.swift in Sources */,
 				FDEA822F2A52D78400FE1252 /* RemotePizzaMenuLoader.swift in Sources */,
+				FD6656442A5C805200AC1943 /* Drink.swift in Sources */,
 				FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */,
 				FDEA82482A52EA1600FE1252 /* RemoteIngredient.swift in Sources */,
 				FDFF25462A5B3FD000DEB45F /* RemoteCheckoutUploader.swift in Sources */,
@@ -755,6 +770,7 @@
 				FD1D3B932A55E5EB00C12A08 /* URLSessionHTTPClient.swift in Sources */,
 				FD1D3B8B2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift in Sources */,
 				FD0475512A56D0A600D5D8EB /* AddedToCartViewModel.swift in Sources */,
+				FD6656462A5C80A800AC1943 /* DrinksLoader.swift in Sources */,
 				FD6656412A5C639B00AC1943 /* DrinkItemViewModel.swift in Sources */,
 				FD0475622A57098D00D5D8EB /* CartPresenter.swift in Sources */,
 				FD66563F2A5C638600AC1943 /* DrinkItemPresenter.swift in Sources */,
