@@ -68,6 +68,7 @@
 		FDEA82642A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA82632A5301E600FE1252 /* NennoPizzaCoreiOSTests.swift */; };
 		FDFF25402A5B3AA400DEB45F /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */; };
 		FDFF25432A5B3E8C00DEB45F /* CheckoutUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */; };
+		FDFF25462A5B3FD000DEB45F /* RemoteCheckoutUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF25452A5B3FD000DEB45F /* RemoteCheckoutUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		FDEA826E2A532BBE00FE1252 /* PizzaMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuViewController.swift; sourceTree = "<group>"; };
 		FDFF253F2A5B3AA400DEB45F /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutUploader.swift; sourceTree = "<group>"; };
+		FDFF25452A5B3FD000DEB45F /* RemoteCheckoutUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCheckoutUploader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 			children = (
 				FDEA82282A52D6A000FE1252 /* API */,
 				FDFF25412A5B3E7B00DEB45F /* Checkout Feature */,
+				FDFF25442A5B3FBE00DEB45F /* Checkout API */,
 				FDEA823D2A52E8A500FE1252 /* Ingredients Feature */,
 				FDEA82422A52E9A800FE1252 /* Ingredients API */,
 				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
@@ -540,6 +543,14 @@
 			path = "Checkout Feature";
 			sourceTree = "<group>";
 		};
+		FDFF25442A5B3FBE00DEB45F /* Checkout API */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF25452A5B3FD000DEB45F /* RemoteCheckoutUploader.swift */,
+			);
+			path = "Checkout API";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -727,6 +738,7 @@
 				FDEA822F2A52D78400FE1252 /* RemotePizzaMenuLoader.swift in Sources */,
 				FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */,
 				FDEA82482A52EA1600FE1252 /* RemoteIngredient.swift in Sources */,
+				FDFF25462A5B3FD000DEB45F /* RemoteCheckoutUploader.swift in Sources */,
 				FD2E3AAA2A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift in Sources */,
 				FDEA82412A52E95A00FE1252 /* IngredientsLoader.swift in Sources */,
 				FDEA82442A52E9E600FE1252 /* IngredientsMapper.swift in Sources */,
