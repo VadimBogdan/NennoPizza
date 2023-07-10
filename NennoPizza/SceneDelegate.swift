@@ -47,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             imageLoader: remoteImageLoader,
             didSelectCartCallback: { [weak rootNavigationController] in
                 rootNavigationController?.pushViewController(CartUIComposer.cartComposedWith { [weak self] in
-                    guard let self else { return Cart.empty }
+                    guard let self else { return Cart.Factory.empty }
                     return self.cart
                 } didSelectCheckout: { [weak self] in
                     guard let self else { return }
