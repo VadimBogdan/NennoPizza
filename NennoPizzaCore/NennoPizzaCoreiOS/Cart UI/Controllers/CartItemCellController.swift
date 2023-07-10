@@ -36,6 +36,7 @@ public final class CartItemCellController: CartItemView {
                 Text(model.price)
             }
             .padding(.horizontal, 12)
+            .font(.system(size: 17, weight: .regular))
         }
     }
     
