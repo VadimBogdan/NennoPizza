@@ -12,7 +12,7 @@ struct RemotePizzaMenu: Decodable {
     let basePrice: Double
 }
 
-struct RemotePizza: Decodable {
+struct RemotePizza: Codable {
     let ingredients: [Int]
     let name: String
     let imageUrl: URL?
