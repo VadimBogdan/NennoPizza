@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var cart = Cart.Factory.empty
     private var pizzaMenu: PizzaMenu?
     private var ingredients: [Ingredient]?
+    private var pizzaPriceCalculator: PizzaPriceCalculator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -75,8 +76,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func addPizzaToCart(_ pizza: Pizza) {
-        guard let basePrice = pizzaMenu?.basePrice, let ingredients = ingredients else { return }
-        let pizzaPrice = PizzaPriceCalculator(basePrice: basePrice, ingredients: ingredients).calculate(with: pizza.ingredients)
+        guard let pizzaPriceCalculator else { return }
+        let pizzaPrice = pizzaPriceCalculator.calculate(with: pizza.ingredients)
         cart.pizzas.append(PricedPizza(pizza: pizza, price: pizzaPrice))
     }
     
@@ -86,6 +87,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func pizzaMenuAndIngredientsLoaded(_ result: Result<(PizzaMenu, [Ingredient]), Error>) {
         guard case let .success((menu, ingredients)) = result else { return }
+        pizzaPriceCalculator = PizzaPriceCalculator(basePrice: menu.basePrice, ingredients: ingredients)
         (self.pizzaMenu, self.ingredients) = (menu, ingredients)
     }
     
