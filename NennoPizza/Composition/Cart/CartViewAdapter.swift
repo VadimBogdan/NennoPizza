@@ -23,7 +23,9 @@ final class CartViewAdapter: CartView, CartTotalPriceView {
             let view = CartItemCellController(delegate: adapter)
             
             let presenter = CartItemPresenter(cartItemView: WeakRefVirtualProxy(view),
-                                              priceFormatter: { NumberFormatter.format($0, currency: "$") })
+                                              priceFormatter: {
+                NumberFormatter.format($0, currency: Constants.usdCurrencySymbol)
+            })
             
             adapter.presenter = presenter
             

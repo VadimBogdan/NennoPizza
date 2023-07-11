@@ -24,8 +24,9 @@ final class DrinksViewAdapter: DrinksView {
             let adapter = DrinkLoaderPresentationAdapter(model: model, drinkSelectionCallback: drinkSelectionCallback)
             let view = DrinkCellController(delegate: adapter)
             
-            let presenter = DrinkPresenter(drinkView: WeakRefVirtualProxy(view), priceFormatter: {
-                NumberFormatter.format($0, currency: "$")
+            let presenter = DrinkPresenter(drinkView: WeakRefVirtualProxy(view),
+                                           priceFormatter: {
+                NumberFormatter.format($0, currency: Constants.usdCurrencySymbol)
             })
             
             adapter.presenter = presenter

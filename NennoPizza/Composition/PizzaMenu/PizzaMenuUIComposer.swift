@@ -25,7 +25,7 @@ class PizzaMenuUIComposer {
         let presenter = PizzaMenuPresenter(
             pizzaMenuView: PizzaViewAdapter(
                 controller: pizzaMenuViewController,
-                currency: "$",
+                currency: Constants.usdCurrencySymbol,
                 imageLoader: SimplePizzaImageDataCachedLoader(loader: MainQueueDispatchDecorator(decoratee: imageLoader)),
                 pizzaSelection: { [weak presentationAdapter] in
                     presentationAdapter?.didAddedToCartSubject.send()

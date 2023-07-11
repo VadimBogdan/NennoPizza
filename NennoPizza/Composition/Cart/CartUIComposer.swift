@@ -27,7 +27,10 @@ class CartUIComposer {
         let adapter = CartViewAdapter(controller: cartViewController)
         
         let presenter = CartPresenter(cartView: adapter,
-                                      cartTotalPriceView: WeakRefVirtualProxy(adapter), priceFormatter: { NumberFormatter.format($0, currency: "$") })
+                                      cartTotalPriceView: WeakRefVirtualProxy(adapter),
+                                      priceFormatter: {
+            NumberFormatter.format($0, currency: Constants.usdCurrencySymbol)
+        })
         
         presentationAdapter.presenter = presenter
         

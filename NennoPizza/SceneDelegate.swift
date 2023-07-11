@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    private var cart = Cart()
+    private var cart = Cart.Factory.empty
     private var pizzaMenu: PizzaMenu?
     private var ingredients: [Ingredient]?
 
@@ -34,37 +34,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let menuAndIngredientsLoader = PizzaMenuAndIngredientsLoaderWithCompletionDecorator(
             RemotePizzaMenuAndIngredientsLoader(
                 remotePizzaMenuLoader: remotePizzaMenuLoader,
-                remoteIngredientsLoader: remoteIngredientsLoader)) { [weak self] in
-                    guard let self, case let .success((menu, ingredients)) = $0 else { return }
-                    (self.pizzaMenu, self.ingredients) = (menu, ingredients)
-                }
+                remoteIngredientsLoader: remoteIngredientsLoader),
+            loadResultCompletion: { [weak self] in self?.pizzaMenuAndIngredientsLoaded($0) })
+        
         let remoteImageLoader = RemotePizzaImageDataLoader(client: httpClient)
-        
         let remoteCheckoutUploader = RemoteCheckoutUploader(url: remoteCheckoutURL, client: httpClient)
-        
         let remoteDrinksLoader = RemoteDrinksLoader(url: remoteDrinksURL, client: httpClient)
         
         let rootNavigationController = UINavigationController()
+        
         let pizzaMenuViewController = PizzaMenuUIComposer.pizzaMenuComposedWith(
             menuAndIngredientsLoader: menuAndIngredientsLoader,
             imageLoader: remoteImageLoader,
             didSelectCartCallback: { [weak rootNavigationController] in
-                rootNavigationController?.pushViewController(CartUIComposer.cartComposedWith { [weak self] in
-                    guard let self else { return Cart.Factory.empty }
-                    return self.cart
-                } didSelectCheckout: { [weak self] in
-                    guard let self else { return }
-                    let checkoutViewController = CheckoutUIComposer.checkoutComposedWith(
-                        checkoutUploader: remoteCheckoutUploader,
-                        pizzasAndDrinks: (self.cart.pizzas.map(\.pizza), self.cart.drinks.map(\.id)))
-                    checkoutViewController.modalPresentationStyle = .fullScreen
-                    rootNavigationController?.present(checkoutViewController, animated: true)
-                } didSelectDrinks: { [weak self] in
-                    let drinksViewController = DrinksUIComposer.drinksComposedWith(
-                        drinksLoader: remoteDrinksLoader,
-                        didSelectDrink: { [weak self] in self?.addDrinkToCart($0) })
-                    rootNavigationController?.pushViewController(drinksViewController, animated: true)
-                }, animated: true)
+                rootNavigationController?.pushViewController(CartUIComposer.cartComposedWith(
+                    cartLoader: { self.cart },
+                    didSelectCheckout: {
+                        let pizzaAndDrinks = (self.cart.pizzas.map(\.pizza), self.cart.drinks.map(\.id))
+                        let checkoutViewController = CheckoutUIComposer.checkoutComposedWith(
+                            checkoutUploader: remoteCheckoutUploader,
+                            pizzasAndDrinks: pizzaAndDrinks)
+                        checkoutViewController.modalPresentationStyle = .fullScreen
+                        
+                        rootNavigationController?.present(checkoutViewController, animated: true)
+                    },
+                    didSelectDrinks: {
+                        let drinksViewController = DrinksUIComposer.drinksComposedWith(
+                            drinksLoader: remoteDrinksLoader,
+                            didSelectDrink: { self.addDrinkToCart($0) })
+                        
+                        rootNavigationController?.pushViewController(drinksViewController, animated: true)
+                    }), animated: true)
             },
             didAddedPizzaToCart: { [weak self] in self?.addPizzaToCart($0) })
         
@@ -82,6 +82,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func addDrinkToCart(_ drink: Drink) {
         cart.drinks.append(drink)
+    }
+    
+    private func pizzaMenuAndIngredientsLoaded(_ result: Result<(PizzaMenu, [Ingredient]), Error>) {
+        guard case let .success((menu, ingredients)) = result else { return }
+        (self.pizzaMenu, self.ingredients) = (menu, ingredients)
     }
     
 }

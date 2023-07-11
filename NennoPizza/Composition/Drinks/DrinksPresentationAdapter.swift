@@ -36,7 +36,8 @@ final class DrinksPresentationAdapter: DrinksViewControllerDelegate {
         didAddedToCartSubject.map { [weak self] in
             self?.presenter?.didStartDisplayAddedToCart()
         }
-        .debounce(for: 3.0, scheduler: RunLoop.main)
+        .debounce(for: RunLoop.SchedulerTimeType.Stride(Constants.addedToCartViewDuration),
+                  scheduler: RunLoop.main)
         .sink { [weak self] _ in
             self?.presenter?.didFinishDisplayAddedToCart()
         }
