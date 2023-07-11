@@ -245,13 +245,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FD0475522A56E8BA00D5D8EB /* Cart UI */ = {
+		FD0475522A56E8BA00D5D8EB /* CartUI */ = {
 			isa = PBXGroup;
 			children = (
 				FD0475552A56EA4500D5D8EB /* Controllers */,
 				FD286A9B2A5D54C600C75393 /* Cart.xcassets */,
 			);
-			path = "Cart UI";
+			path = CartUI;
 			sourceTree = "<group>";
 		};
 		FD0475552A56EA4500D5D8EB /* Controllers */ = {
@@ -264,15 +264,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FD0475562A56FEEB00D5D8EB /* Cart Feature */ = {
+		FD0475562A56FEEB00D5D8EB /* CartFeature */ = {
 			isa = PBXGroup;
 			children = (
 				FD00BF8F2A5825DE008A5C23 /* CartItem.swift */,
 			);
-			path = "Cart Feature";
+			path = CartFeature;
 			sourceTree = "<group>";
 		};
-		FD04755C2A5705BB00D5D8EB /* Cart Presentation */ = {
+		FD04755C2A5705BB00D5D8EB /* CartPresentation */ = {
 			isa = PBXGroup;
 			children = (
 				FD0475612A57098D00D5D8EB /* CartPresenter.swift */,
@@ -282,7 +282,7 @@
 				FD04755F2A57062B00D5D8EB /* CartItemViewModel.swift */,
 				FD0475632A5709A200D5D8EB /* Cart.strings */,
 			);
-			path = "Cart Presentation";
+			path = CartPresentation;
 			sourceTree = "<group>";
 		};
 		FD13026C2A51B467005A12ED = {
@@ -310,25 +310,25 @@
 		FD1302782A51B467005A12ED /* NennoPizzaCore */ = {
 			isa = PBXGroup;
 			children = (
-				FDF3CD622A5D5E340008CEDB /* Common Presentation */,
+				FDF3CD622A5D5E340008CEDB /* CommonPresentation */,
 				FDEA82282A52D6A000FE1252 /* API */,
-				FDFF25412A5B3E7B00DEB45F /* Checkout Feature */,
-				FDFF25442A5B3FBE00DEB45F /* Checkout API */,
-				FDEA823D2A52E8A500FE1252 /* Ingredients Feature */,
-				FDEA82422A52E9A800FE1252 /* Ingredients API */,
-				FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */,
-				FDEA822D2A52D76F00FE1252 /* Pizza Menu API */,
-				FD6656422A5C802A00AC1943 /* Drinks Feature */,
-				FD6656472A5C80D400AC1943 /* Drinks API */,
-				FD0475562A56FEEB00D5D8EB /* Cart Feature */,
-				FD2E3AA82A55F6DD00BF08F2 /* Simple Image Cache */,
-				FD1D3B8C2A55DB3600C12A08 /* Pizza Menu And Ingredients Feature */,
-				FD1D3B8F2A55DB9600C12A08 /* Pizza Menu And Ingredients API */,
-				FDEA824F2A52FE3C00FE1252 /* Pizza Price */,
-				FDEA82712A532EE200FE1252 /* Pizza Menu Presentation */,
-				FD66563D2A5C636500AC1943 /* Drinks Presentation */,
-				FD04755C2A5705BB00D5D8EB /* Cart Presentation */,
-				FD1326AB2A5BF5EB00E0AD6B /* Checkout Presentation */,
+				FDFF25412A5B3E7B00DEB45F /* CheckoutFeature */,
+				FDFF25442A5B3FBE00DEB45F /* CheckoutAPI */,
+				FDEA823D2A52E8A500FE1252 /* IngredientsFeature */,
+				FDEA82422A52E9A800FE1252 /* IngredientsAPI */,
+				FDEA82252A52D59C00FE1252 /* PizzaMenuFeature */,
+				FDEA822D2A52D76F00FE1252 /* PizzaMenuAPI */,
+				FD6656422A5C802A00AC1943 /* DrinksFeature */,
+				FD6656472A5C80D400AC1943 /* DrinksAPI */,
+				FD0475562A56FEEB00D5D8EB /* CartFeature */,
+				FD2E3AA82A55F6DD00BF08F2 /* SimpleImageCache */,
+				FD1D3B8C2A55DB3600C12A08 /* PizzaMenuAndIngredientsFeature */,
+				FD1D3B8F2A55DB9600C12A08 /* PizzaMenuAndIngredientsAPI */,
+				FDEA824F2A52FE3C00FE1252 /* PizzaPrice */,
+				FDEA82712A532EE200FE1252 /* PizzaMenuPresentation */,
+				FD66563D2A5C636500AC1943 /* DrinksPresentation */,
+				FD04755C2A5705BB00D5D8EB /* CartPresentation */,
+				FD1326AB2A5BF5EB00E0AD6B /* CheckoutPresentation */,
 				FD85FEA92A54863400DA44C2 /* NennoPizzaCore.h */,
 			);
 			path = NennoPizzaCore;
@@ -365,14 +365,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		FD1326AB2A5BF5EB00E0AD6B /* Checkout Presentation */ = {
+		FD1326AB2A5BF5EB00E0AD6B /* CheckoutPresentation */ = {
 			isa = PBXGroup;
 			children = (
 				FD1326AC2A5BF60700E0AD6B /* CheckoutPresenter.swift */,
 				FD1326AE2A5BF67C00E0AD6B /* CheckoutViewModel.swift */,
 				FD1326B02A5BF73500E0AD6B /* Checkout.strings */,
 			);
-			path = "Checkout Presentation";
+			path = CheckoutPresentation;
 			sourceTree = "<group>";
 		};
 		FD1D3B7E2A5560D300C12A08 /* Helpers */ = {
@@ -393,21 +393,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FD1D3B8C2A55DB3600C12A08 /* Pizza Menu And Ingredients Feature */ = {
+		FD1D3B8C2A55DB3600C12A08 /* PizzaMenuAndIngredientsFeature */ = {
 			isa = PBXGroup;
 			children = (
 				FD1D3B8D2A55DB5B00C12A08 /* PizzaMenuAndIngredientsLoader.swift */,
 				FD05E7272A5A21F70015CC18 /* PizzaMenuAndIngredientsLoaderWithCompletionDecorator.swift */,
 			);
-			path = "Pizza Menu And Ingredients Feature";
+			path = PizzaMenuAndIngredientsFeature;
 			sourceTree = "<group>";
 		};
-		FD1D3B8F2A55DB9600C12A08 /* Pizza Menu And Ingredients API */ = {
+		FD1D3B8F2A55DB9600C12A08 /* PizzaMenuAndIngredientsAPI */ = {
 			isa = PBXGroup;
 			children = (
 				FD1D3B902A55DBC000C12A08 /* RemotePizzaMenuAndIngredientsLoader.swift */,
 			);
-			path = "Pizza Menu And Ingredients API";
+			path = PizzaMenuAndIngredientsAPI;
 			sourceTree = "<group>";
 		};
 		FD1D3B962A55E61700C12A08 /* BusinessLogic */ = {
@@ -418,12 +418,12 @@
 			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
-		FD2E3AA82A55F6DD00BF08F2 /* Simple Image Cache */ = {
+		FD2E3AA82A55F6DD00BF08F2 /* SimpleImageCache */ = {
 			isa = PBXGroup;
 			children = (
 				FD2E3AA92A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift */,
 			);
-			path = "Simple Image Cache";
+			path = SimpleImageCache;
 			sourceTree = "<group>";
 		};
 		FD49D31D2A547E15000A8DCF /* Frameworks */ = {
@@ -433,12 +433,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FD6656372A5C5B0800AC1943 /* Drinks UI */ = {
+		FD6656372A5C5B0800AC1943 /* DrinksUI */ = {
 			isa = PBXGroup;
 			children = (
 				FD6656382A5C5B1700AC1943 /* Controllers */,
 			);
-			path = "Drinks UI";
+			path = DrinksUI;
 			sourceTree = "<group>";
 		};
 		FD6656382A5C5B1700AC1943 /* Controllers */ = {
@@ -450,7 +450,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FD66563D2A5C636500AC1943 /* Drinks Presentation */ = {
+		FD66563D2A5C636500AC1943 /* DrinksPresentation */ = {
 			isa = PBXGroup;
 			children = (
 				FD286A8A2A5D468900C75393 /* DrinksPresenter.swift */,
@@ -459,36 +459,36 @@
 				FD6656402A5C639B00AC1943 /* DrinkViewModel.swift */,
 				FD286A8E2A5D47BD00C75393 /* Drinks.strings */,
 			);
-			path = "Drinks Presentation";
+			path = DrinksPresentation;
 			sourceTree = "<group>";
 		};
-		FD6656422A5C802A00AC1943 /* Drinks Feature */ = {
+		FD6656422A5C802A00AC1943 /* DrinksFeature */ = {
 			isa = PBXGroup;
 			children = (
 				FD6656432A5C805200AC1943 /* Drink.swift */,
 				FD6656452A5C80A800AC1943 /* DrinksLoader.swift */,
 			);
-			path = "Drinks Feature";
+			path = DrinksFeature;
 			sourceTree = "<group>";
 		};
-		FD6656472A5C80D400AC1943 /* Drinks API */ = {
+		FD6656472A5C80D400AC1943 /* DrinksAPI */ = {
 			isa = PBXGroup;
 			children = (
 				FD286A852A5D449100C75393 /* RemoteDrink.swift */,
 				FD286A832A5D441700C75393 /* RemoteDrinksLoader.swift */,
 				FD286A872A5D44D400C75393 /* DrinksMapper.swift */,
 			);
-			path = "Drinks API";
+			path = DrinksAPI;
 			sourceTree = "<group>";
 		};
-		FDEA82252A52D59C00FE1252 /* Pizza Menu Feature */ = {
+		FDEA82252A52D59C00FE1252 /* PizzaMenuFeature */ = {
 			isa = PBXGroup;
 			children = (
 				FDEA82262A52D5BB00FE1252 /* PizzaMenu.swift */,
 				FDEA822B2A52D71D00FE1252 /* PizzaMenuLoader.swift */,
 				FD1D3B882A55D23E00C12A08 /* PizzaImageDataLoader.swift */,
 			);
-			path = "Pizza Menu Feature";
+			path = PizzaMenuFeature;
 			sourceTree = "<group>";
 		};
 		FDEA82282A52D6A000FE1252 /* API */ = {
@@ -501,7 +501,7 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		FDEA822D2A52D76F00FE1252 /* Pizza Menu API */ = {
+		FDEA822D2A52D76F00FE1252 /* PizzaMenuAPI */ = {
 			isa = PBXGroup;
 			children = (
 				FDEA82332A52D84E00FE1252 /* RemotePizzaMenu.swift */,
@@ -509,7 +509,7 @@
 				FD1D3B8A2A55D27600C12A08 /* RemotePizzaImageDataLoader.swift */,
 				FDEA82352A52D89000FE1252 /* PizzaMenuMapper.swift */,
 			);
-			path = "Pizza Menu API";
+			path = PizzaMenuAPI;
 			sourceTree = "<group>";
 		};
 		FDEA82302A52D80900FE1252 /* Helpers */ = {
@@ -520,47 +520,47 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		FDEA823D2A52E8A500FE1252 /* Ingredients Feature */ = {
+		FDEA823D2A52E8A500FE1252 /* IngredientsFeature */ = {
 			isa = PBXGroup;
 			children = (
 				FDEA823E2A52E8C000FE1252 /* Ingredient.swift */,
 				FDEA82402A52E95A00FE1252 /* IngredientsLoader.swift */,
 			);
-			path = "Ingredients Feature";
+			path = IngredientsFeature;
 			sourceTree = "<group>";
 		};
-		FDEA82422A52E9A800FE1252 /* Ingredients API */ = {
+		FDEA82422A52E9A800FE1252 /* IngredientsAPI */ = {
 			isa = PBXGroup;
 			children = (
 				FDEA82452A52E9F200FE1252 /* RemoteIngredientsLoader.swift */,
 				FDEA82472A52EA1600FE1252 /* RemoteIngredient.swift */,
 				FDEA82432A52E9E600FE1252 /* IngredientsMapper.swift */,
 			);
-			path = "Ingredients API";
+			path = IngredientsAPI;
 			sourceTree = "<group>";
 		};
-		FDEA824F2A52FE3C00FE1252 /* Pizza Price */ = {
+		FDEA824F2A52FE3C00FE1252 /* PizzaPrice */ = {
 			isa = PBXGroup;
 			children = (
 				FDEA82502A52FE5B00FE1252 /* PizzaPriceCalculator.swift */,
 			);
-			path = "Pizza Price";
+			path = PizzaPrice;
 			sourceTree = "<group>";
 		};
 		FDEA82582A5301E600FE1252 /* NennoPizzaCoreiOS */ = {
 			isa = PBXGroup;
 			children = (
 				FD04754C2A56C9F900D5D8EB /* Shared */,
-				FDFF253D2A5B3A8300DEB45F /* Checkout UI */,
-				FD6656372A5C5B0800AC1943 /* Drinks UI */,
-				FD0475522A56E8BA00D5D8EB /* Cart UI */,
-				FDEA826C2A532B5400FE1252 /* Pizza Menu UI */,
+				FDFF253D2A5B3A8300DEB45F /* CheckoutUI */,
+				FD6656372A5C5B0800AC1943 /* DrinksUI */,
+				FD0475522A56E8BA00D5D8EB /* CartUI */,
+				FDEA826C2A532B5400FE1252 /* PizzaMenuUI */,
 				FD85FEAB2A54864200DA44C2 /* NennoPizzaCoreiOS.h */,
 			);
 			path = NennoPizzaCoreiOS;
 			sourceTree = "<group>";
 		};
-		FDEA826C2A532B5400FE1252 /* Pizza Menu UI */ = {
+		FDEA826C2A532B5400FE1252 /* PizzaMenuUI */ = {
 			isa = PBXGroup;
 			children = (
 				FD1D3B7E2A5560D300C12A08 /* Helpers */,
@@ -568,7 +568,7 @@
 				FD1D3B852A55617A00C12A08 /* Views */,
 				FD49D3102A545B11000A8DCF /* Menu.xcassets */,
 			);
-			path = "Pizza Menu UI";
+			path = PizzaMenuUI;
 			sourceTree = "<group>";
 		};
 		FDEA826D2A532B5E00FE1252 /* Controllers */ = {
@@ -580,7 +580,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FDEA82712A532EE200FE1252 /* Pizza Menu Presentation */ = {
+		FDEA82712A532EE200FE1252 /* PizzaMenuPresentation */ = {
 			isa = PBXGroup;
 			children = (
 				FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */,
@@ -588,16 +588,16 @@
 				FD85FEAD2A54AE8200DA44C2 /* PizzaMenuPresenter.swift */,
 				FD1D3B782A555ECA00C12A08 /* Menu.strings */,
 			);
-			path = "Pizza Menu Presentation";
+			path = PizzaMenuPresentation;
 			sourceTree = "<group>";
 		};
-		FDF3CD622A5D5E340008CEDB /* Common Presentation */ = {
+		FDF3CD622A5D5E340008CEDB /* CommonPresentation */ = {
 			isa = PBXGroup;
 			children = (
 				FDF3CD632A5D5E450008CEDB /* AddedToCartView.swift */,
 				FD0475502A56D0A600D5D8EB /* AddedToCartViewModel.swift */,
 			);
-			path = "Common Presentation";
+			path = CommonPresentation;
 			sourceTree = "<group>";
 		};
 		FDF3CD692A5D625D0008CEDB /* Extensions */ = {
@@ -608,12 +608,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FDFF253D2A5B3A8300DEB45F /* Checkout UI */ = {
+		FDFF253D2A5B3A8300DEB45F /* CheckoutUI */ = {
 			isa = PBXGroup;
 			children = (
 				FDFF253E2A5B3A9400DEB45F /* Controllers */,
 			);
-			path = "Checkout UI";
+			path = CheckoutUI;
 			sourceTree = "<group>";
 		};
 		FDFF253E2A5B3A9400DEB45F /* Controllers */ = {
@@ -624,20 +624,20 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FDFF25412A5B3E7B00DEB45F /* Checkout Feature */ = {
+		FDFF25412A5B3E7B00DEB45F /* CheckoutFeature */ = {
 			isa = PBXGroup;
 			children = (
 				FDFF25422A5B3E8C00DEB45F /* CheckoutUploader.swift */,
 			);
-			path = "Checkout Feature";
+			path = CheckoutFeature;
 			sourceTree = "<group>";
 		};
-		FDFF25442A5B3FBE00DEB45F /* Checkout API */ = {
+		FDFF25442A5B3FBE00DEB45F /* CheckoutAPI */ = {
 			isa = PBXGroup;
 			children = (
 				FDFF25452A5B3FD000DEB45F /* RemoteCheckoutUploader.swift */,
 			);
-			path = "Checkout API";
+			path = CheckoutAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

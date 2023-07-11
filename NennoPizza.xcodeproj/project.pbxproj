@@ -104,7 +104,7 @@
 				FD04754A2A56C91000D5D8EB /* Cart.swift */,
 				FD05E7242A59F35C0015CC18 /* Helpers */,
 				FD1326A82A5BF36B00E0AD6B /* Checkout */,
-				FDFF253C2A5B39CB00DEB45F /* Pizza Menu */,
+				FDFF253C2A5B39CB00DEB45F /* PizzaMenu */,
 				FD05E71B2A59EF510015CC18 /* Cart */,
 				FD286A902A5D4CB000C75393 /* Drinks */,
 			);
@@ -192,7 +192,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FDFF253C2A5B39CB00DEB45F /* Pizza Menu */ = {
+		FDFF253C2A5B39CB00DEB45F /* PizzaMenu */ = {
 			isa = PBXGroup;
 			children = (
 				FD0475482A56BCF500D5D8EB /* PizzaMenuUIComposer.swift */,
@@ -200,7 +200,7 @@
 				FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */,
 				FD0475442A56BA1800D5D8EB /* PizzaImageDataLoaderPresentationAdapter.swift */,
 			);
-			path = "Pizza Menu";
+			path = PizzaMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
