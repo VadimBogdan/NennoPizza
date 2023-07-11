@@ -14,9 +14,11 @@ class CartUIComposer {
     private init() {}
     
     public static func cartComposedWith(cartLoader: @escaping () -> Cart,
-                                        didSelectCheckout: @escaping () -> Void) -> CartViewController {
+                                        didSelectCheckout: @escaping () -> Void,
+                                        didSelectDrinks: @escaping () -> Void) -> CartViewController {
         let presentationAdapter = CartPresentationAdapter(cartLoader: cartLoader,
-                                                          didSelectCheckoutCallBack: didSelectCheckout)
+                                                          didSelectCheckoutCallBack: didSelectCheckout,
+                                                          didSelectDrinksCallBack: didSelectDrinks)
         
         let cartViewController = makeCartViewController(delegate: presentationAdapter,
                                                         title: CartPresenter.title,

@@ -47,3 +47,11 @@ extension MainQueueDispatchDecorator: CheckoutUploader where T == CheckoutUpload
         }
     }
 }
+
+extension MainQueueDispatchDecorator: DrinksLoader where T == DrinksLoader {
+    func load(completion: @escaping (DrinksLoader.Result) -> Void) {
+        decoratee.load { [weak self] result in
+            self?.dispatch { completion(result) }
+        }
+    }
+}

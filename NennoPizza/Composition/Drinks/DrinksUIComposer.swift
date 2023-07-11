@@ -13,8 +13,8 @@ final class DrinksUIComposer {
     private init() {}
     
     public static func drinksComposedWith(drinksLoader: DrinksLoader,
-                                        didSelectDrink: @escaping (Drink) -> Void) -> DrinksViewController {
-        let presentationAdapter = DrinksPresentationAdapter(drinksLoader: drinksLoader)
+                                          didSelectDrink: @escaping (Drink) -> Void) -> DrinksViewController {
+        let presentationAdapter = DrinksPresentationAdapter(drinksLoader: MainQueueDispatchDecorator(decoratee: drinksLoader))
         
         let drinksViewController = makeDrinksViewController(delegate: presentationAdapter,
                                                             title: DrinksPresenter.title)

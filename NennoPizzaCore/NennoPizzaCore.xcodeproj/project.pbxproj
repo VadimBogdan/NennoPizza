@@ -46,6 +46,7 @@
 		FD286A8B2A5D468900C75393 /* DrinksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A8A2A5D468900C75393 /* DrinksPresenter.swift */; };
 		FD286A8D2A5D471B00C75393 /* DrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A8C2A5D471B00C75393 /* DrinksViewModel.swift */; };
 		FD286A8F2A5D47BD00C75393 /* Drinks.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD286A8E2A5D47BD00C75393 /* Drinks.strings */; };
+		FD286A9C2A5D54C600C75393 /* Cart.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD286A9B2A5D54C600C75393 /* Cart.xcassets */; };
 		FD2E3AAA2A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2E3AA92A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift */; };
 		FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD49D3102A545B11000A8DCF /* Menu.xcassets */; };
 		FD49D3242A547E78000A8DCF /* PizzaMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA826E2A532BBE00FE1252 /* PizzaMenuViewController.swift */; };
@@ -157,6 +158,7 @@
 		FD286A8A2A5D468900C75393 /* DrinksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksPresenter.swift; sourceTree = "<group>"; };
 		FD286A8C2A5D471B00C75393 /* DrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewModel.swift; sourceTree = "<group>"; };
 		FD286A8E2A5D47BD00C75393 /* Drinks.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Drinks.strings; sourceTree = "<group>"; };
+		FD286A9B2A5D54C600C75393 /* Cart.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cart.xcassets; sourceTree = "<group>"; };
 		FD2E3AA92A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePizzaImageCachedLoader.swift; sourceTree = "<group>"; };
 		FD49D3102A545B11000A8DCF /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPresenter.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				FD0475552A56EA4500D5D8EB /* Controllers */,
+				FD286A9B2A5D54C600C75393 /* Cart.xcassets */,
 			);
 			path = "Cart UI";
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD286A9C2A5D54C600C75393 /* Cart.xcassets in Resources */,
 				FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@ import NennoPizzaCore
 public protocol CartViewControllerDelegate {
     func didSelectCheckout()
     func didRequestCart()
+    func didSelectDrinks()
 }
 
 public final class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -29,13 +30,25 @@ public final class CartViewController: UIViewController, UITableViewDelegate, UI
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.backButtonDisplayMode = .minimal
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
         tableView.register(UITableViewCell.self)
         
         setup()
         
         delegate?.didRequestCart()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        delegate?.didRequestCart()
+    }
+    
+    @objc private func didSelectDrinks() {
+        delegate?.didSelectDrinks()
     }
     
     @objc private func checkout() {
@@ -69,6 +82,11 @@ public final class CartViewController: UIViewController, UITableViewDelegate, UI
     }
     
     private func setup() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .drinksNavbar?.withRenderingMode(.alwaysOriginal),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(didSelectDrinks))
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         checkoutButton.translatesAutoresizingMaskIntoConstraints = false
         checkoutButton.addTarget(self, action: #selector(checkout), for: .touchUpInside)
