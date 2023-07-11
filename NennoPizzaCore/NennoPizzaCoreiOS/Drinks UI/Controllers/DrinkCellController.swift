@@ -1,5 +1,5 @@
 //
-//  DrinkItemCellController.swift
+//  DrinkCellController.swift
 //  NennoPizzaCoreiOS
 //
 //  Created by Vadym Bohdan on 10.07.2023.
@@ -8,17 +8,17 @@
 import NennoPizzaCore
 import SwiftUI
 
-public protocol DrinkItemCellControllerDelegate {
+public protocol DrinkCellControllerDelegate {
     func didRequestDrinkItem()
     func didSelectDrink()
 }
 
-public final class DrinkItemCellController: DrinkItemView {
+public final class DrinkCellController: DrinkView {
     
-    private let delegate: DrinkItemCellControllerDelegate
+    private let delegate: DrinkCellControllerDelegate
     private var cell: UITableViewCell?
     
-    public init(delegate: DrinkItemCellControllerDelegate) {
+    public init(delegate: DrinkCellControllerDelegate) {
         self.delegate = delegate
     }
     
@@ -32,7 +32,7 @@ public final class DrinkItemCellController: DrinkItemView {
         delegate.didSelectDrink()
     }
     
-    public func display(_ model: DrinkItemViewModel) {
+    public func display(_ model: DrinkViewModel) {
         cell?.selectionStyle = .none
         cell?.contentConfiguration = UIHostingConfiguration {
             HStack {

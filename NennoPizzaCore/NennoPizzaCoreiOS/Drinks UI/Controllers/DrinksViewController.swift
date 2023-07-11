@@ -15,7 +15,7 @@ final class DrinksViewController: UIViewController, UITableViewDelegate, UITable
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
-    private var tableModel = [DrinkItemCellController]() {
+    private var tableModel = [DrinkCellController]() {
         didSet { tableView.reloadData() }
     }
     
@@ -49,7 +49,7 @@ final class DrinksViewController: UIViewController, UITableViewDelegate, UITable
         tableModel.count
     }
     
-    private func cellController(forRowAt indexPath: IndexPath) -> DrinkItemCellController {
+    private func cellController(forRowAt indexPath: IndexPath) -> DrinkCellController {
         let controller = tableModel[indexPath.row]
         return controller
     }
