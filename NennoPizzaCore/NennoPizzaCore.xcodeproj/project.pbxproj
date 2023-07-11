@@ -43,6 +43,9 @@
 		FD286A842A5D441700C75393 /* RemoteDrinksLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A832A5D441700C75393 /* RemoteDrinksLoader.swift */; };
 		FD286A862A5D449100C75393 /* RemoteDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A852A5D449100C75393 /* RemoteDrink.swift */; };
 		FD286A882A5D44D400C75393 /* DrinksMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A872A5D44D400C75393 /* DrinksMapper.swift */; };
+		FD286A8B2A5D468900C75393 /* DrinksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A8A2A5D468900C75393 /* DrinksPresenter.swift */; };
+		FD286A8D2A5D471B00C75393 /* DrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A8C2A5D471B00C75393 /* DrinksViewModel.swift */; };
+		FD286A8F2A5D47BD00C75393 /* Drinks.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD286A8E2A5D47BD00C75393 /* Drinks.strings */; };
 		FD2E3AAA2A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2E3AA92A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift */; };
 		FD49D3112A545B11000A8DCF /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD49D3102A545B11000A8DCF /* Menu.xcassets */; };
 		FD49D3242A547E78000A8DCF /* PizzaMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA826E2A532BBE00FE1252 /* PizzaMenuViewController.swift */; };
@@ -151,6 +154,9 @@
 		FD286A832A5D441700C75393 /* RemoteDrinksLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDrinksLoader.swift; sourceTree = "<group>"; };
 		FD286A852A5D449100C75393 /* RemoteDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDrink.swift; sourceTree = "<group>"; };
 		FD286A872A5D44D400C75393 /* DrinksMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksMapper.swift; sourceTree = "<group>"; };
+		FD286A8A2A5D468900C75393 /* DrinksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksPresenter.swift; sourceTree = "<group>"; };
+		FD286A8C2A5D471B00C75393 /* DrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewModel.swift; sourceTree = "<group>"; };
+		FD286A8E2A5D47BD00C75393 /* Drinks.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Drinks.strings; sourceTree = "<group>"; };
 		FD2E3AA92A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePizzaImageCachedLoader.swift; sourceTree = "<group>"; };
 		FD49D3102A545B11000A8DCF /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		FD49D31B2A547A2C000A8DCF /* PizzaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPresenter.swift; sourceTree = "<group>"; };
@@ -438,8 +444,11 @@
 		FD66563D2A5C636500AC1943 /* Drinks Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				FD286A8A2A5D468900C75393 /* DrinksPresenter.swift */,
+				FD286A8C2A5D471B00C75393 /* DrinksViewModel.swift */,
 				FD66563E2A5C638600AC1943 /* DrinkItemPresenter.swift */,
 				FD6656402A5C639B00AC1943 /* DrinkItemViewModel.swift */,
+				FD286A8E2A5D47BD00C75393 /* Drinks.strings */,
 			);
 			path = "Drinks Presentation";
 			sourceTree = "<group>";
@@ -733,6 +742,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD0475642A5709A200D5D8EB /* Cart.strings in Resources */,
+				FD286A8F2A5D47BD00C75393 /* Drinks.strings in Resources */,
 				FD1326B12A5BF73500E0AD6B /* Checkout.strings in Resources */,
 				FD1D3B792A555ECA00C12A08 /* Menu.strings in Resources */,
 			);
@@ -767,6 +777,8 @@
 				FD6656442A5C805200AC1943 /* Drink.swift in Sources */,
 				FDEA82362A52D89000FE1252 /* PizzaMenuMapper.swift in Sources */,
 				FDEA82482A52EA1600FE1252 /* RemoteIngredient.swift in Sources */,
+				FD286A8D2A5D471B00C75393 /* DrinksViewModel.swift in Sources */,
+				FD286A8B2A5D468900C75393 /* DrinksPresenter.swift in Sources */,
 				FDFF25462A5B3FD000DEB45F /* RemoteCheckoutUploader.swift in Sources */,
 				FD1326AD2A5BF60700E0AD6B /* CheckoutPresenter.swift in Sources */,
 				FD2E3AAA2A55F70700BF08F2 /* SimplePizzaImageCachedLoader.swift in Sources */,
