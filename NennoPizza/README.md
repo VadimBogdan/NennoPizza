@@ -1,5 +1,9 @@
 #  Nenno's Pizza
 
+## To launch the project open NennoPizza.xcworkspace and build NennoPizza scheme.
+
+## App flow: Add pizzas and drinks then tap checkout on Cart sceen.
+
 ## BDD Specs
 
 ### Story: Customer requests to see menu of pizzas, theirs ingredients and prices
