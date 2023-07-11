@@ -30,12 +30,9 @@ public final class CartViewController: UIViewController, UITableViewDelegate, UI
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.backButtonDisplayMode = .minimal
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
         tableView.register(UITableViewCell.self)
-        
         setup()
         
         delegate?.didRequestCart()
@@ -82,11 +79,13 @@ public final class CartViewController: UIViewController, UITableViewDelegate, UI
     }
     
     private func setup() {
+        navigationItem.backButtonDisplayMode = .minimal
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: .drinksNavbar?.withRenderingMode(.alwaysOriginal),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(didSelectDrinks))
-        
+        tableView.hideFirstTopCellSeparator()
+        tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 82, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         checkoutButton.translatesAutoresizingMaskIntoConstraints = false
         checkoutButton.addTarget(self, action: #selector(checkout), for: .touchUpInside)

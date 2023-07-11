@@ -20,9 +20,13 @@ final class DrinksUIComposer {
                                                             title: DrinksPresenter.title)
         
         let adapter = DrinksViewAdapter(controller: drinksViewController,
-                                        drinkSelectionCallback: didSelectDrink)
+                                        drinkSelectionCallback: { [weak presentationAdapter] in
+            presentationAdapter?.didAddedToCartSubject.send()
+            didSelectDrink($0)
+        })
         
-        let presenter = DrinksPresenter(drinksView: adapter)
+        let presenter = DrinksPresenter(drinksView: adapter,
+                                        addedToCartView: WeakRefVirtualProxy(drinksViewController))
         
         presentationAdapter.presenter = presenter
         

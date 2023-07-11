@@ -12,8 +12,9 @@ import NennoPizzaCoreiOS
 
 final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate {
     
-    let didAddedToCartSubject = PassthroughSubject<Void, Never>()
     var presenter: PizzaMenuPresenter?
+    
+    let didAddedToCartSubject = PassthroughSubject<Void, Never>()
     
     private let menuAndIngredientsLoader: PizzaMenuAndIngredientsLoader
     private var didAddedToCartCancellable: AnyCancellable?
@@ -23,14 +24,7 @@ final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate 
          didSelectCartCallback: @escaping () -> Void) {
         self.menuAndIngredientsLoader = menuAndIngredientsLoader
         self.didSelectCartCallback = didSelectCartCallback
-        
-        didAddedToCartCancellable = didAddedToCartSubject.map { [weak self] in
-            self?.presenter?.didStartDisplayAddedToCart()
-        }
-        .debounce(for: 3.0, scheduler: RunLoop.main)
-        .sink { [weak self] _ in
-            self?.presenter?.didFinishDisplayAddedToCart()
-        }
+        self.didAddedToCartCancellable = bindAddedToCartEventsHandler()
     }
     
     func didRequestMenu() {
@@ -43,6 +37,16 @@ final class PizzaMenuLoaderPresentationAdapter: PizzaMenuViewControllerDelegate 
     
     func didSelectCart() {
         didSelectCartCallback()
+    }
+    
+    private func bindAddedToCartEventsHandler() -> AnyCancellable {
+        didAddedToCartSubject.map { [weak self] in
+            self?.presenter?.didStartDisplayAddedToCart()
+        }
+        .debounce(for: 3.0, scheduler: RunLoop.main)
+        .sink { [weak self] _ in
+            self?.presenter?.didFinishDisplayAddedToCart()
+        }
     }
     
 }

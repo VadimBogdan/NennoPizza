@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import NennoPizzaCore
 
 public protocol DrinksViewControllerDelegate {
     func didRequestDrinks()
 }
 
-public final class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+public final class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddedToCartView {
+
+    private let addedToCartView = AttentionView(frame: .zero)
     private let tableView = UITableView(frame: .zero, style: .plain)
     
     private var tableModel = [DrinkCellController]() {
@@ -27,7 +29,6 @@ public final class DrinksViewController: UIViewController, UITableViewDelegate, 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self)
-        
         setup()
         
         delegate?.didRequestDrinks()
@@ -35,6 +36,10 @@ public final class DrinksViewController: UIViewController, UITableViewDelegate, 
     
     public func display(_ cellControllers: [DrinkCellController]) {
         tableModel = cellControllers
+    }
+    
+    public func display(_ viewModel: AddedToCartViewModel) {
+        addedToCartView.text = viewModel.message
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,6 +64,8 @@ public final class DrinksViewController: UIViewController, UITableViewDelegate, 
     }
     
     private func setup() {
+        tableView.hideFirstTopCellSeparator()
+        tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 82, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -66,6 +73,13 @@ public final class DrinksViewController: UIViewController, UITableViewDelegate, 
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        view.addSubview(addedToCartView)
+        addedToCartView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addedToCartView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            addedToCartView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            addedToCartView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
         ])
     }
     
