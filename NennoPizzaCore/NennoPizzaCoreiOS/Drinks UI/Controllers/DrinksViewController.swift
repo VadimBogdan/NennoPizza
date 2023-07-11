@@ -11,7 +11,7 @@ public protocol DrinksViewControllerDelegate {
     func didRequestDrinks()
 }
 
-final class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public final class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
@@ -31,6 +31,10 @@ final class DrinksViewController: UIViewController, UITableViewDelegate, UITable
         setup()
         
         delegate?.didRequestDrinks()
+    }
+    
+    public func display(_ cellControllers: [DrinkCellController]) {
+        tableModel = cellControllers
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

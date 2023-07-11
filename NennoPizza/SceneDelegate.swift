@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let remoteCheckoutURL = URL(string: "http://httpbin.org/post")!
         let remotePizzasURL = URL(string: "https://doclerlabs.github.io/mobile-native-challenge/pizzas.json")!
         let remoteIngredientsURL = URL(string: "https://doclerlabs.github.io/mobile-native-challenge/ingredients.json")!
+        let remoteDrinksURL = URL(string: "https://doclerlabs.github.io/mobile-native-challenge/drinks.json")!
         
         let httpClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         
@@ -41,6 +42,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let remoteCheckoutUploader = RemoteCheckoutUploader(url: remoteCheckoutURL, client: httpClient)
         
+        let remoteDrinksLoader = RemoteDrinksLoader(url: remoteDrinksURL, client: httpClient)
+        
         let rootNavigationController = UINavigationController()
         let pizzaMenuViewController = PizzaMenuUIComposer.pizzaMenuComposedWith(
             menuAndIngredientsLoader: menuAndIngredientsLoader,
@@ -53,9 +56,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     guard let self else { return }
                     let checkoutViewController = CheckoutUIComposer.checkoutComposedWith(
                         checkoutUploader: remoteCheckoutUploader,
-                        pizzasAndDrinks: (self.cart.pizzas.map(\.pizza), []))
+                        pizzasAndDrinks: (self.cart.pizzas.map(\.pizza), self.cart.drinks.map(\.id)))
                     checkoutViewController.modalPresentationStyle = .fullScreen
                     rootNavigationController?.present(checkoutViewController, animated: true)
+                } didSelectDrinks: { [weak self] in
+                    let drinksViewController = DrinksUIComposer.drinksComposedWith(
+                        drinksLoader: remoteDrinksLoader,
+                        didSelectDrink: { [weak self] in self?.addDrinkToCart($0) })
+                    rootNavigationController?.pushViewController(drinksViewController, animated: true)
                 }, animated: true)
             },
             didAddedPizzaToCart: { [weak self] in self?.addPizzaToCart($0) })
@@ -70,6 +78,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let basePrice = pizzaMenu?.basePrice, let ingredients = ingredients else { return }
         let pizzaPrice = PizzaPriceCalculator(basePrice: basePrice, ingredients: ingredients).calculate(with: pizza.ingredients)
         cart.pizzas.append(PricedPizza(pizza: pizza, price: pizzaPrice))
+    }
+    
+    private func addDrinkToCart(_ drink: Drink) {
+        cart.drinks.append(drink)
     }
     
 }

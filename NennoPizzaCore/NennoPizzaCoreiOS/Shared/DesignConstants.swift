@@ -26,6 +26,9 @@ extension UIImage {
                               in: Bundle(for: PizzaMenuViewController.self),
                               compatibleWith: nil)
     
+    static let drinksNavbar = UIImage(named: "ic_drinks",
+                              in: Bundle(for: CartViewController.self),
+                              compatibleWith: nil)
 }
 
 extension UIColor {

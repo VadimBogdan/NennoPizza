@@ -14,6 +14,7 @@ struct PricedPizza {
 
 final class Cart {
     var pizzas = [PricedPizza]()
+    var drinks = [Drink]()
 }
 
 extension Cart {
