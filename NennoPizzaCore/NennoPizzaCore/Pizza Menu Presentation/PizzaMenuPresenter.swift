@@ -16,11 +16,6 @@ public protocol PizzaMenuView {
     func display(_ viewModel: PizzaMenuViewModel)
 }
 
-public protocol AddedToCartView {
-    
-    func display(_ viewModel: AddedToCartViewModel)
-}
-
 public final class PizzaMenuPresenter {
     private let pizzaMenuView: PizzaMenuView
     private let addedToCartView: AddedToCartView

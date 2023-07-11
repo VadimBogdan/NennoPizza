@@ -13,9 +13,18 @@ public protocol DrinksView {
 
 public final class DrinksPresenter {
     private let drinksView: DrinksView
+    private let addedToCartView: AddedToCartView
     
-    public init(drinksView: DrinksView) {
+    private var addedToCartMessage: String {
+        NSLocalizedString("DRINKS_ADDED_TO_CART_VIEW_TITLE",
+                          tableName: "Drinks",
+                          bundle: Bundle(for: PizzaMenuPresenter.self),
+                          comment: "Message for Added To Cart view")
+    }
+    
+    public init(drinksView: DrinksView, addedToCartView: AddedToCartView) {
         self.drinksView = drinksView
+        self.addedToCartView = addedToCartView
     }
     
     public static var title: String {
@@ -27,5 +36,13 @@ public final class DrinksPresenter {
     
     public func didLoadDrinks(_ drinks: [Drink]) {
         drinksView.display(DrinksViewModel(drinks: drinks))
+    }
+    
+    public func didStartDisplayAddedToCart() {
+        addedToCartView.display(.addedToCart(message: addedToCartMessage))
+    }
+    
+    public func didFinishDisplayAddedToCart() {
+        addedToCartView.display(.notDisplayed)
     }
 }

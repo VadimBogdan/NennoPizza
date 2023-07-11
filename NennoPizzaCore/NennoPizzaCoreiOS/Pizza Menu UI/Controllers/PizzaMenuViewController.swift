@@ -29,11 +29,11 @@ public final class PizzaMenuViewController: UIViewController, UITableViewDelegat
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.backButtonDisplayMode = .minimal
         tableView.delegate = self
         tableView.dataSource = self
-        setup()
         tableView.register(PizzaMenuTableViewCell.self)
+        setup()
+        
         delegate?.didRequestMenu()
     }
     
@@ -72,6 +72,7 @@ public final class PizzaMenuViewController: UIViewController, UITableViewDelegat
     }
     
     private func setup() {
+        navigationItem.backButtonDisplayMode = .minimal
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: .cartNavbar?.withRenderingMode(.alwaysOriginal),
                                                            style: .plain,
                                                            target: self,
