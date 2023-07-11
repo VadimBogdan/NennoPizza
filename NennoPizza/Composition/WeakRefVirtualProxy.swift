@@ -46,4 +46,9 @@ extension WeakRefVirtualProxy: CheckoutView where T: CheckoutView {
     }
 }
 
+extension WeakRefVirtualProxy: DrinkView where T: DrinkView {
+    func display(_ viewModel: DrinkViewModel) {
+        object?.display(viewModel)
+    }
+}
 

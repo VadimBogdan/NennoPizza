@@ -33,6 +33,10 @@ public final class DrinksViewController: UIViewController, UITableViewDelegate, 
         delegate?.didRequestDrinks()
     }
     
+    public func display(_ cellControllers: [DrinkCellController]) {
+        tableModel = cellControllers
+    }
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cellController(forRowAt: indexPath).view(in: tableView, for: indexPath)
     }

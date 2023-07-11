@@ -9,7 +9,7 @@ import NennoPizzaCore
 import SwiftUI
 
 public protocol DrinkCellControllerDelegate {
-    func didRequestDrinkItem()
+    func didRequestDrink()
     func didSelectDrink()
 }
 
@@ -24,7 +24,7 @@ public final class DrinkCellController: DrinkView {
     
     func view(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(for: indexPath)
-        delegate.didRequestDrinkItem()
+        delegate.didRequestDrink()
         return cell!
     }
     

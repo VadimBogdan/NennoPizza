@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FD0475402A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */; };
 		FD0475422A56B9B200D5D8EB /* PizzaViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */; };
-		FD0475452A56BA1800D5D8EB /* PizzaDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475442A56BA1800D5D8EB /* PizzaDataLoaderPresentationAdapter.swift */; };
+		FD0475452A56BA1800D5D8EB /* PizzaImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475442A56BA1800D5D8EB /* PizzaImageDataLoaderPresentationAdapter.swift */; };
 		FD0475472A56BAB300D5D8EB /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475462A56BAB300D5D8EB /* MainQueueDispatchDecorator.swift */; };
 		FD0475492A56BCF500D5D8EB /* PizzaMenuUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0475482A56BCF500D5D8EB /* PizzaMenuUIComposer.swift */; };
 		FD04754B2A56C91000D5D8EB /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD04754A2A56C91000D5D8EB /* Cart.swift */; };
@@ -26,6 +26,9 @@
 		FD1326BF2A5C0C9A00E0AD6B /* NennoPizzaCoreiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1326B82A5C0C5700E0AD6B /* NennoPizzaCoreiOS.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD1641442A50424D0019178F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD1641432A50424D0019178F /* README.md */; };
 		FD286A942A5D504200C75393 /* DrinksPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A932A5D504200C75393 /* DrinksPresentationAdapter.swift */; };
+		FD286A962A5D508D00C75393 /* DrinksUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A952A5D508D00C75393 /* DrinksUIComposer.swift */; };
+		FD286A982A5D53CF00C75393 /* DrinksViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A972A5D53CF00C75393 /* DrinksViewAdapter.swift */; };
+		FD286A9A2A5D53E500C75393 /* DrinkLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD286A992A5D53E500C75393 /* DrinkLoaderPresentationAdapter.swift */; };
 		FD2A06DE2A4F25D800812B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */; };
 		FD2A06E02A4F25D800812B2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */; };
 		FD2A06E72A4F25DB00812B2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2A06E62A4F25DB00812B2C /* Assets.xcassets */; };
@@ -51,7 +54,7 @@
 /* Begin PBXFileReference section */
 		FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewAdapter.swift; sourceTree = "<group>"; };
-		FD0475442A56BA1800D5D8EB /* PizzaDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		FD0475442A56BA1800D5D8EB /* PizzaImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		FD0475462A56BAB300D5D8EB /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		FD0475482A56BCF500D5D8EB /* PizzaMenuUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMenuUIComposer.swift; sourceTree = "<group>"; };
 		FD04754A2A56C91000D5D8EB /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
@@ -66,6 +69,9 @@
 		FD1326B82A5C0C5700E0AD6B /* NennoPizzaCoreiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NennoPizzaCoreiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1641432A50424D0019178F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FD286A932A5D504200C75393 /* DrinksPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksPresentationAdapter.swift; sourceTree = "<group>"; };
+		FD286A952A5D508D00C75393 /* DrinksUIComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksUIComposer.swift; sourceTree = "<group>"; };
+		FD286A972A5D53CF00C75393 /* DrinksViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewAdapter.swift; sourceTree = "<group>"; };
+		FD286A992A5D53E500C75393 /* DrinkLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		FD2A06DA2A4F25D700812B2C /* NennoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NennoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2A06DD2A4F25D800812B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD2A06DF2A4F25D800812B2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,10 +114,10 @@
 		FD05E71B2A59EF510015CC18 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				FD05E7252A59F5540015CC18 /* CartUIComposer.swift */,
 				FD05E71C2A59F2430015CC18 /* CartPresentationAdapter.swift */,
 				FD05E71E2A59F2860015CC18 /* CartItemDataLoaderPresentationAdapter.swift */,
 				FD05E7202A59F3020015CC18 /* CartViewAdapter.swift */,
-				FD05E7252A59F5540015CC18 /* CartUIComposer.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -127,8 +133,8 @@
 		FD1326A82A5BF36B00E0AD6B /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
-				FD1326A92A5BF3A200E0AD6B /* CheckoutPresentationAdapter.swift */,
 				FD1326B22A5BF9DB00E0AD6B /* CheckoutUIComposer.swift */,
+				FD1326A92A5BF3A200E0AD6B /* CheckoutPresentationAdapter.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -136,7 +142,10 @@
 		FD286A902A5D4CB000C75393 /* Drinks */ = {
 			isa = PBXGroup;
 			children = (
+				FD286A952A5D508D00C75393 /* DrinksUIComposer.swift */,
 				FD286A932A5D504200C75393 /* DrinksPresentationAdapter.swift */,
+				FD286A972A5D53CF00C75393 /* DrinksViewAdapter.swift */,
+				FD286A992A5D53E500C75393 /* DrinkLoaderPresentationAdapter.swift */,
 			);
 			path = Drinks;
 			sourceTree = "<group>";
@@ -186,10 +195,10 @@
 		FDFF253C2A5B39CB00DEB45F /* Pizza Menu */ = {
 			isa = PBXGroup;
 			children = (
+				FD0475482A56BCF500D5D8EB /* PizzaMenuUIComposer.swift */,
 				FD04753F2A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift */,
 				FD0475412A56B9B100D5D8EB /* PizzaViewAdapter.swift */,
-				FD0475442A56BA1800D5D8EB /* PizzaDataLoaderPresentationAdapter.swift */,
-				FD0475482A56BCF500D5D8EB /* PizzaMenuUIComposer.swift */,
+				FD0475442A56BA1800D5D8EB /* PizzaImageDataLoaderPresentationAdapter.swift */,
 			);
 			path = "Pizza Menu";
 			sourceTree = "<group>";
@@ -271,13 +280,16 @@
 				FD05E7212A59F3020015CC18 /* CartViewAdapter.swift in Sources */,
 				FD0475472A56BAB300D5D8EB /* MainQueueDispatchDecorator.swift in Sources */,
 				FD05E71F2A59F2860015CC18 /* CartItemDataLoaderPresentationAdapter.swift in Sources */,
-				FD0475452A56BA1800D5D8EB /* PizzaDataLoaderPresentationAdapter.swift in Sources */,
+				FD0475452A56BA1800D5D8EB /* PizzaImageDataLoaderPresentationAdapter.swift in Sources */,
 				FD05E7232A59F3590015CC18 /* NumberFormatter+formatCurrency.swift in Sources */,
 				FD2E3AAE2A561FD900BF08F2 /* WeakRefVirtualProxy.swift in Sources */,
 				FD05E71D2A59F2430015CC18 /* CartPresentationAdapter.swift in Sources */,
+				FD286A982A5D53CF00C75393 /* DrinksViewAdapter.swift in Sources */,
 				FD05E7262A59F5540015CC18 /* CartUIComposer.swift in Sources */,
+				FD286A9A2A5D53E500C75393 /* DrinkLoaderPresentationAdapter.swift in Sources */,
 				FD1326AA2A5BF3A200E0AD6B /* CheckoutPresentationAdapter.swift in Sources */,
 				FD0475402A56B93A00D5D8EB /* PizzaMenuLoaderPresentationAdapter.swift in Sources */,
+				FD286A962A5D508D00C75393 /* DrinksUIComposer.swift in Sources */,
 				FD0475492A56BCF500D5D8EB /* PizzaMenuUIComposer.swift in Sources */,
 				FD286A942A5D504200C75393 /* DrinksPresentationAdapter.swift in Sources */,
 				FD0475422A56B9B200D5D8EB /* PizzaViewAdapter.swift in Sources */,
